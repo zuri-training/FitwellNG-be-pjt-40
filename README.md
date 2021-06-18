@@ -1,4 +1,5 @@
 # fitwellNG-be-pjt-40
+A fitness and wellness website to help users keep track of their workout progress
 ### Figma design link
 // Add link here
 ### Project documentation
