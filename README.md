@@ -1,4 +1,8 @@
 # fitwellNG-be-pjt-40
+### Figma design link
+// Add link here
+### Project documentation
+// Add link here
 ## Starter project for the Fitwell.NG project backend
 ### How to use
 1. Clone the repository
