@@ -13,7 +13,6 @@ class User(AbstractUser):
   states = [
     ('KW', 'Kwara')
   ]
-
   username = None
   first_name = models.CharField('First Name', max_length=64)
   last_name = models.CharField('Last Name', max_length=64)
@@ -32,7 +31,7 @@ class User(AbstractUser):
   security_answer = models.CharField('Answer', max_length=50)
 
   USERNAME_FIELD = 'email'
-  REQUIRED_FIELDS = ['sex', 'height', 'weight', 'security', 'security_answer']
+  REQUIRED_FIELDS = ['dob', 'sex', 'height', 'weight', 'security', 'security_answer']
   objects = UserManager()
   
   def __str__(self) -> str:
