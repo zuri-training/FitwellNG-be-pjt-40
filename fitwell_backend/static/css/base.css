@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=NTR&display=swap');
+
+* {
+  padding: 0;
+  font-family: Sarabun;
+  margin: 0;
+}
+
+html,
+body {
+  min-height: 100vh;
+  font-family: Sarabun;
+}
+
+.logo {
+  display: flex;
+  font-family: NTR;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 76px;
+  letter-spacing: 0em;
+  text-align: left;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo img {
+  height: 62.025848388671875px;
+  width: 40.18603515625px;
+}
+
+.btn {
+  margin: 0 5px;
+  border-radius: 12px;
+  background-color: #da0013;
+  color: white;
+  border: 0;
+  cursor: pointer;
+  min-width: 100%;
+  min-height: 64px;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 31px;
+  letter-spacing: 0.04em;
+}
+
+fieldset {
+  border: 0;
+}
+
+input,
+select {
+  padding: 0 16px;
+  min-height: 64px;
+  border-radius: 12px;
+  border: 1px solid #46a2e3;
+  font-size: 14px;
+}
+
+label {
+  font-family: Sarabun;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 26px;
+  letter-spacing: 0.04em;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+input,
+label {
+  display: block;
+}

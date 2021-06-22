@@ -30,9 +30,11 @@ class User(AbstractUser):
   height = models.DecimalField('Height', help_text='Enter your height in cm', max_digits=5, decimal_places=2)
   security = models.TextField('Security question',)
   security_answer = models.CharField('Answer', max_length=50)
+  image = models.ImageField('Image', null=True)
 
   USERNAME_FIELD = 'email'
-  REQUIRED_FIELDS = ['sex', 'height', 'weight', 'security', 'security_answer']
+  # [jbadonai] : dob added to REQUIRE_FIELDS because Not a Null value is set for the field.
+  REQUIRED_FIELDS = ['sex', 'height', 'weight', 'security', 'security_answer', 'dob']
   objects = UserManager()
   
   def __str__(self) -> str:
