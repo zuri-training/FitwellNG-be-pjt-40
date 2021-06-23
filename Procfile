@@ -1,0 +1,1 @@
+web: gunicorn fitwell_backend/fitwell_backend.wsgi
