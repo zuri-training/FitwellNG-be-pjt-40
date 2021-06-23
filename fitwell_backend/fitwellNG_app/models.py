@@ -29,6 +29,7 @@ class User(AbstractUser):
   height = models.DecimalField('Height', help_text='Enter your height in cm', max_digits=5, decimal_places=2)
   security = models.TextField('Security question',)
   security_answer = models.CharField('Answer', max_length=50)
+  phone = models.IntegerField()
 
   USERNAME_FIELD = 'email'
   REQUIRED_FIELDS = ['dob', 'sex', 'height', 'weight', 'security', 'security_answer']

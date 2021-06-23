@@ -10,6 +10,7 @@ def home(request):
 def sign_up(request):
     form = CustomUserCreationForm()
     if (request.method == "POST"):
+        print(request.POST)
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             form.save()

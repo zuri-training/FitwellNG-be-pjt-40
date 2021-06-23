@@ -13,7 +13,8 @@
                 <span>FITWELL</span>
             </div>
             <p class="blue-text">Create your account</p>
-            <form action="" id="msform">
+            <form action="" method="POST" id="msform">
+                {%csrf_token%}
                 <div>
                     <ul class="progressbar">
                         <li class="active">About you</li>
@@ -25,31 +26,31 @@
                     <div class="row">
                         <div class="form-group">
                             <label for="fname">First Name</label>
-                            <input type="text" id="fname">
+                            <input name="first_name" type="text" id="fname">
                         </div>
                         <div class="form-group">
                             <label for=" lname">Last Name</label>
-                            <input type="text" id="lname">
+                            <input name="last_name" type="text" id="lname">
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group">
                             <label for=" email">Email</label>
-                            <input type="emai" id="email">
+                            <input name="email" type="email" id="email">
                         </div>
                         <div class="form-group">
                             <label for="number">Phone Number</label>
-                            <input type="tel" id="number">
+                            <input name="phone" type="tel" id="number">
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group">
                             <label for="date">Date of birth</label>
-                            <input type="date" id="date">
+                            <input name="dob" type="date" id="date">
                         </div>
                         <div class="form-group">
                             <label for=" sex">Sex</label>
-                            <select id="sex">
+                            <select name="sex" id="sex">
                                 <option selected>Select your gender</option>
                                 <option value="male">Male</option>
                                 <option value="female">Female</option>
@@ -66,14 +67,14 @@
                         <div class="row">
                             <div class="form-group">
                                 <label for="nationality">Nationality</label>
-                                <select id="nationality">
+                                <select name="nationality" id="nationality">
                                     <option selected>Select your nationality</option>
                                     <option value="nigeria">Nigeria</option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="state">State</label>
-                                <select id="state">
+                                <select name="state" id="state">
                                     <option selected>Select your State</option>
                                     <option value="lagos">Lagos</option>
                                     <option value="abuja">Abuja</option>
@@ -83,11 +84,11 @@
                         <div class="row">
                             <div class="form-group">
                                 <label class=" fieldlabel" for="height">Height(in cm)</label>
-                                <input type="number" id="height">
+                                <input name="height" type="number" id="height">
                             </div>
                             <div class="form-group">
                                 <label for=" weight">Weight(in Kg)</label>
-                                <input type="number" id="weight">
+                                <input name="weight" type="number" id="weight">
                             </div>
                         </div>
                     </div>
@@ -101,11 +102,11 @@
                         <div class="row">
                             <div class="form-group">
                                 <label class=" fieldlabel" for="pword1">Password</label>
-                                <input type="password" id="pword1">
+                                <input name="password1" type="password" id="pword1">
                             </div>
                             <div class="form-group">
                                 <label for=" pword2">Repeat password</label>
-                                <input type="password" id="pword2">
+                                <input type="password2" id="pword2">
                             </div>
                         </div>
                         <div class="form-group col-md-8">
@@ -118,7 +119,7 @@
                         </div>
                         <div class="form-group">
                             <label for="squestionanswer">Answer to security question</label>
-                            <input type="text" id="squestionanswer">
+                            <input name="security_answer" type="text" id="squestionanswer">
                         </div>
 
                     </div>
