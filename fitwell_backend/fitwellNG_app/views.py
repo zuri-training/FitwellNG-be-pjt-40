@@ -22,4 +22,4 @@ def sign_up(request):
                 return redirect('home')
     else:
         return render(request, 'registration/sign-up.html', {'form': form})
-    return render(request, 'registration/sign-up.html', {'form': form})
+    return render(request, 'registration/sign-up.html', {'form': form})  
