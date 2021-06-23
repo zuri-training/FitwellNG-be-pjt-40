@@ -13,12 +13,11 @@ class User(AbstractUser):
   states = [
     ('KW', 'Kwara')
   ]
-
   username = None
   first_name = models.CharField('First Name', max_length=64)
   last_name = models.CharField('Last Name', max_length=64)
   email = models.EmailField('Email', unique=True)
-  dob = models.DateField('Date of Birth')
+  dob = models.DateField('Date of Birth',)
   sex = models.CharField('Sex', choices=[
     ('M', 'Male'),
     ('F', 'Female'),
@@ -32,8 +31,8 @@ class User(AbstractUser):
   security_answer = models.CharField('Answer', max_length=50)
 
   USERNAME_FIELD = 'email'
-  REQUIRED_FIELDS = ['sex', 'height', 'weight', 'security', 'security_answer']
+  REQUIRED_FIELDS = ['dob', 'sex', 'height', 'weight', 'security', 'security_answer']
   objects = UserManager()
   
   def __str__(self) -> str:
-      return f"{self.first_name} {self.last_name}: {self.email}"
+      return f"{self.first_name} {self.last_name}"
