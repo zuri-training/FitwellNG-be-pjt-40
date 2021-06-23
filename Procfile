@@ -1,1 +1,1 @@
-web: gunicorn fitwell_backend/fitwell_backend.wsgi
+web: cd fitwell_backend &&  gunicorn fitwell_backend.wsgi
