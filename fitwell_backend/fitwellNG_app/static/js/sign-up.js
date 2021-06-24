@@ -7,7 +7,7 @@ window.onload = (e) => {
     current_fs.style.display = 'none';
     next_fs.style.display = 'block';
     document.getElementById('img').style.backgroundImage =
-      'url(/assets/images/sign-up-bg2.png)';
+      'url(/static/images/sign-up-bg2.png)';
     step1 = document.getElementById('step1').classList.add('active');
   };
 
@@ -20,6 +20,6 @@ window.onload = (e) => {
     console.log(document.getElementById('img').style.background);
     step1 = document.getElementById('step2').classList.add('active');
     document.getElementById('img').style.backgroundImage =
-      'url(/assets/images/sign-up-bg3.png)';
+      'url(/static/images/sign-up-bg3.png)';
   };
 };

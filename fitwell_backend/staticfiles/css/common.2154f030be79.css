@@ -1,0 +1,123 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Noto+Sans+TC:wght@100;300;400&display=swap");
+@font-face {
+  font-family: Annette Bradford;
+  src: url("/static/fonts/Annette-Bradford.68fb95c20ae6.ttf");
+}
+/*
+  Color Variables
+  ---------------
+*/
+/*
+  Font Variables
+  --------------
+*/
+/* 
+  Mixins 
+  ------
+*/
+/*
+  Mobile Responsiveness
+  ---------------------
+*/
+/*
+  Main
+*/
+*,
+*::before,
+*::after {
+margin: 0;
+padding: 0;
+box-sizing: inherit; 
+}
+
+a {
+  color: #000000;
+  text-decoration: none; 
+}
+
+a:link,
+a:visited a:focus {
+  text-decoration: none;
+  outline: none; 
+}
+
+input:link,
+input:hover,
+input:focus,
+input:active {
+  outline: none;
+  background-color: tranparent; 
+}
+
+input::placeholder {
+  font-family: "Quicksand", sans-serif; }
+
+textarea::placeholder {
+  font-family: "Quicksand", sans-serif;
+  font-size: 1.6rem; }
+
+button:link,
+button:hover,
+button:focus,
+button:active {
+  outline: none;
+  background-color: tranparent; }
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; }
+  @media (min-width: 320px) and (max-width: 576px) {
+    html {
+      font-size: 50%; } }
+  @media (min-width: 768px) and (max-width: 1024px) {
+    html {
+      font-size: 50%; } }
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    html {
+      font-size: 50%; } }
+
+body {
+  font-family: "Quicksand", sans-serif;
+  font: weight;
+  line-height: 1.6; 
+}
+
+.heading-1 {
+  font-size: 5rem;
+  font-weight: 700; 
+}
+
+.heading-2 {
+  font-size: 3.7rem; 
+}
+
+.heading-3 {
+  font-size: 2.8rem; 
+}
+  .heading-3 {
+    font-size: 2.8rem; 
+}
+
+  
+  .heading-4 {
+    font-size: 2.1rem; 
+  }
+   
+  
+  /* .heading-5 {
+    font-size: 1.4rem;
+    font-weight: 400;
+    text-transform: uppercase; 
+  } */
+  
+  .paragraph {
+    font-size: 1.6rem; 
+  }
+    
+    
+   
+   
+    
+    
+    
+    

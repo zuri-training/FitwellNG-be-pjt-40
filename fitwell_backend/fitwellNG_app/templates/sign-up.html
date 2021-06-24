@@ -15,6 +15,7 @@
     <section>
         <div class="container">
             <div class="image-bg" id="img">
+                <!--<h3>Image here</h3>-->
             </div>
             <div class="main">
                 <div class="logo">
@@ -26,8 +27,9 @@
                 </div>
                 <p class="blue-text">Create your account</p>
 
-                <div style="text-align: left; color:red; margin-left: 20%; margin-right: 20%; padding: 1em" >
-                    {% if message %}
+                {% if message %}
+                <div style="text-align: left; border: solid; color:red; margin-left: 20%; margin-right: 20%; padding: 1em" >
+
                         <h3> Signup Failed due to the error(s) below</h3>
                             <p></p><br>
                             {{ message | linebreaks }}
@@ -37,9 +39,11 @@
                                 <!--</p>-->
                             <!--{% endfor %}-->
                     <p></p><br>
-                    <p>Please Fix the errors and try again.</p><br><br>
-                        {% endif %}
+                    <p>Please Fix the errors and try again.</p>
+
                 </div>
+                {% endif %}
+                <br><br>
 
 
                 <form action="" id="msform" method="post">
@@ -65,7 +69,7 @@
                         <div class="row">
                             <div class="form-group">
                                 <label for=" email">Email</label>
-                                <input type="emai" id="email" name="email_address">
+                                <input type="emai" id="email" name="email">
                             </div>
                             <div class="form-group">
                                 <label for="number">Phone Number</label>
@@ -130,17 +134,17 @@
                         <div>
                             <div class="row">
                                 <div class="form-group">
-                                    <label class=" fieldlabel" for="pword1">Password</label>
-                                    <input type="password" id="pword1" name="pword1">
+                                    <label class=" fieldlabel" for="password1">Password</label>
+                                    <input type="password" id="password1" name="password1">
                                 </div>
                                 <div class="form-group">
-                                    <label for=" pword2">Repeat password</label>
-                                    <input type="password" id="pword2" name="pword2">
+                                    <label for="password2">Repeat password</label>
+                                    <input type="password" id="password2" name="password2">
                                 </div>
                             </div>
                             <div class="form-group col-md-8">
                                 <label for="squestion">Security question</label>
-                                <select id="squestion" name="security_question">
+                                <select id="squestion" name="security">
                                     <option selected>Enter security question</option>
                                     <option value="name">What is your name</option>
                                     <option value="friend">Who is your best friend</option>

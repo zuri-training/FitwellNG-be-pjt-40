@@ -1,10 +1,11 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
-from .forms import LoginForm
+from .forms import LoginForm, CustomUserCreationForm
 from .models import User
 
 def home(request):
     return render(request, 'index.html')
+    # return render(request, 'landing.html')
 
 
 def about(request):
@@ -37,19 +38,19 @@ def login_view(request):
 def is_valid(data):
     message = []
     # validate email:
-    email = data['email_address']
+    email = data['email']
     if str(email).__contains__("@") is False:
-        message.append(('email', 'Invalid email address'))
+        message.append(('email', 'Invalid email address.'))
 
     # validate password
-    pass1 = data['pword1']
-    pass2 = data['pword2']
+    pass1 = data['password1']
+    pass2 = data['password1']
 
     if pass1 != pass2 or pass1 == "" or pass2 == "":
-        message.append(('password', 'Password do not match'))
+        message.append(('password', 'Password do not match.'))
 
     # validate security question
-    if data['security_question'] == "" or data['security_answer'] == "":
+    if data['security'] == "" or data['security_answer'] == "":
         message.append(('security', 'Security Question and answer required.'))
 
     # validate date of birth
@@ -59,7 +60,7 @@ def is_valid(data):
     newdata = ""
     if len(message)> 0:
         for index, m in enumerate(message, start=1):
-            d = f"{index}. [{m[0]}]: {m[1]}"
+            d = f"{index}. {m[1]}"
             newdata += f"{d}\n\n"
 
     if len(message) == 0:
@@ -75,8 +76,9 @@ def sign_up(request):
         ans = is_valid(data)
         if ans is None:
             try:
-                newUser = User.objects.create_user(email=data['email_address'],
-                                                   password=data['pword1'],
+
+                newUser = User.objects.create_user(email=data['email'],
+                                                   password=data['password1'],
                                                    first_name=data['first_name'],
                                                    last_name=data['last_name'],
                                                    dob=data['dob'],
@@ -85,7 +87,7 @@ def sign_up(request):
                                                    state=data['state'],
                                                    height=data['height'],
                                                    weight=data['weight'],
-                                                   security=data['security_question'],
+                                                   security=data['security'],
                                                    security_answer=data['security_answer'])
 
                 newUser.save()
@@ -98,5 +100,42 @@ def sign_up(request):
             return render(request, 'sign-up.html', {'message': ans})
 
     return render(request, 'sign-up.html')
+
+
+
+def sign_up1(request):
+    form = CustomUserCreationForm()
+
+    if request.method == "POST":
+        print(request.POST)
+        form = CustomUserCreationForm(request.POST)
+        print("form data:::::")
+
+        print(form.data)
+        # print(form.cleaned_data)
+        print(form.data['password1'] == form.data['password2'])
+        print(form.error_messages)
+        if form.is_valid():
+            print(f"[][] form is valid")
+
+            form.save()
+            # email = request.POST['email']
+            # password = request.POST['password1']
+            # user = authenticate(email=email, password=password)
+            # if user is not None:
+            #     login(request, user)
+            return redirect('/')
+        else:
+            print('<><> form is not valid')
+            print(form.error_messages)
+            return  redirect('sign-up')
+    else:
+
+        # print(f"[][] here [][] {form._post_clean()}")
+
+        return render(request, 'sign-up.html', {'form': form})
+
+    # return render(request, 'sign-up.html', {'form': form})
+
 
 

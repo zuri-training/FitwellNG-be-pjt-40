@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--<link rel="icon" href="_/images/">-->
+  <link rel="icon" href="{% static '/images' %}">
+  <!--<link rel="icon" href="images/fitlogo.png" type="image/gif" sizes="16x16">-->
+  <link rel="icon" href="{% static '/images/fitlogo.png' %}" type="image/gif" sizes="16x16">
+
+  <title> FitwellNG</title>
+ <!--<link rel="stylesheet" href="styles/nav.css">-->
+ <link rel="stylesheet" href="{% static '/css/nav.css' %}">
+  <!--<link rel="stylesheet" href="styles/featured.css">-->
+  <link rel="stylesheet" href="{% static 'css/featured.css' %}">
+  <!--<link rel="stylesheet" href="styles/common.css">-->
+  <link rel="stylesheet" href="{% static 'css/common.css' %}">
+  <!--<link rel="stylesheet" href="styles/footer.css">-->
+  <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+
+</head>
+<body>
+
+    <!--Navigation-->
+    <header class="navbar">
+        <div class="navbar-mobile">
+            <!--Navbar Logo-->
+           <div class="navbar-mobile-logo">
+               <a class="navbar-mobile-logo-link" href="{% url 'home' %}" title="navbar">
+                   <img class="navbar-mobile-logo-link-img" src="{% static '/images/fitlogo.png' %}" alt="">
+               </a>
+           </div> 
+        <!-- Navbar Menu -->
+           <div class="navbar-mobile-menu">
+            <div class="navbar-mobile-menu-bar"></div>
+            <div class="navbar-mobile-menu-bar"></div>
+            <div class="navbar-mobile-menu-bar"></div>
+           </div>
+        </div>
+        <!-- Navbar -->
+        <nav class="navbar-nav">
+            <ul class="navbar-nav-list">
+              <li class="navbar-nav-list-item">
+                <a class="navbar-nav-list-item-link" href="#">
+                  Workouts
+                </a>
+              </li>
+              <li class="navbar-nav-list-item">
+                <a class="navbar-nav-list-item-link" href="#">
+                 Mealplans
+                </a>
+              </li> 
+              <li class="navbar-nav-list-item">
+                <a class="navbar-nav-list-item-link" href="{% url 'about' %}">
+                About us
+                </a>
+              </li>
+              <li class="navbar-nav-list-item">
+
+                  {% if user.is_authenticated %}
+                    <!--<a class="navbar-nav-list-item-link" href="{% url 'sign-up' %}">-->
+                      <!--<button class="btn">Sign up</button>-->
+                    <!--</a>-->
+                  {% else %}
+                      <a class="navbar-nav-list-item-link" href="{% url 'sign-up' %}">
+                          <button class="btn">Sign up</button>
+                        </a>
+                  {% endif %}
+
+
+              </li>
+              <li class="navbar-nav-list-item">
+
+                  {% if user.is_authenticated %}
+                        <a class="navbar-nav-list-item-link" href="{% url 'logout' %}">
+                          <button class="btn">Log Out</button>
+                        </a>
+                  {% else %}
+                      <a class="navbar-nav-list-item-link" href="{% url 'login' %}">
+                              <button class="btn">Log in</button>
+                            </a>
+                  {% endif %}
+
+
+              </li>
+            </ul>
+          </nav>
+    </header>
+   
+    <!-- Header -->
+  <div class="featured">
+    <div class="featured__content">
+      <div class="heading-header">
+          <h1 class="heading-2">Welcome  <i style="color: blue">{{user.email }}</i> </h1>
+        <hr class="seperator">
+        <p class="paragraph">
+          Our vision in Med-In specialist Hospital is to be a one-stop hospital that provides fully integrated Medicare
+          solutions and health-related services to Nigeria populace and beyond. And our core values are: Empathy,
+          Professionalism, Innovation, Patient Satisfaction and Integrity. Lorem ipsum dolor, sit amet consectetur
+          adipisicing elit.
+        </p>
+
+          {% if user.is_authenticated %}
+            <a href="{% url 'dashboard' %}">
+                <button class="btn">Get Started</button>
+            </a>
+          {% else %}
+             <a href="{% url 'sign-up' %}">
+                <button class="btn">Get Started</button>
+            </a>
+            {% endif %}
+
+      </div>
+
+      
+      <div class="featured__content__image">
+        <img src="{% static 'images/fitroom.png' %}" alt="">
+      </div>
+   </div>
+  </div>
+
+   
+</body>
+</html>
