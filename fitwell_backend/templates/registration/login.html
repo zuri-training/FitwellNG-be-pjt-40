@@ -34,7 +34,8 @@
         </div>
         <!-- End of Right Hand Side Login Label Content -->
 
-        <form action="form">
+        <form action="" method="POST">
+          {% csrf_token%}
           <div class="email-section">
             <!-- Email Section -->
             <input type="email" name="email" id="email" placeholder="Email" />

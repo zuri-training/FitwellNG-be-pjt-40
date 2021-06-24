@@ -23,3 +23,15 @@ def sign_up(request):
     else:
         return render(request, 'registration/sign-up.html', {'form': form})
     return render(request, 'registration/sign-up.html', {'form': form})  
+
+def login(request):
+    if(request.method == 'POST'):
+        print(request.POST)
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+        print(email)
+        user = authenticate(email=email, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('home')
+    return render(request, 'registration/login.html')
