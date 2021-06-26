@@ -1,38 +1,28 @@
 from django.contrib import admin
-from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
-from django.contrib.auth import get_user_model
-from .forms import CustomUserChangeForm, CustomUserCreationForm
+from django.contrib.auth.admin import UserAdmin
+from .models import User
 
-# Register your models here.
 
-User = get_user_model()
-
-class UserAdmin(BaseUserAdmin):
-    # The forms to add and change user instances
-    model = User
-    form = CustomUserChangeForm
-    add_form = CustomUserCreationForm
-
-    # The fields to be used in displaying the User model.
-    # These override the definitions on the base UserAdmin
-    # that reference specific fields on auth.User.
-    list_display = ('email', 'dob', 'weight', 'height', 'nationality', 'state')
+class UserAdminConfig(UserAdmin):
+    search_field = ('email', 'first_name')     # Search Field
+    list_filter = ('email', 'first_name', 'height')    # filter Fields
+    ordering = ('-first_name',)     # ordering
+    list_display = ('email', 'sex', 'height', 'weight', 'is_active')   # items to display on the admin home page table
+    # category and fields to display for a detail view of a user on the admin page
     fieldsets = (
-        (None, {'fields': ('email', 'password')}),
-        ('Personal info', {
-         'fields': ('dob', 'weight', 'height', 'nationality', 'state')}),
-        ('Security', {'fields': ('security', 'security_answer')})
+        ('General',{'fields': ('email', 'first_name', 'last_name')}),
+        ('Permission', {'fields': ('is_superuser', 'is_active')}),
+        ('Personal', {'fields': ('height', 'dob', 'state', 'nationality')})
     )
+    # category and items to display when adding a new user from admin page
     add_fieldsets = (
-        (None, {
-            'classes': ('wide',),
-            'fields': ('email', 'password1', 'password2', 'dob', 'weight', 'height', 'nationality', 'state')}
-         ),
+        ("Login Info", {'classes': 'wide', 'fields':('email','password1', 'password2')}),
+        ("Health Info", {'classes': 'wide', 'fields': ('dob', 'height', 'weight', 'sex')}),
+        ("Security Info", {'classes': 'wide', 'fields': ('security', 'security_answer')}),
+
     )
 
-    search_fields = ('email',)
-    ordering = ('email',)
-    filter_horizontal = ()
 
+# admin.site.register(User, UserAdminConfig)
+admin.site.register(User)
 
-admin.site.register(User, UserAdmin)

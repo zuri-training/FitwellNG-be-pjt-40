@@ -1,0 +1,191 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Noto+Sans+TC:wght@100;300;400&display=swap");
+@font-face {
+  font-family: Annette Bradford;
+  src: url("fonts/Annette-Bradford.ttf"); 
+}
+/*
+  Color Variables
+  ---------------
+*/
+/*
+  Font Variables
+  --------------
+*/
+/* 
+  Mixins 
+  ------
+*/
+/*
+  Mobile Responsiveness
+  ---------------------
+*/
+/*
+  Main
+*/
+*,
+*::before,
+*::after {
+margin: 0;
+padding: 0;
+box-sizing: inherit; 
+}
+
+a {
+  color: #000000;
+  text-decoration: none; 
+}
+
+a:link,
+a:visited a:focus {
+  text-decoration: none;
+  outline: none; 
+}
+
+input:link,
+input:hover,
+input:focus,
+input:active {
+  outline: none;
+  background-color: tranparent; 
+}
+
+input::placeholder {
+  font-family: "Quicksand", sans-serif; }
+
+textarea::placeholder {
+  font-family: "Quicksand", sans-serif;
+  font-size: 1.6rem; }
+
+button:link,
+button:hover,
+button:focus,
+button:active {
+  outline: none;
+  background-color: tranparent; }
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; }
+  @media (min-width: 320px) and (max-width: 576px) {
+    html {
+      font-size: 50%; } }
+  @media (min-width: 768px) and (max-width: 1024px) {
+    html {
+      font-size: 50%; } }
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    html {
+      font-size: 50%; } }
+
+body {
+  font-family: "Quicksand", sans-serif;
+  font: weight;
+  line-height: 1.6; 
+}
+
+.heading-1 {
+  font-size: 5rem;
+  font-weight: 700; 
+}
+
+.heading-2 {
+  font-size: 3.7rem; 
+}
+
+.heading-3 {
+  font-size: 2.8rem; 
+}
+  .heading-3 {
+    font-size: 2.8rem; 
+}
+ @media (min-width: 320px) and (max-width: 576px) {
+      .heading-3 {
+        font-size: 2.1rem; } 
+  }
+  
+  .heading-4 {
+    font-size: 2.1rem; }
+    @media (min-width: 320px) and (max-width: 480px) {
+      .heading-4 {
+        font-size: 1.6rem; }
+ }
+  
+  /* .heading-5 {
+    font-size: 1.4rem;
+    font-weight: 400;
+    text-transform: uppercase; 
+  } */
+  
+  .paragraph {
+    font-size: 1.6rem; 
+  }
+    
+    
+   
+    .about {
+      padding: 8rem 16rem 10.4rem 16rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%; }
+      .about .heading-other {
+        color: #4c4f91; }
+        .about .heading-other .paragraph {
+          color: #000000; }
+      .about__cards {
+        display: flex;
+        justify-content: space-between; }
+        @media (min-width: 320px) and (max-width: 576px) {
+          .about__cards {
+            flex-direction: column; } }
+        @media (min-width: 576px) and (max-width: 768px) {
+          .about__cards {
+            flex-direction: column; } }
+        .about__cards__card {
+          box-shadow: 0px 2px 2px rgba(87, 87, 87, 0.15); }
+          .about__cards__card:not(:last-child) {
+            margin-right: 1.6rem; }
+          .about__cards__card:not(:first-child) {
+            margin-left: 1.6rem; }
+          .about__cards__card__image {
+            width: 100%; }
+          .about__cards__card .heading-4 {
+            margin: 1.6rem;
+            color: #4c4f91; }
+          .about__cards__card .paragraph {
+            margin: 1.6rem; }
+          @media (min-width: 320px) and (max-width: 576px) {
+            .about__cards__card {
+              margin-bottom: 4.8rem; }
+              .about__cards__card:not(:last-child) {
+                margin-right: 0rem; }
+              .about__cards__card:not(:first-child) {
+                margin-left: 0rem; } }
+          @media (min-width: 576px) and (max-width: 768px) {
+            .about__cards__card {
+              margin-bottom: 4.8rem; }
+              .about__cards__card:not(:last-child) {
+                margin-right: 0rem; }
+              .about__cards__card:not(:first-child) {
+                margin-left: 0rem; } }
+      @media (min-width: 320px) and (max-width: 576px) {
+        .about {
+          padding: 6.4rem 4.8rem; } }
+      @media (min-width: 576px) and (max-width: 768px) {
+        .about {
+          padding: 6.4rem 4.8rem; } }
+      @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+        .about {
+          padding: 9.6rem 4.8rem; } }
+      @media (min-width: 768px) and (max-width: 1024px) {
+        .about {
+          padding: 9.6rem 4.8rem; } }
+    
+   
+    
+    
+   
+    
+    
+    
+    
