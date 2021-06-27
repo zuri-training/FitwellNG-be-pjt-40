@@ -3,18 +3,35 @@
 <html lang="en">
 
 <head>
+
+     <script>
+         function Validate(){
+            if (document.forms['signupform']['email'].value == ""){
+                alert("Email field is required");
+                return false;
+            }
+
+           if (document.forms['signupform']['password1'].value == ""){
+                        alert("Password field is required");
+                        return false;
+                    }
+
+        }
+    </script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fitwell - Signup</title>
     <link rel="stylesheet" href="{% static '/css/base.css' %}">
     <link rel="stylesheet" href="{% static '/css/sign-up.css' %}">
+
 </head>
 
 <body>
     <section>
         <div class="container">
             <div class="image-bg" id="img">
+
                 <!--<h3>Image here</h3>-->
             </div>
             <div class="main">
@@ -48,7 +65,7 @@
                 <br><br>
 
 
-                <form action="" id="msform" method="post">
+                <form action="" id="msform" name="signupform"  method="post">
                     {% csrf_token %}
                     <div>
                         <ul class="progressbar">
@@ -57,20 +74,21 @@
                             <li id="step2">Great</li>
                         </ul>
                     </div>
+
                     <fieldset>
                         <div class="row">
                             <div class="form-group">
-                                <label for="fname">First Name</label>
+                                <label for="fname">First Name *</label>
                                 <input type="text" id="fname" name="first_name">
                             </div>
                             <div class="form-group">
-                                <label for=" lname">Last Name</label>
+                                <label for="lname">Last Name *</label>
                                 <input type="text" id="lname" name="last_name">
                             </div>
                         </div>
                         <div class="row">
                             <div class="form-group">
-                                <label for=" email">Email</label>
+                                <label for="email">Email *</label>
                                 <input type="emai" id="email" name="email">
                             </div>
                             <div class="form-group">
@@ -80,11 +98,11 @@
                         </div>
                         <div class="row">
                             <div class="form-group">
-                                <label for="date">Date of birth</label>
+                                <label for="date">Date of birth *</label>
                                 <input type="date" id="date" name="dob">
                             </div>
                             <div class="form-group">
-                                <label for=" sex">Sex</label>
+                                <label for="sex">Sex</label>
                                 <select id="sex" name="sex">
                                     <option selected>Select your gender</option>
                                     <option value="male">Male</option>
@@ -93,7 +111,7 @@
                             </div>
                         </div>
                         <div>
-                            <button type="button" id="next1" class="next btn ">Next</button>
+                            <button type="button" id="next1"  class="next btn ">Next</button>
                         </div>
                     </fieldset>
 
@@ -118,11 +136,11 @@
                             </div>
                             <div class="row">
                                 <div class="form-group">
-                                    <label class=" fieldlabel" for="height">Height(in cm)</label>
-                                    <input type="number" id="height" name="height">
+                                    <label class=" fieldlabel" for="height">Height(in cm) *</label>
+                                    <input type="number" step="any" min="1" id="height" name="height">
                                 </div>
                                 <div class="form-group">
-                                    <label for=" weight">Weight(in Kg)</label>
+                                    <label for="weight">Weight(in Kg) *</label>
                                     <input type="number" id="weight" name="weight">
                                 </div>
                             </div>
@@ -136,16 +154,16 @@
                         <div>
                             <div class="row">
                                 <div class="form-group">
-                                    <label class=" fieldlabel" for="password1">Password</label>
+                                    <label class=" fieldlabel" for="password1">Password *</label>
                                     <input type="password" id="password1" name="password1">
                                 </div>
                                 <div class="form-group">
-                                    <label for="password2">Repeat password</label>
+                                    <label for="password2">Repeat password *</label>
                                     <input type="password" id="password2" name="password2">
                                 </div>
                             </div>
                             <div class="form-group col-md-8">
-                                <label for="squestion">Security question</label>
+                                <label for="squestion">Security question *</label>
                                 <select id="squestion" name="security">
                                     <option selected>Enter security question</option>
                                     <option value="name">What is your name</option>
@@ -153,13 +171,13 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="squestionanswer">Answer to security question</label>
+                                <label for="squestionanswer">Answer to security question *</label>
                                 <input type="text" id="squestionanswer" name="security_answer">
                             </div>
 
                         </div>
                         <div>
-                            <button type="submit" class="btn">Create account</button>
+                            <button type="submit"  class="btn">Create account</button>
                         </div>
                     </fieldset>
 
@@ -168,7 +186,7 @@
         </div>
         </div>
     </section>
-    <script src="{%static '/js/sign-up.js' %}"></script>
+    <script src="{% static '/js/signup.js' %}"></script>
 </body>
 
 </html>

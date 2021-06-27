@@ -37,22 +37,33 @@ def login_view(request):
 
 def is_valid(data):
     message = []
+
+    # Validate First name and Last name
+    if data['first_name'] == "" or data["last_name"] == "":
+        message.append(('name', "First Name and Last name are required!"))
     # validate email:
     email = data['email']
-    if str(email).__contains__("@") is False:
-        message.append(('email', 'Invalid email address.'))
+
+    if str(email) == "":
+        message.append(('email', 'Email Field is required.'))
+    elif str(email).__contains__("@") is False:
+        message.append(('email', f'Email Address "{str(email)}" is not valid.'))
 
     # validate password
+    #=====================
     pass1 = data['password1']
     pass2 = data['password2']
 
-
-    if pass1 != pass2 or pass1 == "" or pass2 == "" or len(pass1) != len(pass1):
-        message.append(('password', 'Password do not match.'))
+    if pass1 == "" or pass2 == "":
+        message.append(('password', 'Password Field is Required.'))
+    elif len(pass1) < 8 or len(pass2) < 8:
+        message.append(('password', 'Password should not be less than 8 characters.'))
+    elif pass1 != pass2:
+        message.append(('password', 'Passwords do not match.'))
 
     # validate security question
     if data['security'] == "" or data['security_answer'] == "":
-        message.append(('security', 'Security Question and answer required.'))
+        message.append(('security', 'Security Question and answer are required.'))
 
     # validate date of birth
     if data['dob'] == "":
@@ -65,12 +76,12 @@ def is_valid(data):
                 d = f"{index}. {m[1]}"
                 newdata += f"{d}<br>"
 
-            newdata = f"Signup Failed due to the errors below <br><br> {newdata}" \
+            newdata = f"Signup not successful!. <br><br> {newdata}" \
                 f"<br><br> Please provide all the required information above and try again"
 
         if len(message) == 1:
             for index, m in enumerate(message, start=1):
-                d = f"{index}. {m[1]}"
+                d = f"{index}. &nbsp; &nbsp; {m[1]}"
                 newdata += f"{d}<br>"
 
             newdata = f"Signup Failed due to the error below <br><br> {newdata}" \
@@ -85,7 +96,6 @@ def is_valid(data):
 
 def sign_up(request):
     if request.method == 'POST':
-
         data = request.POST
         ans = is_valid(data)
         if ans is None:
@@ -106,7 +116,7 @@ def sign_up(request):
                 newUser.save()
             except Exception as e:
                 # check for email address issue
-                if str(e).lower() == 'UNIQUE constraint failed: fitwellNG_app_user.email'.lower():
+                if str(e).lower() == 'UNIQUE constraint failed: fitwellNG_app_user.email'.lower() or str(e).lower().__contains__('duplicate key value violates unique constraint'):
                     m = f"<b>Error:</b> <br> User with Email Address ' {data['email']} ' already exists. Please choose another Email Address"
                     return render(request, 'sign-up.html', {'message': m })
                 elif str(e).lower().__contains__("value must be a decimal number"):
@@ -115,8 +125,6 @@ def sign_up(request):
 
                 else:
                     return render(request, 'sign-up.html', {'message': f'\n{e}'})
-
-
 
             # return render(request, 'login.html', {'message': "Sign up successful"})
             return redirect('/login')
