@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@200;300;400;500;600;700;800&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Sarabun', sans-serif;
+}
+
+.mybg-nav {
+  background-color: #fff !important;
+}
+
+.nav-link {
+  color: #1f1e1d !important;
+  padding: 0 20px !important;
+  font-family: Sarabun;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.04em;
+}
+
+.nav-link:hover {
+  color: #ee2234 !important;
+}
+
+.my-btn {
+  color: #fff !important;
+  padding: 10px 18px !important;
+  margin: 0 20px !important;
+  border-radius: 10px !important;
+}
+
+.my-btn:nth-child(2) {
+  margin-right: 0 !important;
+}
+
+.my-btn:nth-child(1),
+.btn-red {
+  background-color: #ee2234;
+  color: #fff !important;
+}
+
+/* Hero Section */
+
+.hero-about {
+  height: 745px;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.05) 0%,
+    rgba(255, 0, 22, 0.03) 100%
+  );
+}
+
+.about-img img {
+  width: 577px;
+  height: 651px;
+}
+
+.h3-header {
+  font-family: Sarabun;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 50px;
+  line-height: 83px;
+  letter-spacing: 0.04em;
+}
+
+.mt-6 {
+  margin-top: 10rem;
+}
+
+/* About writeup */
+
+.about-writeup p {
+  text-align: justify;
+  margin-top: 36px;
+}
+
+.about-writeup h3 {
+  font-family: Sarabun;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 38px;
+  line-height: 62px;
+  letter-spacing: 0.04em;
+}
+
+.about-r-img {
+  /* object-fit: cover; */
+  width: 100% !important;
+}
+
+/* History Section */
+
+.history {
+  background: #da0013;
+}
+
+/* Best Training Coach Section */
+
+.card-img-top {
+  background-color: #f1f0f0;
+}
+
+/* footer */
+
+.footer-container {
+  min-height: 462px;
+  height: 100%;
+  background: #124e78;
+}
+.footer-img {
+  position: relative;
+}
+
+svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.hr {
+  width: 100%;
+  margin-top: 50px;
+  background-color: #fff;
+  height: 2px;
+}
+
+/* End of footer */
+
+/* mobile Responsiveness */
+
+@media (max-width: 991px) {
+  .h3-header {
+    font-size: 30px;
+    line-height: 40px;
+    letter-spacing: 0.04em;
+  }
+
+  .nav-link {
+    margin: 15px 0 !important;
+  }
+
+  .hero-about {
+    height: auto;
+  }
+
+  .tipoff {
+    margin-top: 5px !important;
+  }
+
+  .about-img img {
+    width: 100%;
+    height: auto;
+  }
+
+  .img-stack {
+    display: flex;
+    float: none;
+    flex-direction: column;
+  }
+
+  .img-stack img {
+    width: 150px;
+    padding: 5px;
+    height: auto;
+  }
+
+  .m-tip {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+
+  .btn-link {
+    margin-top: 5px !important;
+  }
+
+  .footer-container {
+    height: 100%;
+    background: #124e78;
+  }
+  svg {
+    /* position: relative; */
+    margin-top: 40px !important;
+    margin-bottom: 100px !important;
+    width: 50%;
+    height: auto;
+  }
+
+  .h3-header,
+  .lor {
+    text-align: center;
+  }
+}
+
+@media (max-width: 1199px) {
+  .h3-header {
+    font-size: 30px;
+    line-height: 40px;
+    letter-spacing: 0.04em;
+  }
+
+  .tipoff {
+    margin-top: 5px !important;
+  }
+
+  .img-stack img {
+    margin: 10px 0 !important;
+  }
+
+  .about-img img {
+    width: 100%;
+    height: auto;
+  }
+
+  .img-stack {
+    display: flex;
+    float: none;
+  }
+
+  .img-stack img {
+    width: 250px;
+    padding: 10px;
+    height: auto;
+  }
+
+  .m-tip {
+    display: flex;
+    flex-direction: column;
+  }
+}
