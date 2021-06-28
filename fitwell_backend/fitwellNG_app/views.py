@@ -2,9 +2,12 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from .forms import LoginForm, CustomUserCreationForm
 from .models import User
+import requests
 
 def home(request):
-    return render(request, 'index.html')
+    videoList = getVideos()
+    print(videoList)
+    return render(request, 'index.html', {'videoList': videoList})
     # return render(request, 'landing.html')
 
 
@@ -169,5 +172,14 @@ def sign_up1(request):
 
     # return render(request, 'sign-up.html', {'form': form})
 
+class Video():
+    def __init__(self, image, videoId):
+        self.image = image
+        self.videoId = videoId
 
+def getVideos():
+    r = requests.get('https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=6&playlistId=PLI37FJmOtrj32rGK4zPL3Cpr9v28uLQL9&key=AIzaSyBrGMILVCYBO4xMmaO0DHqxhZDD-ozonjA')
+    videos = r.json()
+    videoList = [Video(video['snippet']['thumbnails']['high']['url'], video['snippet']['resourceId']['videoId']) for video in videos['items'] if video['snippet']['resourceId']['kind'] == "youtube#video"]
+    return videoList
 
