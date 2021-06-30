@@ -7,9 +7,74 @@
   font-family: 'Sarabun', sans-serif;
 }
 
+/* Totop Navigation */
+
+#topicon{
+  position: relative;
+  scroll-behavior: smooth;
+}
+
+.totop{
+  background-color: #fff;
+  border-radius: 50%;
+  padding: 0 12px;
+  text-decoration: none;
+border: 3px solid #124E78;
+bottom: 30px;
+right: 20px;
+position: fixed;
+transition: 1s ease-in-out;
+font-size: 25px;
+display: none;
+}
+
+.totop.scrollup{
+  display: block;
+}
+
+.totop.scrollup{
+  display: block;
+}
+
+.totop:hover{
+  background-color: #124e78;
+  transition: background .5s ease-in-out;
+  color: #ffffff;
+  border: 3px solid #ffffff;
+}
+
+.din-color{
+color: #124E78;
+}
+
+/* End of Totop Navigation */
+
 .mybg-nav {
   background-color: #fff !important;
 }
+
+.navbar-toggler:focus {
+  outline: 0 !important;
+  box-shadow: 0 !important;
+}
+
+.navbar button.navbar-toggle { border: none; }
+
+.navbar-light .navbar-toggler {
+  color: transparent !important;
+  border-color: transparent !important;
+}
+
+.navbar-toggler:focus{
+  outline: 0 !important;
+  box-shadow: 0 !important;
+}
+
+.navbar-toggler{
+  border: 0 !important;
+  padding: 0 !important;
+}
+
 
 .nav-link {
   color: #1f1e1d !important;
@@ -24,6 +89,10 @@
 
 .nav-link:hover {
   color: #ee2234 !important;
+}
+
+div.btn-desk {
+  display: none !important;
 }
 
 .my-btn {
@@ -46,7 +115,8 @@
 /* Hero Section */
 
 .hero-about {
-  height: 745px;
+  /* height: 745px; */
+  height: auto;
   background: linear-gradient(
     180deg,
     rgba(0, 0, 0, 0.05) 0%,
@@ -54,9 +124,25 @@
   );
 }
 
+.hero-left-content{
+  align-self: baseline;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  /* width: 577px;
+  height: 671px; */
+}
+
+/* .l-img{
+  width: 100%;
+  align-self: baseline;
+  height: 100%;
+} */
+
 .about-img img {
-  width: 577px;
-  height: 651px;
+  width: 100%;
+  height: 100%;
+  margin-right: 20px;
 }
 
 .h3-header {
@@ -70,6 +156,10 @@
 
 .mt-6 {
   margin-top: 10rem;
+}
+
+.my-6{
+  margin: 8rem auto !important;
 }
 
 /* About writeup */
@@ -110,17 +200,17 @@
 .footer-container {
   min-height: 462px;
   height: 100%;
-  background: #124e78;
+  background: #0a2c44;
 }
 .footer-img {
   position: relative;
 }
 
-svg {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.footer-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 
 .hr {
@@ -130,15 +220,44 @@ svg {
   height: 2px;
 }
 
+#card-mb {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+}
+
 /* End of footer */
 
 /* mobile Responsiveness */
 
 @media (max-width: 991px) {
+  .navbar-brand img {
+    width: 100%;
+  }
+
+  .btn-hide-mb {
+    display: none;
+  }
+
+  div.btn-desk {
+    display: flex !important;
+  }
+
+  .my-btn {
+    margin-right: 30px !important;
+    font-size: 12px !important;
+  }
+
   .h3-header {
     font-size: 30px;
     line-height: 40px;
     letter-spacing: 0.04em;
+  }
+
+  #card-mb {
+    justify-content: space-between !important;
+    align-items: center !important;
+    flex-direction: row !important;
   }
 
   .nav-link {
@@ -184,16 +303,9 @@ svg {
 
   .footer-container {
     height: 100%;
-    background: #124e78;
+    background: #0a2c44;
   }
-  svg {
-    /* position: relative; */
-    margin-top: 40px !important;
-    margin-bottom: 100px !important;
-    width: 50%;
-    height: auto;
-  }
-
+  
   .h3-header,
   .lor {
     text-align: center;
@@ -234,5 +346,15 @@ svg {
   .m-tip {
     display: flex;
     flex-direction: column;
+  }
+}
+
+@media (max-width: 408px) {
+  .btn-hide-mb {
+    display: flex;
+  }
+
+  div.btn-desk {
+    display: none !important;
   }
 }

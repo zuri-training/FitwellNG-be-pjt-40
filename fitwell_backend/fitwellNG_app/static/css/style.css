@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap');
+
+
 :root {
     --white: #fff;
     --dark-blue: #0A2C44;
@@ -13,6 +15,27 @@
     --shadow: 0px 2px 4px 0px #0000001A;
     --font: 'Sarabun', sans-serif;
 }
+
+::placeholder{
+    color: #c4c4c4;
+    text-transform: none;
+    font-size: 20px;
+}
+.form-group input{
+    color: #c4c4c4;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 20px;
+}
+.form-group select{
+    color: #c4c4c4;
+    font-size: 20px;
+    border: 1px solid #0A2C44;
+}
+input{
+    border: 1px solid #0A2C44;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -499,3 +522,5 @@ body {
         margin-right: 10px;
     }
 }
+
+

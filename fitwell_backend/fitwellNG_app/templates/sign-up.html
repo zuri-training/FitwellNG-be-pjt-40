@@ -3,25 +3,12 @@
 <html lang="en">
 
 <head>
-
-     <script>
-         function Validate(){
-            if (document.forms['signupform']['email'].value == ""){
-                alert("Email field is required");
-                return false;
-            }
-
-           if (document.forms['signupform']['password1'].value == ""){
-                        alert("Password field is required");
-                        return false;
-                    }
-
-        }
-    </script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{% static '/images/favicon.svg' %}">
     <title>Fitwell - Signup</title>
+     <link rel="stylesheet" href="{% static '/css/style2.css' %}">
     <link rel="stylesheet" href="{% static '/css/base.css' %}">
     <link rel="stylesheet" href="{% static '/css/sign-up.css' %}">
 
@@ -31,20 +18,18 @@
     <section>
         <div class="container">
             <div class="image-bg" id="img">
-
-                <!--<h3>Image here</h3>-->
             </div>
             <div class="main">
                 <div class="logo">
                     <a href="{% url 'home' %}">
-                    <img src="{% static '/images/logo.svg' %}">
-                      </a>
-                    <span>FITWELL</span>
+                       <img src="{% static '/images/logo.svg' %}">
+                    </a>
 
+                    <span>FITWELL</span>
                 </div>
                 <p class="blue-text">Create your account</p>
 
-                {% if message %}
+                         {% if message %}
                 <div style="text-align: left; border: solid; color:red; margin-left: 20%; margin-right: 20%; padding: 1em" >
 
                         <!--<h3> Signup Failed due to the error(s) below</h3>-->
@@ -74,36 +59,39 @@
                             <li id="step2">Great</li>
                         </ul>
                     </div>
-
                     <fieldset>
                         <div class="row">
                             <div class="form-group">
                                 <label for="fname">First Name *</label>
-                                <input type="text" id="fname" name="first_name">
+                                <input type="text" id="fname" onchange="formValidation1()" placeholder="First Name" name="first_name" >
+                                <p id="fname_error" style="color: red"></p>
                             </div>
                             <div class="form-group">
                                 <label for="lname">Last Name *</label>
-                                <input type="text" id="lname" name="last_name">
+                                <input type="text" id="lname" onchange="formValidation1()" placeholder="Last Name" name="last_name">
+                                <p id="lname_error" style="color: red"></p>
                             </div>
                         </div>
                         <div class="row">
                             <div class="form-group">
                                 <label for="email">Email *</label>
-                                <input type="emai" id="email" name="email">
+                                <input type="emai" onchange="formValidation1()" id="email" placeholder="Email" name="email">
+                                <p id="email_error" style="color: red"></p>
                             </div>
                             <div class="form-group">
                                 <label for="number">Phone Number</label>
-                                <input type="tel" id="number" name="phone_no">
+                                <input type="tel" id="number" placeholder="0802 445 9067" name="phone_no">
                             </div>
                         </div>
                         <div class="row">
                             <div class="form-group">
                                 <label for="date">Date of birth *</label>
-                                <input type="date" id="date" name="dob">
+                                <input type="date"  onchange="formValidation1()" id="date" name="dob">
+                                <p id="dob_error" style="color: red"></p>
                             </div>
                             <div class="form-group">
                                 <label for="sex">Sex</label>
-                                <select id="sex" name="sex">
+                                <select id="sex" name="sex" class="select">
                                     <option selected>Select your gender</option>
                                     <option value="male">Male</option>
                                     <option value="female">Female</option>
@@ -111,7 +99,8 @@
                             </div>
                         </div>
                         <div>
-                            <button type="button" id="next1"  class="next btn ">Next</button>
+
+                            <button type="button" id="next1" onclick="formValidation()" class="next btn ">Next</button>
                         </div>
                     </fieldset>
 
@@ -120,14 +109,16 @@
                             <div class="row">
                                 <div class="form-group">
                                     <label for="nationality">Nationality</label>
-                                    <select id="nationality" name="nationality">
+
+                                    <select id="nationality" name="nationality"  class="select">
                                         <option selected>Select your nationality</option>
+
                                         <option value="nigeria">Nigeria</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="state">State</label>
-                                    <select id="state" name="state">
+                                    <select id="state" name="state" class="select">
                                         <option selected>Select your State</option>
                                         <option value="lagos">Lagos</option>
                                         <option value="abuja">Abuja</option>
@@ -137,11 +128,13 @@
                             <div class="row">
                                 <div class="form-group">
                                     <label class=" fieldlabel" for="height">Height(in cm) *</label>
-                                    <input type="number" step="any" min="1" id="height" name="height">
+                                    <input type="number" id="height"  onchange="formValidation2()" name="height" step="any" min="1" placeholder="Enter your height in cm">
+                                    <p id="height_error" style="color: red"></p>
                                 </div>
                                 <div class="form-group">
                                     <label for="weight">Weight(in Kg) *</label>
-                                    <input type="number" id="weight" name="weight">
+                                    <input type="number" id="weight"  onchange="formValidation2()" name="weight" placeholder="Enter your weight in kg">
+                                    <p id="weight_error" style="color: red"></p>
                                 </div>
                             </div>
                         </div>
@@ -154,33 +147,36 @@
                         <div>
                             <div class="row">
                                 <div class="form-group">
-                                    <label class=" fieldlabel" for="password1">Password *</label>
-                                    <input type="password" id="password1" name="password1">
+                                    <label class="fieldlabel" for="pword1">Password *</label>
+                                    <input  type="password" id="pword1"  onchange="formValidation3()" name="password1" placeholder="Enter Password">
+                                    <p id="pword1_error" style="color: red"></p>
                                 </div>
                                 <div class="form-group">
-                                    <label for="password2">Repeat password *</label>
-                                    <input type="password" id="password2" name="password2">
+                                    <label for="pword2">Confirm Password *</label>
+                                    <input  type="password" id="pword2"  onchange="formValidation3()" name="password2" placeholder="Confirm Password">
+                                    <p id="pword2_error" style="color: red"></p>
                                 </div>
                             </div>
                             <div class="form-group col-md-8">
-                                <label for="squestion">Security question *</label>
-                                <select id="squestion" name="security">
+                                <label for="squestion">Security Question *</label>
+                                <select   id="squestion"  onchange="formValidation3()"  name="security" class="select">
                                     <option selected>Enter security question</option>
                                     <option value="name">What is your name</option>
                                     <option value="friend">Who is your best friend</option>
                                 </select>
+                                <p id="squestion_error" style="color: red"></p>
                             </div>
                             <div class="form-group">
-                                <label for="squestionanswer">Answer to security question *</label>
-                                <input type="text" id="squestionanswer" name="security_answer">
+                                <label for="squestionanswer">Answer To Security Question *</label>
+                                <input   type="text" id="squestionanswer" onchange="formValidation3()" name="security_answer" placeholder="Enter your answer to Security Question">
+                                <p id="squestionanswer_error" style="color: red"></p>
                             </div>
 
                         </div>
                         <div>
-                            <button type="submit"  class="btn">Create account</button>
+                            <button type="submit" onclick="return formValidation3()" class="btn">Create account</button>
                         </div>
                     </fieldset>
-
                 </form>
             </div>
         </div>

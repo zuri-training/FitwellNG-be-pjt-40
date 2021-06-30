@@ -45,6 +45,7 @@ body {
   font-weight: 600;
   line-height: 31px;
   letter-spacing: 0.04em;
+  outline: none;
 }
 
 fieldset {
@@ -56,8 +57,33 @@ select {
   padding: 0 16px;
   min-height: 64px;
   border-radius: 12px;
-  border: 1px solid #46a2e3;
+  border: 1px solid #0a2c44;
   font-size: 14px;
+  outline: none;
+}
+
+.select {
+  display: block;
+  outline: none;
+  width: 100%;
+  border-radius: 12px !important;
+  border: 1px solid #0a2c44 !important;
+  padding: 0.375rem 2.25rem 0.375rem 0.75rem;
+  -moz-padding-start: calc(0.75rem - 3px);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  background-color: #fff;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='blue' stroke='%0a2c4444' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 16px 12px;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 label {
@@ -74,4 +100,11 @@ label {
 input,
 label {
   display: block;
+}
+
+#date {
+  display: block;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
 }

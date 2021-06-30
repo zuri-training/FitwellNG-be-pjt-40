@@ -6,7 +6,7 @@ import requests
 
 def home(request):
     videoList = getVideos()
-    print(videoList)
+    # print(videoList)
     return render(request, 'index.html', {'videoList': videoList})
     # return render(request, 'landing.html')
 
@@ -135,7 +135,6 @@ def sign_up(request):
             return render(request, 'sign-up.html', {'message': ans})
 
     return render(request, 'sign-up.html')
-
 
 
 def sign_up1(request):
