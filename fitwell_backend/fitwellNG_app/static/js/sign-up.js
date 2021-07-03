@@ -1,25 +1,16 @@
-window.onload = (e) => {
-  let current_fs, next_fs; //fieldsets
-  button1 = document.getElementById('next1');
-  button1.onclick = (e) => {
-    current_fs = button1.parentElement.parentElement;
-    next_fs = button1.parentElement.parentElement.nextElementSibling;
-    current_fs.style.display = 'none';
-    next_fs.style.display = 'block';
-    document.getElementById('img').style.backgroundImage =
-      'url(/static/images/sign-up-bg2.png)';
-    step1 = document.getElementById('step1').classList.add('active');
-  };
-
-  button2 = document.getElementById('next2');
-  button2.onclick = (e) => {
-    current_fs = button2.parentElement.parentElement;
-    next_fs = button2.parentElement.parentElement.nextElementSibling;
-    current_fs.style.display = 'none';
-    next_fs.style.display = 'block';
-    console.log(document.getElementById('img').style.background);
-    step1 = document.getElementById('step2').classList.add('active');
-    document.getElementById('img').style.backgroundImage =
-      'url(/static/images/sign-up-bg3.png)';
-  };
-};
+// Get the modal
+//const modal = document.getElementById('id01');
+//const submit = document.querySelector('.submit');
+//
+//// When the user clicks anywhere outside of the modal, close it
+//submit.addEventListener('click', (event) => {
+//  if (modal.classList.contains('popup')) {
+//    modal.classList.remove('popup');
+//  } else {
+//    modal.classList.add('popup');
+//  }
+//  event.preventDefault();
+//
+//});
+//
+//

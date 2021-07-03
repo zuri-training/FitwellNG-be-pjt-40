@@ -5,6 +5,7 @@
   margin: 0;
   box-sizing: border-box;
   font-family: 'Sarabun', sans-serif;
+  font-size:0.9375rem;
 }
 
 /* Totop Navigation */
@@ -150,7 +151,7 @@ div.btn-desk {
   font-style: normal;
   font-weight: bold;
   font-size: 50px;
-  line-height: 83px;
+  line-height: 63px;
   letter-spacing: 0.04em;
 }
 
@@ -206,12 +207,16 @@ div.btn-desk {
   position: relative;
 }
 
-.footer-logo {
+.footer-logo img{
+  width: 100px;
+}
+
+/* .footer-logo {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
-}
+} */
 
 .hr {
   width: 100%;

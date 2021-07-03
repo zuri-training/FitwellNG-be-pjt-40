@@ -2,9 +2,23 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from .forms import LoginForm, CustomUserCreationForm
 from .models import User
+from django.views.generic import UpdateView
 import requests
 
+
+class update_user(UpdateView):
+
+    model = User
+    fields = ['first_name', 'nationality', 'sex', 'dob', 'state', 'image']
+    success_url = '/'
+    template_name = "update.html"
+
+
+
+
 def home(request):
+    getUserData('jbadonai@gmail.com', 'afolayemi')
+    # getUserData('jayadonai@yahoo.com', 'afolayemi')
     videoList = getVideos()
     # print(videoList)
     return render(request, 'index.html', {'videoList': videoList})
@@ -54,23 +68,23 @@ def is_valid(data):
 
     # validate password
     #=====================
-    pass1 = data['password1']
-    pass2 = data['password2']
-
-    if pass1 == "" or pass2 == "":
-        message.append(('password', 'Password Field is Required.'))
-    elif len(pass1) < 8 or len(pass2) < 8:
+    pass1 = data['password']
+    # pass2 = data['password2']
+    #
+    # if pass1 == "" or pass2 == "":
+    #     message.append(('password', 'Password Field is Required.'))
+    if len(pass1) < 8:
         message.append(('password', 'Password should not be less than 8 characters.'))
-    elif pass1 != pass2:
-        message.append(('password', 'Passwords do not match.'))
+    # elif pass1 != pass2:
+    #     message.append(('password', 'Passwords do not match.'))
 
     # validate security question
-    if data['security'] == "" or data['security_answer'] == "":
-        message.append(('security', 'Security Question and answer are required.'))
-
-    # validate date of birth
-    if data['dob'] == "":
-        message.append(('Date of Birth', "Date of Birth is Required."))
+    # if data['security'] == "" or data['security_answer'] == "":
+    #     message.append(('security', 'Security Question and answer are required.'))
+    #
+    # # validate date of birth
+    # if data['dob'] == "":
+    #     message.append(('Date of Birth', "Date of Birth is Required."))
 
     newdata = ""
     if len(message)> 0:
@@ -87,8 +101,7 @@ def is_valid(data):
                 d = f"{index}. &nbsp; &nbsp; {m[1]}"
                 newdata += f"{d}<br>"
 
-            newdata = f"Signup Failed due to the error below <br><br> {newdata}" \
-                f"<br><br> Please provide the required information above and try again"
+            newdata = f"Sign up not successful:<br><br> {newdata}"
 
     if len(message) == 0:
         return None
@@ -104,24 +117,24 @@ def sign_up(request):
         if ans is None:
             try:
                 newUser = User.objects.create_user(email=data['email'],
-                                                   password=data['password1'],
+                                                   password=data['password'],
                                                    first_name=data['first_name'],
                                                    last_name=data['last_name'],
-                                                   dob=data['dob'],
-                                                   sex=data['sex'],
-                                                   nationality=data['nationality'],
-                                                   state=data['state'],
+                                                   # dob=data['dob'],
+                                                   # sex=data['sex'],
+                                                   # nationality=data['nationality'],
+                                                   # state=data['state'],
                                                    height=data['height'],
                                                    weight=data['weight'],
-                                                   security=data['security'],
-                                                   security_answer=data['security_answer'])
+                                                   # security=data['security'],
+                                                   phone_no=data['phone_no'])
 
                 newUser.save()
             except Exception as e:
                 # check for email address issue
                 if str(e).lower() == 'UNIQUE constraint failed: fitwellNG_app_user.email'.lower() or str(e).lower().__contains__('duplicate key value violates unique constraint'):
-                    m = f"<b>Error:</b> <br> User with Email Address ' {data['email']} ' already exists. Please choose another Email Address"
-                    return render(request, 'sign-up.html', {'message': m })
+                    m = f"User with Email Address ' {data['email']} ' already exists. Please choose another Email Address"
+                    return render(request, 'sign-up.html', {'message': m , 'data': data})
                 elif str(e).lower().__contains__("value must be a decimal number"):
                     m = "<b>Error: </b><br><br>Please specify a value for 'Weight' and 'Height' "
                     return render(request, 'sign-up.html', {'message': m})
@@ -129,12 +142,15 @@ def sign_up(request):
                 else:
                     return render(request, 'sign-up.html', {'message': f'\n{e}'})
 
-            # return render(request, 'login.html', {'message': "Sign up successful"})
-            return redirect('/login')
+            return render(request, 'signup_success.html', {'data': data})
+            # return redirect('/sign-up')
+            # return redirect('/login')
         else:
-            return render(request, 'sign-up.html', {'message': ans})
+            return render(request, 'sign-up.html', {'message': ans, 'data':data})
 
+    # return render(request, 'signup_success.html')
     return render(request, 'sign-up.html')
+
 
 
 def sign_up1(request):
@@ -182,3 +198,16 @@ def getVideos():
     videoList = [Video(video['snippet']['thumbnails']['high']['url'], video['snippet']['resourceId']['videoId']) for video in videos['items'] if video['snippet']['resourceId']['kind'] == "youtube#video"]
     return videoList
 
+
+def getUserData(username, password):
+    # # get token
+    # r = requests.post('http://127.0.0.1:8000/api/users/get-token/', data={'username': username, 'password': password})
+    # token = r.json()['token']
+    #
+    # # get details based using the token above
+    # r2 = requests.get('http://127.0.0.1:8000/api/users/', headers={"Authorization": f"Token {token}"})
+
+    # create
+    r3 = requests.post('http://127.0.0.1:8000/api/users/create/', data={'username': username, 'password': password})
+
+    print(f"[][]{r3.status_code}")

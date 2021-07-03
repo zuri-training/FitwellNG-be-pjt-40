@@ -127,7 +127,12 @@
                 Health is wealth, keeping fit means staying healthy. Fitwell is made for your continous wellness and
                 fitness. Workout Routines, Mealplans & Fitness Store to make your fitness journey a breeze.
             </p>
+            {% if user.is_authenticated %}
+            <a href="{% url 'dashboard' %}" class="btn btn-red w-50 text-decoration-none">Get Started</a>
+            {% else %}
             <a href="{% url 'login' %}" class="btn btn-red w-50 text-decoration-none">Get Started</a>
+            {% endif %}
+
         </div>
     </section>
     <!-- End of Hero Section -->
