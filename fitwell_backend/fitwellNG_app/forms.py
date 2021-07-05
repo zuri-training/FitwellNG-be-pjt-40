@@ -23,8 +23,7 @@ class CustomUserCreationForm(UserCreationForm):
 
     class Meta:
         model = User
-        # fields = '__all__'
-        fields = ['email', 'password1', 'password2', 'dob', 'first_name', 'last_name', 'sex', 'nationality', 'weight', 'height', 'security', 'security_answer']
+        fields = '__all__'
 
 
 class LoginForm1(AuthenticationForm):
