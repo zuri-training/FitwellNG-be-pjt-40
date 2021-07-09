@@ -1,57 +1,116 @@
 @import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@200;300;400;500;600;700;800&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Squada+One&display=swap');
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   font-family: 'Sarabun', sans-serif;
-  font-size:0.9375rem;
+  font-size: 16px;
+}
+
+.cb {
+  height: 250.2px;
+  box-sizing: border-box !important;
 }
 
 /* Totop Navigation */
 
-#topicon{
+#topicon {
   position: relative;
   scroll-behavior: smooth;
 }
 
-.totop{
+.totop {
   background-color: #fff;
   border-radius: 50%;
   padding: 0 12px;
   text-decoration: none;
-border: 3px solid #124E78;
-bottom: 30px;
-right: 20px;
-position: fixed;
-transition: 1s ease-in-out;
-font-size: 25px;
-display: none;
+  border: 3px solid #124e78;
+  bottom: 30px;
+  right: 20px;
+  position: fixed;
+  transition: 1s ease-in-out;
+  font-size: 25px;
+  display: none;
 }
 
-.totop.scrollup{
+.totop.scrollup {
   display: block;
 }
 
-.totop.scrollup{
+.totop.scrollup {
   display: block;
 }
 
-.totop:hover{
+.totop:hover {
   background-color: #124e78;
-  transition: background .5s ease-in-out;
+  transition: background 0.5s ease-in-out;
   color: #ffffff;
   border: 3px solid #ffffff;
 }
 
-.din-color{
-color: #124E78;
+.din-color {
+  color: #124e78;
+}
+
+/* Logo Section */
+.logo {
+  width: 3.094rem;
+  height: 2.625rem;
+}
+
+.logo-text {
+  font-family: Squada One;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 2rem;
+  margin-left: 0.938rem;
+  line-height: 2.125rem;
+  letter-spacing: 0.08em;
+  color: #0a2c44;
+}
+
+.tcolor {
+  font-family: Sarabun;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 48px;
+  letter-spacing: 0.04em;
+  color: #ff0000;
+}
+
+.abt-text p {
+  font-family: Sarabun;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.5rem;
+  line-height: 1.75rem;
+  letter-spacing: 0.04em;
+  color: #000000;
+}
+
+.abt-text h3 {
+  font-family: Sarabun;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 2rem;
+  line-height: 42px;
+  letter-spacing: 0.04em;
+  color: #000000;
 }
 
 /* End of Totop Navigation */
 
 .mybg-nav {
   background-color: #fff !important;
+  /* padding-right: var(--bs-gutter-x, 0.75rem) !important;
+  padding-left: var(--bs-gutter-x, 0.75rem) !important;
+  margin-right: auto !important;
+  margin-left: auto !important; */
+  height: auto !important;
 }
 
 .navbar-toggler:focus {
@@ -59,24 +118,34 @@ color: #124E78;
   box-shadow: 0 !important;
 }
 
-.navbar button.navbar-toggle { border: none; }
+.navbar button.navbar-toggle {
+  border: none;
+}
 
 .navbar-light .navbar-toggler {
   color: transparent !important;
   border-color: transparent !important;
 }
 
-.navbar-toggler:focus{
+.navbar-toggler:focus {
   outline: 0 !important;
   box-shadow: 0 !important;
 }
 
-.navbar-toggler{
+.navbar-toggler {
   border: 0 !important;
   padding: 0 !important;
 }
 
+.main {
+  position: relative;
+  display: block;
+}
 
+.header {
+  height: 128px !important;
+  background-color: #fff !important;
+}
 .nav-link {
   color: #1f1e1d !important;
   padding: 0 20px !important;
@@ -115,9 +184,28 @@ div.btn-desk {
 
 /* Hero Section */
 
+/* .tipoff,
+.m-tip {
+  display: flex;
+  flex-direction: column;
+  height: 608px;
+} */
+
+.hero-text {
+  font-family: Sarabun;
+  font-weight: 300;
+  /* width: 659px; */
+  /* text-align: left; */
+  margin-right: 23px;
+  font-size: 1.5rem;
+  line-height: 31px;
+  letter-spacing: 0.04em;
+  color: #000000;
+  margin-top: 3.25rem;
+}
+
 .hero-about {
-  /* height: 745px; */
-  height: auto;
+  height: 608px;
   background: linear-gradient(
     180deg,
     rgba(0, 0, 0, 0.05) 0%,
@@ -125,48 +213,42 @@ div.btn-desk {
   );
 }
 
-.hero-left-content{
+.hero-left-content {
   align-self: baseline;
   display: flex;
   justify-content: center;
   align-items: baseline;
-  /* width: 577px;
-  height: 671px; */
 }
-
-/* .l-img{
-  width: 100%;
-  align-self: baseline;
-  height: 100%;
-} */
 
 .about-img img {
   width: 100%;
-  height: 100%;
-  margin-right: 20px;
+  height: 575px;
+  top: 0;
+  margin-top: 2rem;
 }
 
 .h3-header {
   font-family: Sarabun;
   font-style: normal;
   font-weight: bold;
-  font-size: 50px;
-  line-height: 63px;
+  font-size: 32px;
+  line-height: 48px;
   letter-spacing: 0.04em;
+  color: #0a2c44;
 }
 
 .mt-6 {
   margin-top: 10rem;
 }
 
-.my-6{
+.my-6 {
   margin: 8rem auto !important;
 }
 
 /* About writeup */
 
 .about-writeup p {
-  text-align: justify;
+  text-align: left;
   margin-top: 36px;
 }
 
@@ -199,30 +281,46 @@ div.btn-desk {
 /* footer */
 
 .footer-container {
-  min-height: 462px;
-  height: 100%;
+  min-height: 288px;
   background: #0a2c44;
-}
-.footer-img {
-  position: relative;
+  padding: 52.5px 34.5px !important;
 }
 
-.footer-logo img{
-  width: 100px;
+.footer-left {
+  margin-bottom: 7rem;
 }
 
-/* .footer-logo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-} */
+.logo-footer-text {
+  font-family: Squada One;
+  font-style: normal;
+  font-weight: normal;
+  margin-left: 0.938rem;
+  font-size: 32px;
+  line-height: 34px;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+}
 
-.hr {
-  width: 100%;
-  margin-top: 50px;
-  background-color: #fff;
-  height: 2px;
+.foot-logo {
+  width: 49.5px;
+  height: 42px;
+}
+
+.ins {
+  width: 24px;
+  height: 24px;
+}
+.fb {
+  width: 11px;
+  height: 22px;
+}
+.tw {
+  width: 24px;
+  height: 27px;
+}
+.yt {
+  width: 28px;
+  height: 28px;
 }
 
 #card-mb {
@@ -306,60 +404,49 @@ div.btn-desk {
     margin-top: 5px !important;
   }
 
-  .footer-container {
-    height: 100%;
-    background: #0a2c44;
-  }
-  
-  .h3-header,
-  .lor {
-    text-align: center;
+  .header {
+    position: relative;
   }
 }
 
-@media (max-width: 1199px) {
+@media only screen and(min-width: 768px) {
+  .footer-left .logo {
+    width: 10% !important;
+  }
+
+  .mybg-nav .logo {
+    width: 2.094rem;
+    height: 1.625rem;
+  }
+
+  .logo-text {
+    font-size: 20px !important;
+  }
+
+  .hero-content-inner {
+    margin: 0 !important;
+  }
+
   .h3-header {
-    font-size: 30px;
-    line-height: 40px;
-    letter-spacing: 0.04em;
+    width: 100% !important;
+    margin: 0 !important;
+  }
+  .hero-about {
+    height: auto !important;
+    width: 100% !important;
   }
 
-  .tipoff {
-    margin-top: 5px !important;
+  .hero-content-inner {
+    width: 100% !important;
   }
 
-  .img-stack img {
-    margin: 10px 0 !important;
-  }
-
-  .about-img img {
-    width: 100%;
-    height: auto;
-  }
-
-  .img-stack {
-    display: flex;
-    float: none;
-  }
-
-  .img-stack img {
-    width: 250px;
-    padding: 10px;
-    height: auto;
-  }
-
-  .m-tip {
-    display: flex;
-    flex-direction: column;
+  .about-writeup h3 {
+    margin: 0 !important;
   }
 }
 
-@media (max-width: 408px) {
-  .btn-hide-mb {
-    display: flex;
-  }
-
-  div.btn-desk {
+@media only screen and (max-width: 410px) {
+  .my-btn {
     display: none !important;
   }
 }

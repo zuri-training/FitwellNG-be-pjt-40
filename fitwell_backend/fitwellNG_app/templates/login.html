@@ -25,8 +25,11 @@
         <section class="lhs-container p-5">
           <div class="top">
             <div class="logo">
-              <img src="{% static '/images/nlogo.png' %}" />
+
+                <img src="{% static '/images/nlogo.png' %}" />
+
               <span class="ms-3 logo-text">Fitwell</span>
+
             </div>
           </div>
           <!-- End of Right Hand Side Top Section -->
@@ -35,27 +38,28 @@
             <!-- Right Hand Side Login Label -->
             <p class="blue-text">Log in</p>
           </div>
-          <!-- End of Right Hand Side Login Label Content -->
-            {% if message %}
+
+                 {% if message %}
              <div>
             <br>
             <!--<p/ class="" style="color: #da0013; text-align:center; background-color: #cfc ; padding: 0.5em"> <b>{{ message }}</b></p>-->
             <p class="" style="color: #da0013; border: 1px solid #da0013; border-radius: 6px 6px 0 0; text-align:center; background-color: #cfc ; padding: 0.5em"> {{ message }}</p>
-          </div>
+
+             </div>
           {% endif %}
 
+          <!-- End of Right Hand Side Login Label Content -->
           <div class="img-container text-center"></div>
           <!-- Form Section -->
-
           <form class="row g-3" method="post">
             {% csrf_token %}
             <div class="col-md-12">
               <label for="inputEmail4" class="form-label">Email Address</label>
               <input
                 type="email"
+                name="email"
                 class="form-control"
                 id="inputEmail4"
-                name="email"
                 placeholder="Name @example.com"
               />
             </div>
@@ -64,15 +68,22 @@
               <label for="inputPassword" class="form-label">Password</label>
               <input
                 type="password"
+                name="password"
                 class="form-control"
                 id="inputPassword2"
-                name="password"
                 placeholder="Enter Password"
               />
             </div>
 
             <div class="col-12">
-              <div class="d-flex justify-content-between align-items-center">
+              <div
+                class="
+                  d-flex
+                  justify-content-between
+                  align-items-center
+                  d-mflex
+                "
+              >
                 <div class="form-check">
                   <input
                     class="form-check-input"
@@ -92,7 +103,7 @@
               </div>
             </div>
 
-            <div class="col-12 d-grid">
+            <div class="col-12 d-grid mt-4">
               <button type="submit" class="btn btn-red btn-primary submit">
                 Log in
               </button>
@@ -103,7 +114,7 @@
               <div>
                 <p class="pt-3">Don't have an account?</p>
               </div>
-              <div class="ms-3">
+              <div class="ms-1">
                 <a href="{% url 'sign-up' %}" class="login-text text-decoration-none"
                   >Sign up</a
                 >

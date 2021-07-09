@@ -38,3 +38,7 @@ class LoginForm1(AuthenticationForm):
 class LoginForm(forms.Form):
     email = forms.EmailField()
     password = forms.PasswordInput()
+
+
+class MealCreationForm(forms.Form):
+    pass

@@ -12,17 +12,28 @@
     --peach-green: #15A69D;
     --shadow: 0px 2px 4px 0px #0000001A;
     --font: 'Sarabun', sans-serif;
+    --hour: #F8FDFD;
+    --session: #FBFBFB;
+    --calories: #FFFCF3;
+    --btn-purple: #A615A0;
+    --text-red: #EE2234;
+    --btn-red: #F44336;
+    --shadow-v2: 0px 2px 1px 0px #0000001A;
+    --bg-color: #E5E5E5;
+    --dark-gray: #726F6B;
+
 }
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     font-family: var(--font);
+    /* outline: 1px solid red; */
 }
 body {
     width: 100vw;
     height: 100%;
-    background: var(--white);
+    background: var(--bg-color);
     overflow-x: hidden;
 }
 .navbar {
@@ -32,9 +43,10 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    background: var(--dark-blue);
-    padding: 50px 10px 30px 10px;
+    background: var(--white);
+    padding: 200px 10px 30px 10px;
     position: fixed;
+    bottom: 0;
 }
 .hamburger-menu {
     display: none;
@@ -48,7 +60,7 @@ body {
     justify-content: space-between;
 }
 .nav-links {
-    transform: translateY(-40px);
+    transform: translateY(-30px);
 }
 .nav-links li, .options li {
     width: 100%;
@@ -58,12 +70,12 @@ body {
     border-radius: 12px;
 }
 .nav-links li:hover, .options li:hover {
-    border: 1px solid white;
+    border: 1px solid var(--dark-blue);
 }
-.nav-links li a, .options li a, .logo a {
+.nav-links li a, .options li a {
     text-decoration: none;
-    font-weight: 300;
-    color: var(--white);
+    font-weight: 400;
+    color: var(--dark-blue);
     padding: 15px;
     display: flex;
     align-items: center;
@@ -75,14 +87,7 @@ body {
     object-fit: cover;
     margin-right: 50px;
 }
-.container {
-    width: calc(100% - 272px);
-    height: 100%;
-    padding: 20px 30px;
-    transform: translateX(272px);
-    display: flex;
-    flex-direction: column;
-}
+/* topbar */
 .menu-bar {
     display: flex;
     align-items: center;
@@ -90,9 +95,12 @@ body {
     padding: 5px 10px;
     background: var(--white);
     box-shadow: var(--shadow);
-    border-radius: 12px;
+    z-index: 10;
     width: 100%;
-    height: 95px;
+    height: 96px;
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 .menu-bar h1 {
     color: var(--dark-blue);
@@ -138,364 +146,399 @@ body {
     font-weight: 600;
     font-size: 24;
 }
+/* topbar end */
+.container {
+    width: calc(100% - 272px);
+    height: 100%;
+    padding: 20px 30px;
+    transform: translateX(272px);
+    display: flex;
+    flex-direction: column;
+    margin-top: 96px;
+}
 .content {
     display: flex;
+    flex-direction: column;
     width: 100%;
     height: 100%;
     justify-content: space-between;
 }
-.dashboard {
-    width: 765px;
+.view1 {
+    width: 100%;
+    min-height: 250px;
+}
+.overview {
+    width: 100%;
     height: 100%;
-    margin-right: 10px;
+    background: var(--white);
+    padding: 16px 30px;
+    border-radius: 6px;
 }
-.welcome {
-    width: 100%;
-    height: 80px;
-    padding: 10px;
-    background: var(--light-red);
-    color: var(--dark-blue);
-    border-radius: 12px;
-    margin: 20px 0;
+.overview p {
+    margin: 10px 0;
+    color: var(--dark-gray);
 }
-.welcome h2, .welcome p {
-    text-align: left;
-    font-weight: 600;
+.overview h1 {
+    letter-spacing: 2px;
 }
-.workout, .meal {
-    width: 100%;
-    margin: 20px 0;
-    border-radius: 12px;
+.overview h1 span {
+    color: var(--text-red);
 }
-.workout h1, .welcome article, .meal h1, .meal article {
-    width: 100%
-}
-.workout h1, .meal h1 {
-    height: 64px;
-    background: var(--dark-blue);
-    color: var(--white);
-    padding: 10px;
-    text-align: left;
-    font-weight: 400;
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
-}
-.workout article, .meal article {
-    height: calc(289 / 2);
-    padding: 10px 10px 40px 20px;
-    background: var(--lighter-gray);
-    border-top: 1px solid var(--dark-blue);
-    position: relative;
-    color: var(--blue);
-    font-weight: 300;
-    font-size: 12px;
-}
-.workout article p:nth-child(1) {
-    margin-bottom: 20px;
-}
-.workout article .btn, .meal article .btn {
-    width: 92px;
+.overview img {
+    width: 32px;
     height: 32px;
-    padding: 5px;
-    color: var(--white);
-    text-align: center;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    transform: translate(-10px, -10px);
-    background: var(--dark-blue);
-    border-radius: 12px;
-    outline: none;
-    border: none;
-    cursor: pointer;
-    transition: 1s background ease-out .2s;
+    object-fit: cover;
 }
-.workout article .btn:hover, .meal article .btn:hover {
-    background: var(--light-blue);
-}
-.workout article:nth-child(3), .meal article:nth-child(3) {
-    border-bottom-left-radius: 12px;
-    border-bottom-right-radius: 12px;
-}
-.workout .line, .meal .line {
-    width: 3px;
-    height: 80%;
-    background: var(--blue);
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translate(5px, -50%);
-}
-.plan-btn {
+.complete-task {
     width: 100%;
-    margin: 20px 0;
-}
-.Btn {
-    width: 240px;
-    height: 64px;
-    background: var(--light-blue);
     display: flex;
     align-items: center;
-    color: var(--white);
-    border: none;
-    outline: none;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.session, .hour, .calories {
+    width: 300px;
+    height: 96px;
+    padding: 12px;
     border-radius: 12px;
-    padding: 0 10px;
-    font-weight: 300;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 1s background ease-out .2s;
+    box-shadow: var(--shadow-v2);
+    margin-bottom: 10px;
 }
-.Btn img {
-    margin-right: 30px;
-}
-.Btn:hover {
-    background: var(--dark-red);
-}
-.sub-dashboard {
-    width: 243px;
-    height: 100%;
+.session p, .hour p, .calories p {
+    text-align: center;
+    color: var(--dark-blue);
 }
 .session {
-    width: 100%;
-    height: 80px;
-    background: var(--light-gray);
-    margin: 20px 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    font-weight: 300;
-    border-radius: 12px;
-    color: var(--blue);
-    text-align: center;
-    padding: 10px;
-    font-size: 14px;
+    background: var(--session);
 }
-.session p:nth-child(2) {
-    color: var(--dark-red);
-    text-align: right;
+.hour {
+    background: var(--hour);
+}
+.calories {
+    background: var(--calories);
+}
+.top-icon {
+    display: flex;
+    align-items: center;
+}
+.top-icon img {
+    margin-right: 20px;
+}
+/* exercise $ meal section start */
+.view2 {
+    width: 100%;
+}
+.request {
+    width: 100%;
+    display: flex;
+    margin: 10px 0;
+}
+.select {
+    overflow: hidden;
+}
+.select a{
+    margin-right: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--dark-blue);
+}
+.select .line {
+    height: 3px;
+    width: 50px;
+    background: var(--dark-red);
+    margin-top: 10px;
+    transform: translateX(-50px);
+    transition: 1s transform ease-out .1s;
+}
+.select:hover .line {
+    transform: translateX(0);
+}
+.contain {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
 }
 .programs {
-    width: 100%;
-    height: 100%;
-    background: var(--light-gray);
-    border-radius: 12px;
+    width: 661px;
+    margin-right: 30px;
 }
-.programs article {
-    width: 100%;
-    padding: 10px;
+.programs1 {
+    display: grid;
+    grid-gap: 8px;
+    grid-template-areas: 
+    "vid vid vid elem1"
+    "vid vid vid elem2"
+    "vid vid vid elem3"; 
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+.video, .progress-bar, .exercise {
+    width: 128px;
+    height: 128px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    cursor: pointer;
+}
+.video {
+    grid-area: vid;
+    width: 512px;
+    height: 376px;
+    background: url(../images/dashboard-image/fortune-vieyra-jD4MtXnsJ6w-unsplash\ 1.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.progress-bar {
+    grid-area: elem1;
+    background: var(--white);
+    border-radius: 5px;
+}
+/* progress bar animation */
+
+/* progress bar animation end */
+.exercise {
+    grid-area: elem2;
+    background: var(--calories);
+    border-radius: 5px;
+}
+.btns {
+    grid-area: elem3;
+    width: 128px;
+    height: 128px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
+    cursor: pointer;
 }
-.programs article p {
+.btns img {
+    transform: translateX(6px);
+}
+.next, .prev {
+    width: 127px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    color: var(--white);
+    outline: none;
+    border: none;
+}
+.next {
+    background: var(--btn-red);
+    transition: .5s background ease-out .1s;
+}
+.next:hover {
+    background: var(--dark-red)
+}
+.prev {
+    background: var(--btn-purple);
+    transition: .5s background ease-out .1s;
+}
+.prev:hover {
+    background: var(--light-blue);
+}
+.routine {
+    width: 479px;
+}
+.guide {
+    width: 100%;
+    background: var(--white);
+    display: flex;
+    padding: 8px;
+    border-radius: 6px;
+}
+.text-field {
+    padding: 0 10px;
+}
+.text-field p {
+    padding: 10px 0;
+    color: #1B1B1B;
+    font-size: 14px;
+}
+.count-start {
+    display: flex;
+    justify-content: space-between;
+    color: #514F4C;
     font-weight: 600;
 }
-.program-content span {
-    font-size: 88px;
-    margin-top: 20px;
+.start-btn {
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--text-red);
+    font-weight: 600;
+    font-size: 14px;
 }
-.program-content {
-    width: 208px;
-    height: 208px;
-    background: var(--dark-blue);
-    margin-top: 40px;
-    border-radius: 12px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: var(--white);
-    font-family: 700;
-    font-size: 24px;
+.start-btn:hover {
+    color: var(--btn-purple);
 }
-/* progress bar start */
-.progress-box {
-    width: 150px;
-    height: 150px;
-}
-.rotate {
+/* exercise $ meal section end */
+
+/* current plan $ todays routine */
+.current-plan, .today-routine {
     width: 100%;
-    height: 100%;
-    border-radius: 50%;
+    margin: 10px 0;
     background: var(--white);
-    overflow: hidden;
-    position: relative;
+    border-radius: 6px;
+    color: var(--blue);
 }
-.rotate1, .rotate2, .rotate3 {
-    width: 50%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform-origin: right center;
-}
-.rotate1 {
-    background: var(--dark-red);
-}
-.program-content:hover .rotate1 {
-    transform: rotate(180deg);
-    transition: 1s transform linear;
-}
-.rotate2 {
-    background: var(--dark-red);
-}
-.program-content:hover .rotate2{
-    transform: rotate(320deg);
-    transition: 1.6s transform linear;
-}
-.rotate3 {
-    background: var(--white);
-}
-.program-content:hover .rotate3 {
-    opacity: 0;
-    transition: 0s linear 1s;
-}
-.progress-content {
-    width: 80%;
-    height: 80%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: var(--dark-blue);
-    border-radius: 50%;
+.current {
+    width: 100%;
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 15px;
+}
+.current img {
+    cursor: pointer;
+}
+.plan {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+}
+.hold {
+    display: flex;
     align-items: center;
     justify-content: center;
 }
-.progress-content p {
-    font-size: 16px;
-    font-weight: 400;
+.hold img {
+    margin-right: 20px;
 }
-/* progress bar end */
-.red {
+.view-all {
+    color: var(--text-red);
+}
+.view-btn {
+    width: 80px;
+    height: 32px;
+    background: var(--btn-red);
+    color: var(--white);
+    outline: none;
+    border: none;
+    border-radius: 6px;
+    transition: .5s background ease-out .1s;
+    cursor: pointer;
+}
+.view-btn:hover {
     background: var(--dark-red);
 }
-.green {
-    background: var(--peach-green);
+.today {
+    width: 100%;
+    padding: 10px 15px;
 }
-.program-content img {
-    width: 56px;
-    height: 56px;
-    position: absolute;
-    top: -30px;
-    left: 50%;
-    transform: translateX(-50%);
+.today div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
 }
-@media (max-width: 650px) {
+.routine-pro {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-top: 1px solid var(--dark-gray);
+    cursor: pointer;
+}
+.routine-txt {
+    width: inherit;
+    padding-left: 10px;
+}
+.routine-txt h3, .routine-txt h4, .routine-txt p {
+    margin: 3px 0;
+}
+.routine-txt p {
+    font-size: 14px;
+}
+.txts {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+/* current plan $ todays routine end */
+@media (max-width: 750px) {
     body {
         width: 100vw;
         height: 100%;
+        overflow-x: hidden;
     }
     .navbar {
+        display: none;
+        align-items: center;
+        justify-content: space-between;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 10;
+        margin: 0;
+        padding: 140px 0 0 0;
+    }
+    .active {
         display: flex;
         align-items: center;
         justify-content: space-between;
         position: fixed;
         top: 0;
         width: 100%;
-        height: 16vh;
+        height: 100%;
         z-index: 10;
         margin: 0;
-        padding: 0;
+        padding: 140px 0 0 0;
     }
-    .logo {
-        margin: 0;
-        position: absolute;
-        top: 25px;
-        left: 30px;
-    }
-    .hamburger-menu {
-        position: absolute;
-        top: 40px;
-        right: 30px;
-        display: inline-block;
-    }
-    .links {
+    .menu-bar h1, .textbox {
         display: none;
     }
-    .active {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-around;
-        position: absolute;
-        bottom: 30px;
+    .menu-bar form {
+        background: transparent;
+        width: 0px;
     }
-    .nav-links, .options {
-        width: 80%;
-        list-style: none;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-    }
-    .nav-links li, .options li {
-        width: 60%;
-        margin: 5px 0;
-        border: 1px solid transparent;
-        transition: 1s border ease-out .2s;
-        border-radius: 12px;
-    }
-    .hamburger-menu i {
-        font-size: 36px;
-        color: var(--white);
+    .logo {
+        transform: scale(0.8)
     }
     .container {
         width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
         transform: translateX(0);
-        margin-top: 16vh;
+        overflow: hidden;
     }
-    .content {
-        flex-direction: column;
-        align-items: center;
-    }
-    .dashboard {
+    .programs {
         width: 100%;
-        margin: 0;
     }
-    .menu-bar {
-        align-items: center;
+    .programs1 {
+        grid-template-areas: 
+        "vid vid vid vid" 
+        "vid vid vid vid" 
+        "vid vid vid vid" 
+        ". elem1 elem2 ." 
+        "elem3 elem3 elem3 elem3";
     }
-    .menu-bar h1 {
+    .contain {
+        flex-direction: column;
+    }
+    .video, .guide, .routine {
+        width: 100%;
+    }
+    .btns {
+        width: 100%;
+        height:initial;
+        flex-direction: row-reverse;
+    }
+    .hamburger-menu {
+        display: inline-block;
         font-size: 24px;
-        font-weight: 600;
-    }
-    .menu-bar form, .menu-bar label {
-        background: transparent;
-        cursor: pointer;
-    }
-    .textbox, .bell-notify {
-        display: none;
-    }
-     .profile {
-        display: flex;
-        text-align: center;
-        align-items: center;
-    }
-    .profile h3 {
-        padding-right: 5px;
-    }
-    .sub-dashboard {
-
-        align-items: center;
+        color: var(--dark-blue);
     }
 }
 @media (max-width: 400px) {
-    .profile {
-        display: none;
-    }
-    .menu-bar h1 {
-        margin-right: 10px;
-    }
+    
 }

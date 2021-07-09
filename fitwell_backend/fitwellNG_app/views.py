@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from .forms import LoginForm, CustomUserCreationForm
-from .models import User
+from .models import User, MealPlans, WorkoutPlan
 from django.views.generic import UpdateView
 import requests
+from django.contrib.auth.decorators import login_required
 
 
 class update_user(UpdateView):
@@ -17,7 +18,7 @@ class update_user(UpdateView):
 
 
 def home(request):
-    getUserData('jbadonai@gmail.com', 'afolayemi')
+    # getUserData('jbadonai@gmail.com', 'afolayemi')
     # getUserData('jayadonai@yahoo.com', 'afolayemi')
     videoList = getVideos()
     # print(videoList)
@@ -29,8 +30,28 @@ def about(request):
     return render(request, 'about.html')
 
 
+# @login_required
 def dashboard(request):
-    return render(request, 'dashboard.html')
+
+    meal = MealPlans.objects.all
+    workouts = WorkoutPlan.objects.all()
+    # print(request.user.email, "[][][]")
+    # print(workouts)
+    for w in workouts:
+        # print(f"[][][] {w.user.email}")
+        if w.user.email == request.user.email:
+            workout = w
+            routines = workout.workout_plan.routines.all
+            break
+        else:
+            workout = None
+            routines = None
+
+    # print(workout.workout_plan.plan)
+
+    return render(request, 'dashboard.html', {"meals": meal, 'workout': workout, 'workouts': workouts, 'routines': routines})
+
+
 
 
 def logout_view(request):
