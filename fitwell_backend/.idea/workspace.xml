@@ -34,7 +34,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fitwellNG_app/templates/plans.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="134">
@@ -65,11 +65,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/fitwellNG_app/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="117">
-              <caret line="132" column="43" selection-start-line="132" selection-start-column="31" selection-end-line="132" selection-end-column="43" />
+            <state relative-caret-position="219">
+              <caret line="53" column="4" selection-start-line="53" selection-start-column="4" selection-end-line="53" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -86,7 +86,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>messag</find>
       <find>analytics</find>
       <find>jamal</find>
       <find>image</find>
@@ -116,6 +115,7 @@
       <find>jame</find>
       <find>james</find>
       <find>alt</find>
+      <find>user-img</find>
     </findStrings>
     <replaceStrings>
       <replace>error</replace>
@@ -144,7 +144,6 @@
         <option value="$PROJECT_DIR$/fitwellNG_app/admin.py" />
         <option value="$PROJECT_DIR$/fitwellNG_app/models.py" />
         <option value="$PROJECT_DIR$/fitwell_apis/urls.py" />
-        <option value="$PROJECT_DIR$/fitwellNG_app/templates/index.html" />
         <option value="$PROJECT_DIR$/fitwellNG_app/static/js/sign-up.js" />
         <option value="$PROJECT_DIR$/fitwellNG_app/templates/sign-up.html" />
         <option value="$PROJECT_DIR$/fitwellNG_app/templates/login.html" />
@@ -159,6 +158,7 @@
         <option value="$PROJECT_DIR$/fitwell_apis/views.py" />
         <option value="$PROJECT_DIR$/fitwellNG_app/templates/dashboard.html" />
         <option value="$PROJECT_DIR$/fitwellNG_app/templates/plans.html" />
+        <option value="$PROJECT_DIR$/fitwellNG_app/templates/index.html" />
       </list>
     </option>
   </component>
@@ -240,8 +240,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2154213" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2154213" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -252,7 +253,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.23268206" />
+      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.23268206" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -557,13 +558,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fitwellNG_app/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="132" column="43" selection-start-line="132" selection-start-column="31" selection-end-line="132" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fitwellNG_app/templates/dashboard.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="219">
@@ -575,6 +569,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="134">
           <caret line="81" column="118" lean-forward="true" selection-start-line="81" selection-start-column="118" selection-end-line="81" selection-end-column="118" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fitwellNG_app/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="53" column="4" selection-start-line="53" selection-start-column="4" selection-end-line="53" selection-end-column="4" />
         </state>
       </provider>
     </entry>
