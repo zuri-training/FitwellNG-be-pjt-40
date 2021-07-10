@@ -27,7 +27,7 @@ class WorkoutPlanSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = WorkoutPlanList
-        fields = ['plan', 'duration', 'routine']
+        fields = ['plan', 'duration', 'daily_duration', 'routine']
 
 
 class MealPLanTableSerializer(serializers.ModelSerializer):

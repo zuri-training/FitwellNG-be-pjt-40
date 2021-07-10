@@ -54,12 +54,12 @@ class WorkoutPlanCreate(generics.ListCreateAPIView):
 
 
 class MealTableList(generics.ListAPIView):
-    queryset = MealPlansList.objects.all()
+    queryset = PlanTable.objects.all()
     serializer_class = MealPLanTableSerializer
 
 
 class MealTableCreate(generics.ListCreateAPIView):
-    queryset = MealPlansList.objects.all()
+    queryset = PlanTable.objects.all()
     serializer_class = MealPLanTableSerializer
 
     def perform_create(self, serializer):
