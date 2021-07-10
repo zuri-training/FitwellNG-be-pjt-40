@@ -78,7 +78,8 @@
                                     <p id="view-profile"><a href="#">view profile</a></p>
                                 </div>
                                 <div class="user-icon-img">
-                                    <img id ="user-img" src="{% static '/images/dashboard-image/avatar.png' %}" />
+                                    <!--<img id ="user-img" src="{% static '/images/dashboard-image/avatar.png' %}" />-->
+                                    <img width="50px" height="50px" src="{{ user.image.url }}" alt="{{user.first_name}}">
                                 </div>
                             </li>
                         </ul>    
