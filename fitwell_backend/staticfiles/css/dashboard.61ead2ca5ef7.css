@@ -1,0 +1,544 @@
+@import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap');
+:root {
+    --white: #fff;
+    --dark-blue: #0A2C44;
+    --light-red: rgba(238, 34, 52, 0.1);
+    --dark-red: #E13443;
+    --light-gray: #E7EAEC;
+    --lighter-gray: #F5F5F5;
+    --light-blue: #196BA6;
+    --blue: #124E78;
+    --black-text: #1F1E1D;
+    --peach-green: #15A69D;
+    --shadow: 0px 2px 4px 0px #0000001A;
+    --font: 'Sarabun', sans-serif;
+    --hour: #F8FDFD;
+    --session: #FBFBFB;
+    --calories: #FFFCF3;
+    --btn-purple: #A615A0;
+    --text-red: #EE2234;
+    --btn-red: #F44336;
+    --shadow-v2: 0px 2px 1px 0px #0000001A;
+    --bg-color: #E5E5E5;
+    --dark-gray: #726F6B;
+
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: var(--font);
+    /* outline: 1px solid red; */
+}
+body {
+    width: 100vw;
+    height: 100%;
+    background: var(--bg-color);
+    overflow-x: hidden;
+}
+.navbar {
+    width: 272px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--white);
+    padding: 200px 10px 30px 10px;
+    position: fixed;
+    bottom: 0;
+}
+.hamburger-menu {
+    display: none;
+}
+.nav-links, .options {
+    width: 100%;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.nav-links {
+    transform: translateY(-30px);
+}
+.nav-links li, .options li {
+    width: 100%;
+    margin: 5px 0;
+    border: 1px solid transparent;
+    transition: 1s border ease-out .2s;
+    border-radius: 12px;
+}
+.nav-links li:hover, .options li:hover {
+    border: 1px solid var(--dark-blue);
+}
+.nav-links li a, .options li a {
+    text-decoration: none;
+    font-weight: 400;
+    color: var(--dark-blue);
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+.nav-links img, .options img {
+    width: 20px;
+    height: 20px;
+    object-fit: cover;
+    margin-right: 50px;
+}
+/* topbar */
+.menu-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 10px;
+    background: var(--white);
+    box-shadow: var(--shadow);
+    z-index: 10;
+    width: 100%;
+    height: 96px;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+.menu-bar h1 {
+    color: var(--dark-blue);
+    font-weight: 700;
+}
+.menu-bar form {
+    width: 528px;
+    height: 48px;
+    background: var(--light-gray);
+    display: flex;
+    align-items: center;
+    border-radius: 12px;
+    padding: 0 10px;
+}
+.textbox {
+    width: calc(100% - 50px);
+    height: 100%;
+    background: transparent;
+    outline: none;
+    border: none;
+    padding-left: 30px;
+    color: var(--blue);
+    font-size: 16px;
+}
+.textbox::placeholder {
+    color: var(--blue);
+    font-size: 16px;
+}
+.avatar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.profile {
+    text-align: right;
+    color: var(--blue);
+    margin-right: 20px;
+}
+.profile p {
+    font-size: 12px;
+}
+.profile h3 {
+    font-weight: 600;
+    font-size: 24;
+}
+/* topbar end */
+.container {
+    width: calc(100% - 272px);
+    height: 100%;
+    padding: 20px 30px;
+    transform: translateX(272px);
+    display: flex;
+    flex-direction: column;
+    margin-top: 96px;
+}
+.content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+}
+.view1 {
+    width: 100%;
+    min-height: 250px;
+}
+.overview {
+    width: 100%;
+    height: 100%;
+    background: var(--white);
+    padding: 16px 30px;
+    border-radius: 6px;
+}
+.overview p {
+    margin: 10px 0;
+    color: var(--dark-gray);
+}
+.overview h1 {
+    letter-spacing: 2px;
+}
+.overview h1 span {
+    color: var(--text-red);
+}
+.overview img {
+    width: 32px;
+    height: 32px;
+    object-fit: cover;
+}
+.complete-task {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.session, .hour, .calories {
+    width: 300px;
+    height: 96px;
+    padding: 12px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-v2);
+    margin-bottom: 10px;
+}
+.session p, .hour p, .calories p {
+    text-align: center;
+    color: var(--dark-blue);
+}
+.session {
+    background: var(--session);
+}
+.hour {
+    background: var(--hour);
+}
+.calories {
+    background: var(--calories);
+}
+.top-icon {
+    display: flex;
+    align-items: center;
+}
+.top-icon img {
+    margin-right: 20px;
+}
+/* exercise $ meal section start */
+.view2 {
+    width: 100%;
+}
+.request {
+    width: 100%;
+    display: flex;
+    margin: 10px 0;
+}
+.select {
+    overflow: hidden;
+}
+.select a{
+    margin-right: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--dark-blue);
+}
+.select .line {
+    height: 3px;
+    width: 50px;
+    background: var(--dark-red);
+    margin-top: 10px;
+    transform: translateX(-50px);
+    transition: 1s transform ease-out .1s;
+}
+.select:hover .line {
+    transform: translateX(0);
+}
+.contain {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.programs {
+    width: 661px;
+    margin-right: 30px;
+}
+.programs1 {
+    display: grid;
+    grid-gap: 8px;
+    grid-template-areas: 
+    "vid vid vid elem1"
+    "vid vid vid elem2"
+    "vid vid vid elem3"; 
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+.video, .progress-bar, .exercise {
+    width: 128px;
+    height: 128px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    cursor: pointer;
+}
+.video {
+    grid-area: vid;
+    width: 512px;
+    height: 376px;
+    background: url("../images/dashboard-image/fortune-vieyra-jD4MtXnsJ6w-unsplash-1.7b8016cf5a7f.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.progress-bar {
+    grid-area: elem1;
+    background: var(--white);
+    border-radius: 5px;
+}
+/* progress bar animation */
+
+/* progress bar animation end */
+.exercise {
+    grid-area: elem2;
+    background: var(--calories);
+    border-radius: 5px;
+}
+.btns {
+    grid-area: elem3;
+    width: 128px;
+    height: 128px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    cursor: pointer;
+}
+.btns img {
+    transform: translateX(6px);
+}
+.next, .prev {
+    width: 127px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    color: var(--white);
+    outline: none;
+    border: none;
+}
+.next {
+    background: var(--btn-red);
+    transition: .5s background ease-out .1s;
+}
+.next:hover {
+    background: var(--dark-red)
+}
+.prev {
+    background: var(--btn-purple);
+    transition: .5s background ease-out .1s;
+}
+.prev:hover {
+    background: var(--light-blue);
+}
+.routine {
+    width: 479px;
+}
+.guide {
+    width: 100%;
+    background: var(--white);
+    display: flex;
+    padding: 8px;
+    border-radius: 6px;
+}
+.text-field {
+    padding: 0 10px;
+}
+.text-field p {
+    padding: 10px 0;
+    color: #1B1B1B;
+    font-size: 14px;
+}
+.count-start {
+    display: flex;
+    justify-content: space-between;
+    color: #514F4C;
+    font-weight: 600;
+}
+.start-btn {
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--text-red);
+    font-weight: 600;
+    font-size: 14px;
+}
+.start-btn:hover {
+    color: var(--btn-purple);
+}
+/* exercise $ meal section end */
+
+/* current plan $ todays routine */
+.current-plan, .today-routine {
+    width: 100%;
+    margin: 10px 0;
+    background: var(--white);
+    border-radius: 6px;
+    color: var(--blue);
+}
+.current {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 15px;
+}
+.current img {
+    cursor: pointer;
+}
+.plan {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+}
+.hold {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.hold img {
+    margin-right: 20px;
+}
+.view-all {
+    color: var(--text-red);
+}
+.view-btn {
+    width: 80px;
+    height: 32px;
+    background: var(--btn-red);
+    color: var(--white);
+    outline: none;
+    border: none;
+    border-radius: 6px;
+    transition: .5s background ease-out .1s;
+    cursor: pointer;
+}
+.view-btn:hover {
+    background: var(--dark-red);
+}
+.today {
+    width: 100%;
+    padding: 10px 15px;
+}
+.today div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.routine-pro {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-top: 1px solid var(--dark-gray);
+    cursor: pointer;
+}
+.routine-txt {
+    width: inherit;
+    padding-left: 10px;
+}
+.routine-txt h3, .routine-txt h4, .routine-txt p {
+    margin: 3px 0;
+}
+.routine-txt p {
+    font-size: 14px;
+}
+.txts {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+/* current plan $ todays routine end */
+@media (max-width: 750px) {
+    body {
+        width: 100vw;
+        height: 100%;
+        overflow-x: hidden;
+    }
+    .navbar {
+        display: none;
+        align-items: center;
+        justify-content: space-between;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 10;
+        margin: 0;
+        padding: 140px 0 0 0;
+    }
+    .active {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 10;
+        margin: 0;
+        padding: 140px 0 0 0;
+    }
+    .menu-bar h1, .textbox {
+        display: none;
+    }
+    .menu-bar form {
+        background: transparent;
+        width: 0px;
+    }
+    .logo {
+        transform: scale(0.8)
+    }
+    .container {
+        width: 100%;
+        transform: translateX(0);
+        overflow: hidden;
+    }
+    .programs {
+        width: 100%;
+    }
+    .programs1 {
+        grid-template-areas: 
+        "vid vid vid vid" 
+        "vid vid vid vid" 
+        "vid vid vid vid" 
+        ". elem1 elem2 ." 
+        "elem3 elem3 elem3 elem3";
+    }
+    .contain {
+        flex-direction: column;
+    }
+    .video, .guide, .routine {
+        width: 100%;
+    }
+    .btns {
+        width: 100%;
+        height:initial;
+        flex-direction: row-reverse;
+    }
+    .hamburger-menu {
+        display: inline-block;
+        font-size: 24px;
+        color: var(--dark-blue);
+    }
+}
+@media (max-width: 400px) {
+    
+}

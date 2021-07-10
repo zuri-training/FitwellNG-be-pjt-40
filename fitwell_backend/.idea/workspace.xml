@@ -10,42 +10,89 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/fitwellNG_app/templates/about.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="104">
-              <caret line="72" column="83" selection-start-line="72" selection-start-column="83" selection-end-line="72" selection-end-column="83" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fitwellNG_app/templates/login.html">
+        <entry file="file://$PROJECT_DIR$/fitwellNG_app/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="121">
-              <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+            <state relative-caret-position="-176">
+              <caret line="238" lean-forward="true" selection-start-line="238" selection-end-line="238" />
               <folding>
-                <element signature="n#style#0;n#p#0;n#div#2;n#section#0;n#section#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#section#1;n#section#0;n#main#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="e#0#28#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fitwellNG_app/templates/index.html">
+        <entry file="file://$PROJECT_DIR$/fitwellNG_app/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="229">
-              <caret line="113" lean-forward="true" selection-start-line="91" selection-start-column="16" selection-end-line="113" />
+            <state relative-caret-position="193">
+              <caret line="22" column="19" lean-forward="true" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
+              <folding>
+                <element signature="e#0#45#0" expanded="true" />
+                <element signature="e#364#507#0" />
+                <element signature="e#535#800#0" />
+                <element signature="e#1614#1654#0" />
+                <element signature="e#1686#2137#0" />
+                <element signature="e#2164#4066#0" />
+                <element signature="e#6389#7418#0" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fitwellNG_app/templates/about_old.html">
+        <entry file="file://$PROJECT_DIR$/fitwellNG_app/templates/plans.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="104">
-              <caret line="96" column="33" selection-start-line="96" selection-start-column="26" selection-end-line="96" selection-end-column="33" />
+            <state relative-caret-position="48">
+              <caret line="22" column="48" selection-start-line="22" selection-start-column="48" selection-end-line="22" selection-end-column="48" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/fitwellNG_app/templates/dashboard.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="303">
+              <caret line="192" selection-start-line="192" selection-end-line="192" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fitwellNG_app/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="46" lean-forward="true" selection-start-line="7" selection-start-column="46" selection-end-line="7" selection-end-column="46" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fitwellNG_app/static/js/signup.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="28" lean-forward="true" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
+              <folding>
+                <element signature="e#0#7660#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fitwellNG_app/forms.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="79">
+              <caret line="43" column="38" lean-forward="true" selection-start-line="43" selection-start-column="38" selection-end-line="43" selection-end-column="38" />
+              <folding>
+                <element signature="e#0#74#0" expanded="true" />
+                <element signature="e#511#1080#0" />
+                <element signature="e#1125#1227#0" />
+                <element signature="e#1263#1326#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -62,15 +109,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>sign up succ</find>
-      <find>pass1</find>
-      <find>first</find>
-      <find>dob</find>
-      <find>Error:</find>
-      <find>popup</find>
-      <find>log in</find>
-      <find>saturday</find>
-      <find>dashboa</find>
       <find>welcome</find>
       <find>welc</find>
       <find>get starte</find>
@@ -79,24 +117,33 @@
       <find>sr</find>
       <find>forms s</find>
       <find>messag</find>
-      <find>dashboard</find>
       <find>analytics</find>
       <find>jamal</find>
       <find>image</find>
       <find>workout session</find>
       <find>wide</find>
       <find>.image</find>
+      <find>fitwell logo</find>
+      <find>1.png</find>
+      <find>play</find>
+      <find>fitwell</find>
+      <find>sign up</find>
+      <find>menu</find>
+      <find>workouts</find>
+      <find>alt=&quot;work</find>
+      <find>here</find>
+      <find>you have</find>
+      <find>plan</find>
+      <find>home</find>
+      <find>../assets</find>
       <find>src</find>
       <find>href</find>
-      <find>fitwell logo</find>
-      <find>sign up</find>
-      <find>fitwell</find>
-      <find>workouts</find>
+      <find>dashboard</find>
     </findStrings>
     <replaceStrings>
-      <replace>{% static '</replace>
       <replace>error</replace>
       <replace>sunday</replace>
+      <replace>{% static '</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -113,11 +160,9 @@
         <option value="$PROJECT_DIR$/fitwellNG_app/static/css/common.css" />
         <option value="$PROJECT_DIR$/Procfile" />
         <option value="$PROJECT_DIR$/fitwellNG_app/static/js/signup.js" />
-        <option value="$PROJECT_DIR$/fitwellNG_app/urls.py" />
         <option value="$PROJECT_DIR$/fitwellNG_app/templates/update.html" />
         <option value="$PROJECT_DIR$/fitwellNG_app/managers.py" />
         <option value="$PROJECT_DIR$/fitwellNG_app/templates/signup_success.html" />
-        <option value="$PROJECT_DIR$/fitwellNG_app/forms.py" />
         <option value="$PROJECT_DIR$/fitwell_backend/settings.py" />
         <option value="$PROJECT_DIR$/fitwellNG_app/admin.py" />
         <option value="$PROJECT_DIR$/fitwellNG_app/models.py" />
@@ -127,10 +172,16 @@
         <option value="$PROJECT_DIR$/fitwellNG_app/templates/index.html" />
         <option value="$PROJECT_DIR$/fitwellNG_app/static/js/sign-up.js" />
         <option value="$PROJECT_DIR$/fitwellNG_app/templates/sign-up.html" />
-        <option value="$PROJECT_DIR$/fitwellNG_app/views.py" />
-        <option value="$PROJECT_DIR$/fitwellNG_app/templates/dashboard.html" />
         <option value="$PROJECT_DIR$/fitwellNG_app/templates/login.html" />
         <option value="$PROJECT_DIR$/fitwellNG_app/templates/about.html" />
+        <option value="$PROJECT_DIR$/fitwellNG_app/static/js/dashboard.js" />
+        <option value="$PROJECT_DIR$/requirements.txt" />
+        <option value="$PROJECT_DIR$/fitwellNG_app/static/css/dashboard.css" />
+        <option value="$PROJECT_DIR$/fitwellNG_app/forms.py" />
+        <option value="$PROJECT_DIR$/fitwellNG_app/urls.py" />
+        <option value="$PROJECT_DIR$/fitwellNG_app/views.py" />
+        <option value="$PROJECT_DIR$/fitwellNG_app/templates/plans.html" />
+        <option value="$PROJECT_DIR$/fitwellNG_app/templates/dashboard.html" />
       </list>
     </option>
   </component>
@@ -152,6 +203,17 @@
             <path>
               <item name="fitwell_backend" type="b2602c69:ProjectViewProjectNode" />
               <item name="fitwell_backend" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fitwell_backend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fitwell_backend" type="462c0819:PsiDirectoryNode" />
+              <item name="fitwellNG_app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fitwell_backend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fitwell_backend" type="462c0819:PsiDirectoryNode" />
+              <item name="fitwellNG_app" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -197,7 +259,7 @@
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17567568" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2154213" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -208,7 +270,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.30195382" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.14920071" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -291,9 +353,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/fitwellNG_app/static/css/all.min.css" />
-    <entry file="file://$PROJECT_DIR$/fitwellNG_app/static/js/dashboard.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/Procfile">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -305,13 +364,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="952">
           <caret line="56" column="25" selection-start-line="56" selection-start-column="25" selection-end-line="56" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="8" selection-end-line="11" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -328,18 +380,6 @@
           <caret line="146" column="43" lean-forward="true" selection-start-line="146" selection-start-column="43" selection-end-line="146" selection-end-column="43" />
           <folding>
             <element signature="n#style#0;n#div#3;n#section#0;n#section#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fitwellNG_app/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="43" column="8" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="8" />
-          <folding>
-            <element signature="e#511#1080#0" />
-            <element signature="e#1125#1227#0" />
-            <element signature="e#1263#1326#0" />
           </folding>
         </state>
       </provider>
@@ -361,34 +401,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fitwellNG_app/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="30" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fitwell_apis/serializers.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="50" selection-start-line="4" selection-start-column="50" selection-end-line="4" selection-end-column="50" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fitwell_apis/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="628">
-          <caret line="72" selection-start-line="72" selection-end-line="72" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-            <element signature="e#1042#1115#0" />
-            <element signature="e#1173#1315#0" />
           </folding>
         </state>
       </provider>
@@ -421,16 +439,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fitwellNG_app/static/js/signup.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1666">
-          <caret line="4" column="28" lean-forward="true" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#7660#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fitwellNG_app/templates/sign-up_old.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -448,34 +456,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fitwellNG_app/templates/dashboard.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="168" lean-forward="true" selection-start-line="168" selection-end-line="168" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fitwellNG_app/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="50" lean-forward="true" selection-start-line="50" selection-end-line="50" />
-          <folding>
-            <element signature="e#0#45#0" expanded="true" />
-            <element signature="e#1569#3471#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fitwellNG_app/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2069">
-          <caret line="238" lean-forward="true" selection-start-line="238" selection-end-line="238" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fitwellNG_app/templates/dashboard_old.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="503">
@@ -483,10 +463,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/fitwellNG_app/templates/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="121">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+          <folding>
+            <element signature="n#style#0;n#p#0;n#div#2;n#section#0;n#section#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#section#1;n#section#0;n#main#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/fitwellNG_app/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="229">
-          <caret line="113" lean-forward="true" selection-start-line="91" selection-start-column="16" selection-end-line="113" />
+          <caret line="113" selection-start-line="91" selection-start-column="16" selection-end-line="113" />
         </state>
       </provider>
     </entry>
@@ -497,14 +488,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fitwellNG_app/templates/login.html">
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="121">
-          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
-          <folding>
-            <element signature="n#style#0;n#p#0;n#div#2;n#section#0;n#section#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#section#1;n#section#0;n#main#0;n#body#0;n#html#0;n#!!top" />
-          </folding>
+        <state relative-caret-position="190">
+          <caret line="14" column="27" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fitwellNG_app/static/js/dashboard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fitwellNG_app/static/css/dashboard.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="289" column="82" selection-start-line="289" selection-start-column="82" selection-end-line="289" selection-end-column="82" />
         </state>
       </provider>
     </entry>
@@ -512,6 +513,96 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="104">
           <caret line="72" column="83" selection-start-line="72" selection-start-column="83" selection-end-line="72" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fitwell_apis/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="72" selection-start-line="72" selection-end-line="72" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../fitwellNG-be-pjt-40/fitwell_backend/venv/Lib/site-packages/django/forms/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="275" selection-start-line="275" selection-end-line="275" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fitwellNG_app/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-176">
+          <caret line="238" lean-forward="true" selection-start-line="238" selection-end-line="238" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fitwellNG_app/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="79">
+          <caret line="43" column="38" lean-forward="true" selection-start-line="43" selection-start-column="38" selection-end-line="43" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#74#0" expanded="true" />
+            <element signature="e#511#1080#0" />
+            <element signature="e#1125#1227#0" />
+            <element signature="e#1263#1326#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fitwellNG_app/static/js/signup.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="28" lean-forward="true" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#7660#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fitwellNG_app/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="46" lean-forward="true" selection-start-line="7" selection-start-column="46" selection-end-line="7" selection-end-column="46" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fitwellNG_app/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="22" column="19" lean-forward="true" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#45#0" expanded="true" />
+            <element signature="e#364#507#0" />
+            <element signature="e#535#800#0" />
+            <element signature="e#1614#1654#0" />
+            <element signature="e#1686#2137#0" />
+            <element signature="e#2164#4066#0" />
+            <element signature="e#6389#7418#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fitwellNG_app/templates/plans.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="22" column="48" selection-start-line="22" selection-start-column="48" selection-end-line="22" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fitwellNG_app/templates/dashboard.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="192" selection-start-line="192" selection-end-line="192" />
         </state>
       </provider>
     </entry>

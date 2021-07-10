@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
-from .forms import LoginForm, CustomUserCreationForm
-from .models import User, MealPlans, WorkoutPlan
-from django.views.generic import UpdateView
+from .forms import LoginForm, CustomUserCreationForm, PlanSubscriptionForm
+from .models import User, MealPlans, WorkoutPlan, WorkoutPlanList
+from django.views.generic import UpdateView, ListView
 import requests
 from django.contrib.auth.decorators import login_required
 
@@ -15,6 +15,13 @@ class update_user(UpdateView):
     template_name = "update.html"
 
 
+class Plans(ListView):
+    template_name = "plans.html"
+    model = WorkoutPlan
+
+
+def plans(request):
+    return render(request, 'plans.html')
 
 
 def home(request):
@@ -30,28 +37,21 @@ def about(request):
     return render(request, 'about.html')
 
 
-# @login_required
 def dashboard(request):
+    if request.method == "POST":
+        print(f"User: {request.user.pk}")
+        print(request.POST)
+        form  = PlanSubscriptionForm(request.POST)
+        if form.is_valid():
+            form.save()
+            print("saveddddddddddddd")
 
-    meal = MealPlans.objects.all
+    form = PlanSubscriptionForm()
+    meal = MealPlans.objects.all()
     workouts = WorkoutPlan.objects.all()
-    # print(request.user.email, "[][][]")
-    # print(workouts)
-    for w in workouts:
-        # print(f"[][][] {w.user.email}")
-        if w.user.email == request.user.email:
-            workout = w
-            routines = workout.workout_plan.routines.all
-            break
-        else:
-            workout = None
-            routines = None
+    workout_list = WorkoutPlanList.objects.all()
 
-    # print(workout.workout_plan.plan)
-
-    return render(request, 'dashboard.html', {"meals": meal, 'workout': workout, 'workouts': workouts, 'routines': routines})
-
-
+    return render(request, 'dashboard.html', {'workout_list': workout_list, 'form':form})
 
 
 def logout_view(request):
@@ -171,7 +171,6 @@ def sign_up(request):
 
     # return render(request, 'signup_success.html')
     return render(request, 'sign-up.html')
-
 
 
 def sign_up1(request):

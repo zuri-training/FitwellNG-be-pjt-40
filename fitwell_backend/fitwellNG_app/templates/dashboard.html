@@ -9,6 +9,8 @@
         <link rel="stylesheet" href="{% static '/css/dashboard.css' %}">
         <link rel="icon" href="{% static '/images/nlogo.png' %}">
         <link rel="stylesheet" href="{% static '/css/all.min.css' %}" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     </head>
     <body>
         <!-- sidebar navigation -->
@@ -17,7 +19,7 @@
             <ul class="nav-links">
                 <li><a href="{% url 'home' %}"><img src="{% static '/images/dashboard-icon/dashboard.png' %}" alt="dashboard"><p>Home</p></a></li>
                 <li><a href="#"><img src="{% static '/images/dashboard-icon/analytics.png' %}" alt="analytics"><p>Analytics</p></a></li>
-                <li><a href="#"><img src="{% static '/images/dashboard-icon/doc.png' %}" alt="plans"><p>Plans</p></a></li>
+                <li><a href="{% url 'plans' %}"><img src="{% static '/images/dashboard-icon/doc.png' %}" alt="plans"><p>Plans</p></a></li>
                 <li><a href="#"><img src="{% static '/images/dashboard-icon/activity.png' %}" alt="activities"><p>Activities</p></a></li>
             </ul>
             <ul class="options">
@@ -151,6 +153,7 @@
                                 </article>
                                 <div class="btns">
                                     <button class="next">Next <img src="{% static '/images/dashboard-icon/Vector (3).png' %}" alt="next"></button>
+
                                     <button class="prev">Previous <img src="{% static '/images/dashboard-icon/Vector (2).png' %}" alt="prev"></button>
                                 </div>
                                 <!-- Grid layout end -->
@@ -160,21 +163,23 @@
                                     <img src="{% static '/images/dashboard-icon/workout icon.png' %}" alt="workout">
                                 </div>
                                 <div class="text-field">
-                                    {% if routines.0.routine_name != None %}
-                                        <h2>{{ routines.0.routine_name }}</h2>
-                                        {% autoescape off %}
-                                        <p> {{ routines.0.description }} </p>
-                                        {% endautoescape %}
 
-
-                                    {% else %}
                                         <h2>No Workout Plan </h2>
-                                         <p>You have not subscribed to any work out plan yet! Please select a plan <a>here</a></p>
+                                         <p>You are yet to enroll in any plan yet! Please select a plan <a href="{% url 'plans'%}">here:</a> </p>
+                                    <!--<form method="post">-->
+                                        <!--{% csrf_token %}-->
+                                            <!--{{ form.as_p }}-->
+                                        <!--&lt;!&ndash;{{form.as_p}}&ndash;&gt;-->
+                                        <!--<input type="submit" value="Subscribe">-->
 
-                                    {% endif %}
+                                    <!--</form>-->
+
+
+
+
 
                                     <div class="count-start">
-                                        <p>{{ routines.0.repetition_no }} reps</p>
+                                        <p>0 reps</p>
                                         <button class="start-btn">Start</button>
                                     </div>
 
@@ -185,6 +190,7 @@
                             <div class="current-plan">
                                 <div class="current">
                                     <h1>Current Plans</h1>
+
                                     <img src="{% static '/images/dashboard-icon/clarity_note-edit-line.png' %}" alt="note">
                                 </div>
                                 <div class="plan">

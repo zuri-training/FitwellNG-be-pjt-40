@@ -1,0 +1,19 @@
+::placeholder{
+    color: #c4c4c4;
+    text-transform: none;
+    font-size: 20px;
+}
+.form-group input{
+    color: #c4c4c4;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 20px;
+}
+.form-group select{
+    color: #c4c4c4;
+    font-size: 20px;
+    border: 1px solid #0A2C44;
+}
+input{
+    border: 1px solid #0A2C44;
+}

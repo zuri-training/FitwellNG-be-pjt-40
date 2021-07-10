@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme" content="#4F52FF">
+    <meta name="description" content="media">
+    <title>Workout Plans</title>
+    <!--main website CSS-->
+    <link rel="stylesheet" href="{% static '/css/plans.css' %}"> </head>
+
+    <body> 
+        <div class="sidebar-main-container">
+            <div class="sidebar" >
+                <div id="desktop-view-logo" class="logo-holder">
+                    <img class="logo" src="{% static '/images/nlogo.png' %}">
+                    <p class="logo-text">Fitwell</p>
+                </div>
+                <div class="sidebar-links">
+                    <a href="{% url 'dashboard' %}" class="sidebar-links">
+                        <div class="flex">
+                            <svg width="26" height="26" viewbox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M21.8225 14.0025C23.9383 14.009 25.6537 15.7548 25.6666 17.9147V21.7429C25.6537 23.9047 23.9402 25.654 21.8225 25.6671H18.0725C15.9567 25.6539 14.2465 23.9028 14.2401 21.7429V17.9147C14.2401 15.754 15.9559 14.0025 18.0725 14.0025H21.8225ZM5.71732 14.0025C6.11106 13.9595 6.49433 14.1497 6.70439 14.4924C6.91445 14.835 6.91445 15.2701 6.70439 15.6128C6.49433 15.9555 6.11106 16.1457 5.71732 16.1026H4.17733C3.19506 16.1026 2.39695 16.912 2.39048 17.9147V21.6949C2.41546 22.6896 3.20281 23.4881 4.17733 23.507H7.95088C8.4237 23.5102 8.87823 23.3207 9.21367 22.9805C9.54912 22.6403 9.73775 22.1776 9.73774 21.6949V16.0186L9.72169 15.8774C9.70396 15.5019 9.88408 15.1402 10.2011 14.935C10.5577 14.7042 11.0159 14.7177 11.3588 14.9693C11.7017 15.2209 11.8604 15.66 11.7597 16.0786V21.7309C11.7597 23.8982 10.0386 25.6551 7.91562 25.6551H4.17733C2.07266 25.6105 0.376918 23.8795 0.333252 21.7309V17.9147C0.333252 16.8751 0.738622 15.8781 1.45987 15.1441C2.18111 14.4101 3.1589 13.9993 4.17733 14.0025H5.71732ZM21.8225 16.1026H18.0725C17.0921 16.1026 16.2973 16.9139 16.2973 17.9147V21.7429C16.2942 22.2245 16.4802 22.6873 16.8138 23.0278C17.1474 23.3683 17.6007 23.5582 18.0725 23.555H21.8225C22.2942 23.5582 22.7476 23.3683 23.0812 23.0278C23.4147 22.6873 23.6008 22.2245 23.5976 21.7429V17.9147C23.5976 17.4341 23.4106 16.9732 23.0777 16.6334C22.7448 16.2935 22.2933 16.1026 21.8225 16.1026ZM21.8225 0.333771C23.9226 0.384677 25.6114 2.11397 25.6548 4.25798V8.07418C25.6674 9.11178 25.2756 10.112 24.5657 10.8547C23.8558 11.5974 22.8859 12.0217 21.8695 12.0344H20.3178C19.7921 11.9769 19.3934 11.5241 19.3934 10.9843C19.3934 10.4446 19.7921 9.99173 20.3178 9.93428H21.8225C22.2985 9.93112 22.7535 9.73424 23.0868 9.3873C23.42 9.04036 23.6039 8.57203 23.5976 8.08618V4.25798C23.5849 3.26259 22.7976 2.45881 21.8225 2.44588H18.0725C17.0921 2.44588 16.2974 3.25718 16.2974 4.25798V9.98228L16.2834 10.1247C16.1992 10.6359 15.7608 11.0206 15.2394 11.0143C14.966 11.0081 14.7065 10.8903 14.5187 10.6874C14.331 10.4845 14.2306 10.2132 14.2401 9.93428V4.25798C14.237 3.21832 14.6394 2.22015 15.3584 1.48387C16.0775 0.74759 17.054 0.333771 18.0725 0.333771H21.8225ZM7.92737 0.333771C10.0477 0.34036 11.765 2.09343 11.7715 4.25798V8.08618C11.7715 9.12584 11.3661 10.1228 10.6448 10.8568C9.9236 11.5908 8.9458 12.0016 7.92737 11.9984H4.17733C2.06155 11.9918 0.346143 10.246 0.333252 8.08618V4.25798C0.346087 2.09615 2.05965 0.346873 4.17733 0.333771H7.92737ZM7.92737 2.44588H4.17733C3.70047 2.43621 3.23985 2.62285 2.89929 2.96373C2.55873 3.30462 2.36688 3.77108 2.36697 4.25798V8.08618C2.35728 8.57929 2.54489 9.05514 2.88653 9.40389C3.22816 9.75265 3.69429 9.94417 4.17733 9.93428H7.92737C8.40334 9.93112 8.8584 9.73424 9.19163 9.3873C9.52487 9.04036 9.70874 8.57203 9.70247 8.08618V4.25798C9.69606 3.25991 8.90506 2.45243 7.92737 2.44588Z" fill="black"/>
+    </svg> 
+                            <p>Dashboards </p>
+                        </div>
+                    </a>
+                    <a href="" class="sidebar-links"> 
+                        <div class="flex">
+                            <svg width="28" height="28" viewbox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10.6351 5.84167L10.6646 5.90267L10.702 5.95914C10.7074 5.96732 10.7126 5.97563 10.7175 5.98405C10.8153 7.48808 10.9167 8.9837 11.0176 10.4716C11.0994 11.6765 11.1808 12.8764 11.2596 14.0716C11.2588 14.4571 11.3217 14.8399 11.4458 15.2052L11.4552 15.2329L11.4662 15.26C11.8468 16.197 12.785 16.7758 13.7853 16.7234L13.7853 16.7235L13.7969 16.7227L22.4616 16.1675L22.5965 16.1772L22.723 16.1863C22.8172 16.2026 22.9018 16.2472 22.965 16.3114C23.0386 16.3861 23.0781 16.4815 23.0811 16.5781C22.7485 21.2038 19.3486 25.0838 14.6995 26.0868C10.0369 27.0928 5.26904 24.9555 2.99074 20.8653L2.99078 20.8652L2.9864 20.8575C2.31885 19.6836 1.8975 18.3917 1.74633 17.0575L1.74439 17.0404L1.74187 17.0233C1.68543 16.6428 1.66072 16.2584 1.66799 15.874L1.66813 15.8661L1.66816 15.8582C1.68347 10.9277 5.19224 6.65027 10.1344 5.59403C10.3504 5.55764 10.5517 5.66917 10.6351 5.84167ZM15.1736 1.66679L15.1809 1.66712L15.1882 1.66734C20.7893 1.83501 25.4517 5.88055 26.3292 11.268L26.3291 11.2843L26.3281 11.383C26.3262 11.3872 26.3234 11.3916 26.3194 11.3961C26.3085 11.4084 26.2888 11.42 26.2631 11.4216L26.261 11.4217L16.0447 12.0955L15.9469 12.0974C15.9021 12.0911 15.8619 12.072 15.8315 12.0447C15.7902 12.0075 15.7712 11.9596 15.7714 11.9143L15.7715 11.8781L15.769 11.8419L15.0831 1.81827V1.72324C15.0853 1.71314 15.091 1.70137 15.1032 1.69042C15.1193 1.67597 15.1445 1.6655 15.1736 1.66679Z" stroke="black" stroke-width="2"/>
+    </svg>
+                            <p>Analytics </p>
+                        </div>
+                    </a>
+                    <a href="" class="sidebar-links">
+                        <div class="flex">
+                            <img src="{% static '/images/dashboard-image/icons/doc-icon.png' %}" style="background-color: black; width: 19px;"/>
+                            <p> Plans</p>
+                        </div>
+                    </a>
+                    
+                    <a href="" class="sidebar-links">
+                        <div class="flex">
+                            <svg width="28" height="28" viewbox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M25.4126 9.72025C25.9481 9.72669 26.3789 10.1617 26.3789 10.6961V19.3263C26.3789 24.2646 23.2915 27.3334 18.3423 27.3334H14.4066C13.8645 27.3334 13.4232 26.8983 13.4167 26.3575C13.4231 25.8146 13.8626 25.3762 14.4066 25.3698H18.3423C22.2428 25.3698 24.3992 23.2299 24.4345 19.3263V10.6961C24.4345 10.1572 24.8724 9.72025 25.4126 9.72025ZM17.3643 1.70147C17.9064 1.70791 18.3423 2.14821 18.3423 2.68912C18.3423 2.94999 18.2377 3.20001 18.0517 3.38337C17.8658 3.56673 17.6139 3.66815 17.3525 3.66501H8.69147C4.79105 3.66501 2.63463 5.81668 2.63463 9.72025V19.3263C2.63463 23.2299 4.79105 25.3698 8.69147 25.3698C9.23548 25.3762 9.67494 25.8146 9.6813 26.3575C9.67485 26.8983 9.23357 27.3334 8.69147 27.3334C3.7423 27.3334 0.666748 24.2646 0.666748 19.3263V9.72025C0.666748 4.77024 3.7423 1.70147 8.69147 1.70147H17.3643ZM18.8542 10.6322C19.1983 10.3978 19.6619 10.4045 20.0015 10.6651C20.3834 10.9583 20.4945 11.4854 20.2631 11.9072L16.4923 16.7631C16.3272 16.9665 16.0918 17.1007 15.8324 17.1394C15.5743 17.1656 15.3161 17.0896 15.1136 16.9277L11.496 14.0941L8.24369 18.3152C8.0886 18.5257 7.85539 18.6654 7.59625 18.7029C7.33712 18.7405 7.07371 18.6728 6.86499 18.515C6.43904 18.1818 6.3603 17.569 6.68824 17.1394L10.5415 12.1306C10.7023 11.9229 10.9392 11.7876 11.2001 11.7545C11.461 11.7214 11.7243 11.7933 11.932 11.9542L15.5496 14.7878L18.7312 10.7314L18.8542 10.6322ZM22.535 0.933305C23.8291 0.394555 25.3212 0.687393 26.3144 1.67509C27.3077 2.66279 27.6063 4.15053 27.0707 5.44369C26.5352 6.73684 25.2712 7.58034 23.8689 7.58034C21.9602 7.58034 20.411 6.03985 20.4045 4.13532L20.4123 3.88993C20.5002 2.58992 21.3169 1.44036 22.535 0.933305ZM23.8689 2.64209C23.0424 2.64209 22.3724 3.31063 22.3724 4.13532C22.3724 4.96001 23.0424 5.62856 23.8689 5.62856C24.6954 5.62856 25.3655 4.96001 25.3655 4.13532C25.3655 3.31063 24.6954 2.64209 23.8689 2.64209Z" fill="black"/>
+</svg> 
+                            <p>Activities </p>
+                        </div>
+                    </a>
+                    
+                </div>
+            </div>
+            <div id="main-container">
+                <div id="fraction-of-main">
+                    <nav id="navbar">
+                        <ul>
+                            <li id="mobile-view-logo" class="logo-holder">
+                                <img class="logo" src="{% static '/images/nlogo.png' %}">
+                                <p class="logo-text">Fitwell</p>
+                            </li>
+                            <li>
+                                <h2 id="desktop-view-title">Plans</h2>
+                            </li>
+                            <li>
+                                <div class="search-bar" >
+                                    <button type="submit">Submit</button>
+                                    <input type="search"/>
+                                </div>
+                            </li>
+
+                            <li id="user-icon">
+                                <div class="user-icon-text">
+                                    <p id="usr-name"><a href="#">James J.</a></p>
+                                    <p id="view-profile"><a href="#">view profile</a></p>
+                                </div>
+                                <div class="user-icon-img">
+                                    <img id ="user-img" src="{% static '/images/dashboard-image/avatar.png' %}" />
+                                </div>
+                            </li>
+                        </ul>    
+                    </nav>
+
+                    <div id="articles">
+                        <h1 id="mobile-view-title">Plans</h1>
+
+                        <article id="main-content">
+
+                            <div class="available-plans plan-containers">
+                                <h1 id="available-plans-header"> Available Plans For You</h1>
+                                <p>Select from any of our workout plans and meal plan to get started with healthy living</p>
+                            </div>
+                            <div id="desktop-top-section" class="plan-containers">
+                                <div id="top-plans" >
+                                <div class="plan-type-top-div">    
+                                    <h2>Top Plans</h2>
+                                    <p class="favorite-plans-text">Our favorite plans to get you started</p>
+                                    <p class="view-all">View All</p>
+                                </div>
+                                <div class="workout-cards"> 
+                                    <div class="card">
+                                        <img src="{% static '/images/index/quicktips.png' %}" class="workout-img" />
+                                        <div class="card-details">
+                                            <h4 class = "plan-type-text">Jump Rope</h4>
+                                            <p>Rating</p>
+                                            <p>1,253 views</p>
+                                            <div class="level">
+                                                <img src="{% static '/images/' %}">
+                                                <p>Beginner</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="card">
+                                        <img src="{% static '/images/index/quicktips.png' %}" class="workout-img" />
+                                        <div class="card-details">
+                                            <h4 class = "plan-type-text">Jump Rope</h4>
+                                            <p>Rating</p>
+                                            <p>1,253 views</p>
+                                            <div class="level">
+                                                <img src="#">
+                                                <p>Beginner</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="card">
+                                        <img src="{% static '/images/index/quicktips.png' %}" class="workout-img" />
+                                        <div class="card-details">
+                                            <h4 class = "plan-type-text">Jump Rope</h4>
+                                            <p>Rating</p>
+                                            <p>1,253 views</p>
+                                            <div class="level">
+                                                <img src="#">
+                                                <p>Beginner</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="card">
+                                        <img src="{% static '/images/index/quicktips.png' %}" class="workout-img" />
+                                        <div class="card-details">
+                                            <h4 class = "plan-type-text">Jump Rope</h4>
+                                            <p>Rating</p>
+                                            <p>1,253 views</p>
+                                            <div class="level">
+                                                <img src="#">
+                                                <p>Beginner</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>  
+                            </div>
+                            </div>
+                            <div id="desktop-bottom-section" class="plan-containers">
+                                <div id="workout-plans" >
+                                </div>
+                                    <div  class="plan-type-top-div">
+                                        <h2>Work Out Plans</h2>
+                                        <p class="favorite-plans-text">Our favorite plans to get you started</p>
+                                        <p class="view-all">View All</p>
+                                    </div>
+                                    <div class="workout-cards"> 
+                                        <div class="card">
+                                            <img src="{% static '/images/index/quicktips.png' %}" class="workout-img" />
+                                            <div class="card-details">
+                                                <h4 class = "plan-type-text">Jump Rope</h4>
+                                                <p>Rating</p>
+                                                <p>1,253 views</p>
+                                                <div class="level">
+                                                    <img src="#">
+                                                    <p>Beginner</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="card">
+                                            <img src="{% static '/images/index/quicktips.png' %}" class="workout-img" />
+                                            <div class="card-details">
+                                                <h4 class = "plan-type-text">Jump Rope</h4>
+                                                <p>Rating</p>
+                                                <p>1,253 views</p>
+                                                <div class="level">
+                                                    <img src="#">
+                                                    <p>Beginner</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div id="meal-plans">
+
+                                        <div  class="plan-type-top-div">
+                                            <h2>Meal Plans</h2>
+                                            <p class="favorite-plans-text">Our favorite plans to get you started</p>
+                                            <p class="view-all">View All</p>
+                                        </div>
+                                        <div class="workout-cards"> 
+                                            <div class="card">
+                                                <img src="{% static '/images/index/peer.png' %}" class="workout-img" />
+                                                <div class="card-details">
+                                                    <div class="top-half-details">
+                                                        <h4 class = "plan-type-text">Breakfast</h4>
+                                                        <p class="calories">36Kcal</p>
+                                                    </div>
+                                                    <div class="bottom-half-details">
+                                                        <p id="rating">Rating</p>
+                                                        <p>Lorem Ipsum Dolor Sit Amet, Consectetur Adiplsing Elit</p>
+                                                    </div>    
+                                                </div>
+                                            </div>
+                                            <div class="card">
+                                                <img src="{% static '/images/index/peer.png' %}" class="workout-img" />
+                                                <div class="card-details">
+                                                    <div class="top-half-details">
+                                                        <h4 class = "plan-type-text">Lunch</h4>
+                                                        <p class="calories">36Kcal</p>
+                                                    </div>
+                                                    <div class="bottom-half-details">
+                                                        <p class="rating">Rating</p>
+                                                        <p>Lorem Ipsum Dolor Sit Amet, Consectetur Adiplsing Elit</p>
+                                                    </div>    
+                                                </div>
+                                            </div>
+                                            <div class="card">
+                                                <img src="{% static '/images/index/peer.png' %}" class="workout-img" />
+                                                <div class="card-details">
+                                                    <div class="top-half-details">
+                                                        <h4 class = "plan-type-text">Dinner</h4>
+                                                        <p class="calories">36Kcal</p>
+                                                    </div>
+                                                    <div class="bottom-half-details">
+                                                        <p class="rating">Rating</p>
+                                                        <p>Lorem Ipsum Dolor Sit Amet, Consectetur Adiplsing Elit</p>
+                                                    </div>    
+                                                </div>
+                                            </div>
+                                    </div>    
+                                </div>
+                            </div>
+
+                        </article>
+                    </div>
+
+                </div>
+            </div>
+        </div>        
+        <script src="{% static '/js/plans.js' %}">
+        
+        </script>
+    </body>
+
+</html>

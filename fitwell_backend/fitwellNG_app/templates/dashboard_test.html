@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Fitwell</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static '/css/dashboard.css' %}">
+        <link rel="icon" href="{% static '/images/nlogo.png">
+        <link rel="stylesheet" href="{% static '/css/all.min.css' %}" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+    <body>
+        <!-- sidebar navigation -->
+        <nav class="navbar">
+            <div class="links">
+            <ul class="nav-links">
+                <li><a href="#"><img src="{% static '/images/dashboard-icon/dashboard.png' %}" alt="dashboard"><p>Dashboard</p></a></li>
+                <li><a href="#"><img src="{% static '/images/dashboard-icon/analytics.png' %}" alt="analytics"><p>Analytics</p></a></li>
+                <li><a href="#"><img src="{% static '/images/dashboard-icon/doc.png' %}" alt="plans"><p>Plans</p></a></li>
+                <li><a href="#"><img src="{% static '/images/dashboard-icon/activity.png' %}" alt="activities"><p>Activities</p></a></li>
+            </ul>
+            <ul class="options">
+                <li><a href="#"><img src="{% static '/images/dashboard-icon/setting.png' %}" alt="settings"><p>Settings</p></a></li>
+                <li><a href="#"><img src="{% static '/images/dashboard-icon/logout.png' %}" alt="log out"><p>Log Out</p></a></li>
+            </ul>
+            </div>
+        </nav>
+        <!-- sidebar navigation end -->
+
+        <!-- topbar -->
+        <div class="menu-bar">
+            <!-- toggle button -->
+            <div class="hamburger-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            <!-- toggle button end -->
+
+            <!-- fitwell logo -->
+            <div class="logo">
+                <a href="#"><img src="{% static '/images/dashboard-icon/Fitwell full logo1.png' %}" alt="logo"></a>
+            </div>
+            <!-- fitwell logo end -->
+            <h1>Dashboard</h1>
+            <form action="#">
+                <label for="search">
+                    <!-- search icon -->
+                    <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M25.9537 24.483L21.5539 20.1813L21.4507 20.0245C21.259 19.8336 20.9968 19.7261 20.7232 19.7261C20.4495 19.7261 20.1873 19.8336 19.9956 20.0245C16.2564 23.4549 10.4947 23.6414 6.53159 20.4602C2.56853 17.2791 1.63388 11.7174 4.3475 7.46369C7.06112 3.21 12.581 1.58424 17.2463 3.66461C21.9116 5.74498 24.2747 10.8859 22.7684 15.678C22.6599 16.0242 22.7486 16.4007 23.001 16.6656C23.2534 16.9305 23.6312 17.0437 23.9921 16.9625C24.353 16.8812 24.6422 16.6179 24.7506 16.2717C26.5513 10.5849 23.8317 4.46514 18.3513 1.87123C12.8708 -0.722689 6.2741 0.987726 2.82862 5.89601C-0.616868 10.8043 0.122855 17.4374 4.56926 21.5044C9.01566 25.5714 15.8343 25.8518 20.6143 22.1641L24.51 25.9729C24.9124 26.3646 25.5628 26.3646 25.9652 25.9729C26.3671 25.5757 26.3671 24.9362 25.9652 24.539L25.9537 24.483Z" fill="#0A2C44"/>
+                        </svg>      
+                </label>
+                <input class="textbox" type="text" name="search" id="search" placeholder="Search for your plans and routines">
+            </form>
+            <img src="{% static '/images/dashboard-icon/Notification.png' %}" alt="notification" class="bell-notify">
+            <div class="avatar">
+                <img src="{% static '/images/dashboard-image/avatar.png' %}" alt="james">
+            </div>
+        </div>
+        <!-- topbar end -->
+
+        <!-- container -->
+        <main class="container">
+            <!-- dashboard content -->
+            <div class="content">
+                <!-- start view1 -->
+                <section class="view1">
+                    <div class="overview">
+                        <h1>Good Evening <span>Jamal!</span></h1>
+                        <p>overview Summary</p>
+                        <div class="complete-task">
+                            <article class="session">
+                                <div class="top-icon">
+                                    <img src="{% static '/images/dashboard-icon/feather_list.svg' %}" alt="session">
+                                    <h1><span>07/</span>15</h1>
+                                </div>
+                                <p>workout Sessions completed</p>
+                            </article>
+                            <article class="hour">
+                                <div class="top-icon">
+                                    <img src="{% static '/images/dashboard-icon/Group.svg' %}" alt="time">
+                                    <h1><span>10/</span>12</h1>
+                                </div>
+                                <p>workout Hours completed</p>
+                            </article>
+                            <article class="calories">
+                                <div class="top-icon">
+                                    <img src="{% static '/images/dashboard-icon/Vector.svg' %}" alt="meal">
+                                    <h1><span>1375</span></h1>
+                                </div>
+                                <p>Calories Burnt</p>
+                            </article>
+                        </div>
+                    </div>
+                </section>
+                <!-- view1 end -->
+
+                <!-- start view2 -->
+                <section class="view2">
+                    <div class="request">
+                        <div class="select">
+                            <a href="#">Exercises</a>
+                            <div class="line"></div>
+                        </div>
+                        <div class="select">
+                            <a href="#">Meal Plans</a>
+                            <div class="line"></div>
+                        </div>
+                    </div>
+                    <div class="contain">
+                        <div class="programs">
+                            <div class="programs1">
+                                <!-- Grid layout used -->
+                                <div class="video">
+                                    <img src="{% static '/images/dashboard-icon/youtube play btn.png' %}" alt="play btn">
+                                    <!-- <iframe src="" frameborder="0"></iframe> -->
+                                </div>
+                                <article class="progress-bar">
+                                    <div class="rotate">
+                                        <div class="rotate1"></div>
+                                        <div class="rotate2"></div>
+                                        <div class="rotate3"></div>
+                                        <div class="progress-content">
+                                            <h1 id="count">3560</h1>
+                                            <p>calories</p>
+                                        </div>
+                                    </div>
+                                </article>
+                                <article class="exercise">
+                                    <h1><span>1</span> of 5</h1>
+                                    <p>Exercises</p>
+                                </article>
+                                <div class="btns">
+                                    <button class="next">Next <img src="{% static '/images/dashboard-icon/Vector (3).png' %}" alt="next"></button>
+                                    <button class="prev">Previous <img src="{% static '/images/dashboard-icon/Vector (2).png' %}" alt="prev"></button>
+                                </div>
+                                <!-- Grid layout end -->
+                            </div>
+                            <div class="guide">
+                                <div>
+                                    <img src="{% static '/images/dashboard-icon/workout icon.png' %}" alt="workout">
+                                </div>
+                                <div class="text-field">
+                                    <h2>wide Pushups</h2>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor in tellus, praesent lacus dictum dis. Congue vitae in enim magnis. Pellentesque porta donec id aliquam erat. Sit nunc sit odio arcu etiam.</p>
+                                    <div class="count-start">
+                                        <p>10 reps</p>
+                                        <button class="start-btn">Start</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="routine">
+                            <div class="current-plan">
+                                <div class="current">
+                                    <h1>Current Plans</h1>
+                                    <img src="{% static '/images/dashboard-icon/clarity_note-edit-line.png' %}" alt="note">
+                                </div>
+                                <div class="plan">
+                                    <div class="hold">
+                                        <img src="{% static '/images/dashboard-icon/fit well.png' %}" alt="workout">
+                                        FullBody Workout
+                                    </div>
+                                    <button class="view-btn">View</button>
+                                </div>
+                                <div class="plan">
+                                    <div class="hold">
+                                        <img src="{% static '/images/dashboard-icon/Vector (1).png' %}" alt="meal">
+                                        weight shredding meal plan 
+                                    </div>
+                                    <button class="view-btn">View</button>
+                                </div>
+                            </div>
+                            <div class="today-routine">
+                                <div class="today">
+                                    <div>
+                                        <h2>Today's Routines</h2>
+                                        <p class="view-all">view all</p>
+                                    </div>
+                                    <p>16, July 2021</p>
+                                </div>
+                                <div class="routine-pro">
+                                    <img src="{% static '/images/dashboard-image/fortune-vieyra-jD4MtXnsJ6w-unsplash 1.png' %}" alt="workout">
+                                    <div class="routine-txt">
+                                        <h3>Wide Pushups </h3>
+                                        <h4> FullBody Workout</h4>
+                                        <p>Beginner</p>
+                                        <div class="txts">
+                                            <p>10 reps</p>
+                                            <p>3 mins</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="routine-pro">
+                                    <img src="{% static '/images/dashboard-image/fortune-vieyra-eCKIeu1Lkok-unsplash 2.png' %}" alt="workout">
+                                    <div class="routine-txt">
+                                        <h3>Crunches</h3>
+                                        <h4> FullBody Workout</h4>
+                                        <p>Beginner</p>
+                                        <div class="txts">
+                                            <p>30 reps</p>
+                                            <p>3 mins</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="routine-pro">
+                                    <img src="{% static '/images/dashboard-image/fortune-vieyra-eCKIeu1Lkok-unsplash 2.png' %}" alt="workout">
+                                    <div class="routine-txt">
+                                        <h3>Rest</h3>
+                                        <h4> FullBody Workout</h4>
+                                        <p>Beginner</p>
+                                        <div class="txts">
+                                            <p>30 reps</p>
+                                            <p>3 mins</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- view2 end -->
+            </div>
+            <!-- dashboard content end -->
+        </main>
+        <!-- container end -->
+        <script src="{% static '/js/dashboard.js' %}"></script>
+    </body>
+</html>
