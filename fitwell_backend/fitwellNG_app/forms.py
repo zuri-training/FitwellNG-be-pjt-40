@@ -1,7 +1,8 @@
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django import forms
+from django.forms import ModelForm
 from django.contrib.auth.models import User
-from .models import User
+from .models import User, WorkoutPlanList, WorkoutPlan
 
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from .models import User
@@ -38,3 +39,16 @@ class LoginForm1(AuthenticationForm):
 class LoginForm(forms.Form):
     email = forms.EmailField()
     password = forms.PasswordInput()
+
+
+class PlanSubscriptionForm(ModelForm):
+    class Meta:
+        model = WorkoutPlan
+        fields = [ 'workout_plan']
+    # list = WorkoutPlanList.objects.all()
+    # choice = []
+    # for  l in list:
+    #     choice.append((l,l))
+    #
+    # meal_plan = forms.ChoiceField(choices=choice)
+
