@@ -44,14 +44,15 @@
                      
 
 <div class="d-flex">
-
-  <div class="d-flex btn-desk">
+              {% if user.is_authenticated == False %}
+              <div class="d-flex btn-desk">
               
                 <a class=" btn my-btn text-decoration-none" href="{% url 'sign-up' %}"
                   >SIGN UP</a
                 >
              
              </div>
+      {% endif %}
 
   <button
     class="navbar-toggler"

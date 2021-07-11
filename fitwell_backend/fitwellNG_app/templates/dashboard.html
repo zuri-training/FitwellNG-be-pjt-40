@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
+
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -19,7 +20,7 @@
             <ul class="nav-links">
                 <li><a href="{% url 'home' %}"><img src="{% static '/images/dashboard-icon/dashboard.png' %}" alt="dashboard"><p>Home</p></a></li>
                 <li><a href="#"><img src="{% static '/images/dashboard-icon/analytics.png' %}" alt="analytics"><p>Analytics</p></a></li>
-                <li><a href="{% url 'plans' %}"><img src="{% static '/images/dashboard-icon/doc.png' %}" alt="plans"><p>Plans</p></a></li>
+                <li><a href="{% url 'plans' user.pk %}"><img src="{% static '/images/dashboard-icon/doc.png' %}" alt="plans"><p>Plans</p></a></li>
                 <li><a href="#"><img src="{% static '/images/dashboard-icon/activity.png' %}" alt="activities"><p>Activities</p></a></li>
             </ul>
             <ul class="options">
@@ -165,7 +166,7 @@
                                 <div class="text-field">
 
                                         <h2>No Workout Plan </h2>
-                                         <p>You are yet to enroll for any plan! Please select a plan <a href="{% url 'plans'%}">here:</a> </p>
+                                         <p>You are yet to enroll for any plan! Please select a plan <a href="{% url 'plans' user.pk%}">here:</a> </p>
                                     <!--<form method="post">-->
                                         <!--{% csrf_token %}-->
                                             <!--{{ form.as_p }}-->

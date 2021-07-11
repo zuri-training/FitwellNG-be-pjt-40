@@ -1,10 +1,41 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from .forms import LoginForm, CustomUserCreationForm, PlanSubscriptionForm
-from .models import User, MealPlans, WorkoutPlan, WorkoutPlanList
-from django.views.generic import UpdateView, ListView
+from .models import User, MealPlans, WorkoutPlan, WorkoutPlanList, PlanTable
+from django.views.generic import UpdateView, ListView, DetailView
+from django.shortcuts import get_list_or_404, get_object_or_404
 import requests
 from django.contrib.auth.decorators import login_required
+
+
+
+class Test2View(DetailView):
+    '''
+    demonstrate how pass multiple model from a view to template
+    get a post request from ListView
+    add extra data to form before saving.
+    '''
+
+    model = WorkoutPlan
+    template_name = 'test.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['object2'] = WorkoutPlan.objects.all()
+        context['object3'] = MealPlans.objects.all()
+        context['object4'] = PlanTable.objects.all()
+        context['form'] = PlanSubscriptionForm()
+        return context
+
+    def post(self, request, pk):
+        form = PlanSubscriptionForm(request.POST)
+        if form.is_valid():
+            instance = form.save(commit=False)
+            instance.user = request.user
+            instance.save()
+
+        return redirect(f'/test/{pk}')
+
 
 
 class update_user(UpdateView):
@@ -15,9 +46,39 @@ class update_user(UpdateView):
     template_name = "update.html"
 
 
-class Plans(ListView):
-    template_name = "plans.html"
-    model = WorkoutPlan
+class Plans(DetailView):
+
+        model = WorkoutPlan
+        template_name = 'plans.html'
+
+        # used to handle/avoid error in case where user is yet to subscribe to any plan yet.
+        def get_object(self, queryset=None):
+            try:
+                obj = self.get_queryset().get(pk=self.request.user.pk)
+                return obj
+            except Exception as e:
+                print(f"ERROR: {e}")
+
+        # used to add extra content to what is passed to the template
+        def get_context_data(self, **kwargs):
+            context = super().get_context_data(**kwargs)
+            context['workout_plan_list'] = WorkoutPlanList.objects.all()
+            context['meal_plans'] = MealPlans.objects.all()
+            context['meal_table'] = PlanTable.objects.all()
+            context['form'] = PlanSubscriptionForm()
+            return context
+
+        # used to handle post request from the page to update workplan if user changes it
+        def post(self, request, pk):
+            form = PlanSubscriptionForm(request.POST)
+            if form.is_valid():
+                instance = form.save(commit=False)
+                instance.user = request.user
+                instance.save()
+
+            return redirect(f'/plans/{pk}')
+
+
 
 
 def plans(request):
@@ -25,12 +86,8 @@ def plans(request):
 
 
 def home(request):
-    # getUserData('jbadonai@gmail.com', 'afolayemi')
-    # getUserData('jayadonai@yahoo.com', 'afolayemi')
     videoList = getVideos()
-    # print(videoList)
     return render(request, 'index.html', {'videoList': videoList})
-    # return render(request, 'landing.html')
 
 
 def about(request):
@@ -38,20 +95,9 @@ def about(request):
 
 
 def dashboard(request):
-    if request.method == "POST":
-        print(f"User: {request.user.pk}")
-        print(request.POST)
-        form  = PlanSubscriptionForm(request.POST)
-        if form.is_valid():
-            form.save()
-            print("saveddddddddddddd")
 
-    form = PlanSubscriptionForm()
-    meal = MealPlans.objects.all()
-    workouts = WorkoutPlan.objects.all()
-    workout_list = WorkoutPlanList.objects.all()
+    return render(request, 'dashboard.html')
 
-    return render(request, 'dashboard.html', {'workout_list': workout_list, 'form':form})
 
 
 def logout_view(request):

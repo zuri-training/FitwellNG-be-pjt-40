@@ -74,7 +74,7 @@
 
                             <li id="user-icon">
                                 <div class="user-icon-text">
-                                    <p id="usr-name"><a href="#">James J.</a></p>
+                                    <p id="usr-name"><a href="#">{{ user.first_name }}</a></p>
                                     <p id="view-profile"><a href="#">view profile</a></p>
                                 </div>
                                 <div class="user-icon-img">
@@ -93,6 +93,23 @@
                             <div class="available-plans plan-containers">
                                 <h1 id="available-plans-header"> Available Plans For You</h1>
                                 <p>Select from any of our workout plans and meal plan to get started with healthy living</p>
+                                {% if object.workout_plan.plan is not None %}
+                                    <br><p>Your current workout Plan is : <b>{{object.workout_plan.plan}}</b></p><br>
+                                {% else %}
+                                    <br><p>Your current workout Plan is : <b> You have no plan yet! select one below</b></p><br>
+                                {% endif %}
+
+                                <h4>Select New Workout Plans</h4>
+                                <form method="post">
+                                    {% csrf_token %}
+                                    <div style="margin-left: 20px;">
+                                       {{form.as_p}}
+                                    <input type="submit" value="Change">
+                                    </div>
+
+                                </form>
+
+
                             </div>
                             <div id="desktop-top-section" class="plan-containers">
                                 <div id="top-plans" >

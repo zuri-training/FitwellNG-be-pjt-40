@@ -44,7 +44,7 @@ class LoginForm(forms.Form):
 class PlanSubscriptionForm(ModelForm):
     class Meta:
         model = WorkoutPlan
-        fields = ['user', 'workout_plan']
+        fields = [ 'workout_plan']
     # list = WorkoutPlanList.objects.all()
     # choice = []
     # for  l in list:

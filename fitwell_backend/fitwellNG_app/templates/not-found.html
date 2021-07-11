@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FitWell</title>
+
+    <!-- Bootstrap link -->
+    <link
+      href="{% static '/css/bootstrap.min.css' %}"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+
+    <!-- My Link Style -->
+    <link rel="stylesheet" href="{% static '/css/index.css' %}" />
+
+    <!-- Animation CSS -->
+     <link rel="stylesheet" href="{% static '/css/aos.css' %}" />
+  </head>
+  <body id="topicon">
+    <header class="">
+      <!-- Start of navbar -->
+
+      <nav
+        class="
+          navbar navbar-expand-lg navbar-light
+          bg-light
+          container
+          py-4
+          mybg-nav
+        "
+      >
+        <div class="container-fluid align-items-center w-100 ">
+          <a class="navbar-brand" href="{% url 'home' %}"
+            ><img src="{% static '/images/index/logo.png' %}" alt=""
+          /></a>
+
+
+
+<div class="d-flex">
+
+    {% if user.is_authenticated == False %}
+                <div class="d-flex btn-desk m-">
+
+                <a class=" btn my-btn text-decoration-none" href="{% url 'sign-up' %}"
+                  >SIGN UP</a
+                >
+                 </div>
+    {% endif %}
+
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-bs-toggle="collapse"
+    data-bs-target="#navbarNav"
+    aria-controls="navbarNav"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+                      <img src="{% static '/images/index/menu-icon.png' %}" alt="" class="img-fluid navbar-toggler-icon">
+          </button>
+          </div>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto align-items-center">
+              <li class="nav-item">
+                  {% if user.is_authenticated %}
+                    <li class="nav-item">
+
+                        <a class="nav-link active" aria-current="page" href="{% url 'dashboard' %}"
+                        >DASHBOARD</a
+                        >
+                    </li>
+                    {% endif %}
+
+                <a class="nav-link active" aria-current="page" href="#"
+                  >WORKOUTS</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">MEALPLANS</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'about' %}">ABOUT US</a>
+              </li>
+
+              <!--<li class="nav-item btn-hide-mb">-->
+                <!--<a class="nav-link btn my-btn" href="pages/sign-up.html">SIGN UP</a>-->
+              <!--</li>-->
+
+                 {% if user.is_authenticated %}
+                    <!--<a class="navbar-nav-list-item-link" href="{% url 'sign-up' %}">-->
+                    <!--<button class="btn">Sign up</button>-->
+                    <!--</a>-->
+                    {% else %}
+                    <li class="nav-item btn-hide-mb">
+                        <a class="nav-link btn my-btn" href="{% url 'sign-up' %}">SIGN UP</a>
+                    </li>
+                    {% endif %}
+
+              <!--<li class="nav-item">-->
+                <!--<a class="nav-link btn bg-dark my-btn" href="pages/login.html">LOGIN</a>-->
+              <!--</li>-->
+                  {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link btn bg-dark my-btn" href="{% url 'logout' %}">LOGOUT</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link btn bg-dark my-btn" href="{% url 'login' %}">LOGIN</a>
+                    </li>
+                    {% endif %}
+
+
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+<div style="text-align: center;">
+    <h1> 404 </h1>
+    <p >Page not found</p>
+
+</div>
+
+
+  </body>
+</html>

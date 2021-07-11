@@ -22,6 +22,7 @@ class UserCreate(generics.ListCreateAPIView):
     '''
     queryset = User.objects.all()
     serializer_class = UserSerializer
+    permission_classes = [IsAdminUser, IsAuthenticated]
 
     def perform_create(self, serializer):
         serializer.save()
@@ -30,11 +31,13 @@ class UserCreate(generics.ListCreateAPIView):
 class RoutineList(generics.ListAPIView):
     queryset = Routine.objects.all()
     serializer_class = RoutineSerializer
+    permission_classes = [IsAdminUser, IsAuthenticated]
 
 
 class RoutineCreate(generics.ListCreateAPIView):
     queryset = Routine.objects.all()
     serializer_class = RoutineSerializer
+    permission_classes = [IsAdminUser, IsAuthenticated]
 
     def perform_create(self, serializer):
         serializer.save()
@@ -43,11 +46,13 @@ class RoutineCreate(generics.ListCreateAPIView):
 class WorkoutPlanLists(generics.ListAPIView):
     queryset = WorkoutPlanList.objects.all()
     serializer_class = WorkoutPlanSerializer
+    permission_classes = [IsAdminUser, IsAuthenticated]
 
 
 class WorkoutPlanCreate(generics.ListCreateAPIView):
     queryset = WorkoutPlanList.objects.all()
     serializer_class = WorkoutPlanSerializer
+    permission_classes = [IsAdminUser, IsAuthenticated]
 
     def perform_create(self, serializer):
         serializer.save()
@@ -56,11 +61,13 @@ class WorkoutPlanCreate(generics.ListCreateAPIView):
 class MealTableList(generics.ListAPIView):
     queryset = PlanTable.objects.all()
     serializer_class = MealPLanTableSerializer
+    permission_classes = [IsAdminUser, IsAuthenticated]
 
 
 class MealTableCreate(generics.ListCreateAPIView):
     queryset = PlanTable.objects.all()
     serializer_class = MealPLanTableSerializer
+    permission_classes = [IsAdminUser, IsAuthenticated]
 
     def perform_create(self, serializer):
         serializer.save()
@@ -69,11 +76,13 @@ class MealTableCreate(generics.ListCreateAPIView):
 class MealPlanList(generics.ListAPIView):
     queryset = MealPlansList.objects.all()
     serializer_class = MealPlanListSerializer
+    permission_classes = [IsAdminUser, IsAuthenticated]
 
 
 class MealPlanCreate(generics.ListCreateAPIView):
     queryset = MealPlansList.objects.all()
     serializer_class = MealPlanListSerializer
+    permission_classes = [IsAdminUser, IsAuthenticated]
 
     def perform_create(self, serializer):
         serializer.save()
