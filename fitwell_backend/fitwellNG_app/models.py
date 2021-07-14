@@ -3,103 +3,8 @@ from django.contrib.auth.models import AbstractUser
 from django.contrib.auth import get_user_model
 import os
 from .managers import UserManager
+from django.template.defaultfilters import slugify
 from django.utils import  timezone
-
-
-# ==========================
-# < MEAL PLAN STARTS HERE >
-#
-# class Breakfast(models.Model):
-#     meal = models.CharField(max_length=200)
-#     calories = models.IntegerField(default=0)
-#     quantity = models.IntegerField(default=0)
-#     how_to_prepare = models.TextField(null=True)
-#     where_to_get = models.TextField(null=True)
-#     image = models.ImageField(upload_to="photos/foods", default="image/default_food.jpg")
-#
-#     def __str__(self):
-#         return self.meal
-#
-#
-# class Lunch(models.Model):
-#     meal = models.CharField(max_length=200)
-#     calories = models.IntegerField(default=0)
-#     quantity = models.IntegerField(default=0)
-#     how_to_prepare = models.TextField(null=True)
-#     where_to_get = models.TextField(null=True)
-#     image = models.ImageField(upload_to="photos/foods", default="image/default_food.jpg")
-#
-#     def __str__(self):
-#         return self.meal
-#
-#
-# class Dinner(models.Model):
-#     meal = models.CharField(max_length=200)
-#     calories = models.IntegerField(default=0)
-#     quantity = models.IntegerField(default=0)
-#     how_to_prepare = models.TextField(null=True)
-#     where_to_get = models.TextField(null=True)
-#     image = models.ImageField(upload_to="photos/foods", default="image/default_food.jpg")
-#
-#     def __str__(self):
-#         return self.meal
-#
-#
-# class AWeekSchedule(models.Model):
-#     week = models.IntegerField(unique=True, auto_created=True)
-#     sunday_breakfast = models.ForeignKey(Breakfast, on_delete=models.CASCADE, related_name="sunday_breakfast")
-#     sunday_lunch = models.ForeignKey(Lunch, on_delete=models.CASCADE, related_name="sunday_lunch")
-#     sunday_dinner = models.ForeignKey(Dinner, on_delete=models.CASCADE, related_name="sunday_dinner")
-#     monday_breakfast = models.ForeignKey(Breakfast, on_delete=models.CASCADE, related_name="monday_breakfast")
-#     monday_lunch = models.ForeignKey(Lunch, on_delete=models.CASCADE, related_name="monday_lunch")
-#     monday_dinner = models.ForeignKey(Dinner, on_delete=models.CASCADE, related_name="monday_dinner")
-#     tuesday_breakfast = models.ForeignKey(Breakfast, on_delete=models.CASCADE, related_name="tuesday_breakfast")
-#     tuesday_lunch = models.ForeignKey(Lunch, on_delete=models.CASCADE, related_name="tuesday_lunch")
-#     tuesday_dinner = models.ForeignKey(Dinner, on_delete=models.CASCADE, related_name="tuesday_dinner")
-#     wednesday_breakfast = models.ForeignKey(Breakfast, on_delete=models.CASCADE, related_name="wednesday_breakfast")
-#     wednesday_lunch = models.ForeignKey(Lunch, on_delete=models.CASCADE, related_name="wednesday_lunch")
-#     wednesday_dinner = models.ForeignKey(Dinner, on_delete=models.CASCADE, related_name="wednesday_dinner")
-#     thursday_breakfast = models.ForeignKey(Breakfast, on_delete=models.CASCADE, related_name="thursday_breakfast")
-#     thursday_lunch = models.ForeignKey(Lunch, on_delete=models.CASCADE, related_name="thursday_lunch")
-#     thursday_dinner = models.ForeignKey(Dinner, on_delete=models.CASCADE, related_name="thursday_dinner")
-#     friday_breakfast = models.ForeignKey(Breakfast, on_delete=models.CASCADE, related_name="friday_breakfast")
-#     friday_lunch = models.ForeignKey(Lunch, on_delete=models.CASCADE, related_name="friday_lunch")
-#     friday_dinner = models.ForeignKey(Dinner, on_delete=models.CASCADE, related_name="friday_dinner")
-#     saturday_breakfast = models.ForeignKey(Breakfast, on_delete=models.CASCADE, related_name="saturday_breakfast")
-#     saturday_lunch = models.ForeignKey(Lunch, on_delete=models.CASCADE, related_name="saturday_lunch")
-#     saturday_dinner = models.ForeignKey(Dinner, on_delete=models.CASCADE, related_name="saturday_dinner")
-#
-#
-# class ScheduleDetails(models.Model):
-#     day = models.CharField(max_length=50)
-#     breakfast = models.ForeignKey(Breakfast, on_delete=models.CASCADE)
-#     lunch = models.ForeignKey(Lunch, on_delete=models.CASCADE)
-#     dinner = models.ForeignKey(Dinner, on_delete=models.CASCADE)
-#
-#     def __str__(self):
-#         return self.day
-#
-#
-# class Schedules(models.Model):
-#     schedule_name = models.CharField(max_length=200)
-#     schedule_start_date = models.DateTimeField(default=timezone.now)
-#     schedule_number_of_days = models.IntegerField(default=7)
-#     schedules = models.ManyToManyField(AWeekSchedule)
-#
-#     def __str__(self):
-#         return self.schedule_name
-#
-#
-# class MealPlan(models.Model):
-#     plan_name = models.CharField(max_length=100)
-#     plan_schedule = models.ManyToManyField(AWeekSchedule)
-#     plan_start_date = models.DateTimeField()
-#     plan_duration = models.IntegerField()
-#     plan_calories_consumed = models.IntegerField()
-#     plan_description = models.TextField()
-#
-#     def __str__(self):
-#         return self.plan_name
 
 
 def get_image_path(instance, filename):
@@ -147,7 +52,10 @@ class User(AbstractUser):
 class BreakfastLIst(models.Model):
     class Meta:
         abstract = True
-    breakfast = models.TextField()
+    breakfast = models.CharField(max_length=500, help_text="The meal")
+    about_breakfast = models.TextField(help_text="About the meal; e.g. nutritional info or how it's prepared")
+    breakfast_calories = models.IntegerField(default=0)
+    breakfast_meal_time = models.TimeField(null=True)
 
     def __str__(self):
         return self.breakfast
@@ -156,7 +64,10 @@ class BreakfastLIst(models.Model):
 class LunchList(models.Model):
     class Meta:
         abstract = True
-    lunch = models.TextField()
+    lunch = models.CharField(max_length=500, help_text="The meal")
+    about_lunch = models.TextField(help_text="About the meal; e.g. nutritional info or how it's prepared")
+    lunch_calories = models.IntegerField(default=0)
+    lunch_meal_time = models.TimeField(null=True)
 
     def __str__(self):
         return self.lunch
@@ -165,52 +76,36 @@ class LunchList(models.Model):
 class DinnerList(models.Model):
     class Meta:
         abstract = True
-    dinner = models.TextField()
+    dinner = models.CharField(max_length=500, help_text="The meal")
+    about_dinner = models.TextField(help_text="About the meal; e.g. nutritional info or how it's prepared")
+    dinner_calories = models.IntegerField(default=0)
+    dinner_meal_time = models.TimeField(null=True)
 
     def __str__(self):
         return self.dinner
 
 
-class DayTable(BreakfastLIst, LunchList, DinnerList):
+class DayTable(models.Model):
     class Meta:
         abstract = True
-
-    day_choice = [('mon', 'monday'),
-                  ('tue', 'tuesday'),
-                  ('wed', 'wednesday'),
-                  ('thur', 'thursday'),
-                  ('fri', 'friday'),
-                  ('sat', 'saturday'),
-                  ('sun', 'sunday')]
-    day = models.CharField(max_length=20, choices=day_choice)
+    day = models.IntegerField(help_text="specify day no. e.g day 1 out of 30 days plan")
 
     def __str__(self):
         return self.day
 
 
-class PlanTable(DayTable):
+class MealLists(DayTable, BreakfastLIst, LunchList, DinnerList):
     '''
     Each day meal Plan is created here.
     '''
 
+    name = models.CharField(max_length=300, help_text="Meal plan name e.g. weight shred. Must be repeated for each day in the plan")
+    meal_time = models.TimeField(default=timezone.now)
+    # calories_intake = models.IntegerField(help_text="calories provided by the meal")
+    category = models.CharField(max_length=300, help_text="category of this plan may be similar to name e.g weight loss. Must be repeated for each day in the plan")
 
     def __str__(self):
-        return f"{self.day} - Breakfast: {self.breakfast} ..."
-
-
-class MealPlansList(models.Model):
-    '''
-    Each of the Meal Plan is defined and created here
-    The name of the plan, The content of the plan, duration and start date
-    start date is null by default which gives user opportunity to start the plan anytime the user wants after enrolling.
-    '''
-    name = models.CharField(max_length=200)
-    plan = models.ManyToManyField(PlanTable)
-    duration = models.IntegerField(help_text="weeks")
-    start_date = models.DateField(null=True)
-
-    def __str__(self):
-        return self.name
+        return f"{self.name} - day {self.day}"
 
 
 class MealPlans(models.Model):
@@ -218,10 +113,12 @@ class MealPlans(models.Model):
     This keeps the  record of each user that has signed up for meal plan and what they signed up for.
     '''
     user = models.OneToOneField(get_user_model(), primary_key=True, on_delete=models.CASCADE)
-    meal_plan = models.ForeignKey(MealPlansList, on_delete=models.CASCADE)
+    start_date = models.DateField(null=True)
+    active = models.BooleanField(default=False)
+    plan_name = models.ForeignKey(MealLists, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.meal_plan.name
+        return self.plan_name
 
 
 #   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -258,4 +155,9 @@ class WorkoutPlan(models.Model):
 
     def __str__(self):
         return f"{self.user.email} -- {self.workout_plan.plan}"
+
+    def slug(self):
+        return slugify(self.workout_plan.plan)
+
+
 

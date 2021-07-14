@@ -1,6 +1,6 @@
 from django.urls import path
 from .views import UserCreate, UserList, RoutineList, RoutineCreate, WorkoutPlanLists,\
-    WorkoutPlanCreate, MealTableList, MealTableCreate, MealPlanList, MealPlanCreate
+    WorkoutPlanCreate, MealListView, MealCreateView
 from rest_framework.authtoken import views
 
 urlpatterns = [
@@ -14,10 +14,8 @@ urlpatterns = [
     path('api/services/workoutplan/', WorkoutPlanLists.as_view(), name='workout-plan-list'),
     path('api/services/workoutplan/create/', WorkoutPlanCreate.as_view(), name='workout-plan-create'),
 
-    path('api/services/mealtable/', MealTableList.as_view(), name='meal-table-list'),
-    path('api/services/mealtable/create/', MealTableCreate.as_view(), name='meal-table-create'),
+    path('api/services/meal-list/', MealListView.as_view(), name='meal-list'),
+    path('api/services/meal-list/create/', MealCreateView.as_view(), name='meal-create'),
 
-    path('api/services/mealplan/', MealPlanList.as_view(), name='meal-plan-list'),
-    path('api/services/mealplan/create/', MealPlanCreate.as_view(), name='meal-plan-create'),
 
 ]

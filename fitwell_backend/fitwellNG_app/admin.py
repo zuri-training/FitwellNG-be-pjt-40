@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from .models import User, DayTable, PlanTable, MealPlans, MealPlansList, Routine, WorkoutPlanList, WorkoutPlan
+from .models import User, MealLists, MealPlans, Routine, WorkoutPlanList, WorkoutPlan
 
 
 class UserAdminConfig(UserAdmin):
@@ -25,9 +25,10 @@ class UserAdminConfig(UserAdmin):
 
 # admin.site.register(User, UserAdminConfig)
 admin.site.register(User)
-admin.site.register(MealPlansList)
-admin.site.register(PlanTable)
+
+admin.site.register(MealLists)
 admin.site.register(MealPlans)
+
 admin.site.register(Routine)
 admin.site.register(WorkoutPlan)
 admin.site.register(WorkoutPlanList)

@@ -22,30 +22,34 @@
      <link rel="stylesheet" href="{% static '/css/aos.css' %}" />
   </head>
   <body id="topicon">
-    <header class="">
-      <!-- Start of navbar -->
 
-      <nav
+
+    <header class="header py-3">
+      <!-- Start of navbar -->
+ <nav
         class="
-          navbar navbar-expand-lg navbar-light
-          bg-light
-          container
-          py-4
+          navbar container navbar-expand-lg
+          
           mybg-nav
         "
       >
         <div class="container-fluid align-items-center w-100 ">
-          <a class="navbar-brand" href="{% url 'home' %}"
-            ><img src="{% static '/images/index/logo.png' %}" alt=""
-          /></a>
+        
+          <!-- Navbar Logo Section -->
+        
+          <a class="align-items-center text-decoration-none justify-content-center d-flex" href="../index.html"
+            ><img src="{% static '/images/about/fitwell-logo.png' %}" alt="Fitwell Logo" class="logo"
+          /><span class="logo-text">FITWELL</span></a>
+
+           <!-- End of Navbar Logo Section -->
 
                      
 
 <div class="d-flex">
 
-    {% if user.is_authenticated == False %}
+      {% if user.is_authenticated == False %}
                 <div class="d-flex btn-desk m-">
-              
+
                 <a class=" btn my-btn text-decoration-none" href="{% url 'sign-up' %}"
                   >SIGN UP</a
                 >
@@ -61,13 +65,13 @@
     aria-expanded="false"
     aria-label="Toggle navigation"
   >
-                      <img src="{% static '/images/index/menu-icon.png' %}" alt="" class="img-fluid navbar-toggler-icon">
-          </button>
-          </div>
+    <img src="{% static '/images/about/menu-icon.png' %}" alt="" class="img-fluid navbar-toggler-icon">
+  </button>
+
+</div>
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto align-items-center">
-              <li class="nav-item">
-                  {% if user.is_authenticated %}
+                 {% if user.is_authenticated %}
                     <li class="nav-item">
 
                         <a class="nav-link active" aria-current="page" href="{% url 'dashboard' %}"
@@ -75,7 +79,7 @@
                         >
                     </li>
                     {% endif %}
-
+              <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="#"
                   >WORKOUTS</a
                 >
@@ -88,10 +92,11 @@
               </li>
 
               <!--<li class="nav-item btn-hide-mb">-->
-                <!--<a class="nav-link btn my-btn" href="pages/sign-up.html">SIGN UP</a>-->
+                <!--<a class="nav-link btn my-btn btn-mob" href="../pages/sign-up.html"-->
+                  <!--&gt;SIGN UP</a-->
+                <!--&gt;-->
               <!--</li>-->
-
-                 {% if user.is_authenticated %}
+                   {% if user.is_authenticated %}
                     <!--<a class="navbar-nav-list-item-link" href="{% url 'sign-up' %}">-->
                     <!--<button class="btn">Sign up</button>-->
                     <!--</a>-->
@@ -102,9 +107,12 @@
                     {% endif %}
 
               <!--<li class="nav-item">-->
-                <!--<a class="nav-link btn bg-dark my-btn" href="pages/login.html">LOGIN</a>-->
+                <!--<a class="nav-link btn bg-dark my-btn btn-mob" href="../pages/login.html"-->
+                  <!--&gt;LOGIN</a-->
+                <!--&gt;-->
               <!--</li>-->
-                  {% if user.is_authenticated %}
+
+                {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link btn bg-dark my-btn" href="{% url 'logout' %}">LOGOUT</a>
                     </li>
@@ -113,13 +121,17 @@
                         <a class="nav-link btn bg-dark my-btn" href="{% url 'login' %}">LOGIN</a>
                     </li>
                     {% endif %}
-
-
             </ul>
+           
           </div>
         </div>
-      </nav>
+      </nav> <!-- End of navbar -->
+     
     </header>
+
+
+
+
 
     <main id="main">
       <!-- Hero Section -->
@@ -127,30 +139,76 @@
         <div class="hero-inner">
           <h2 class="h2 h2-head mt-4 fw-bold pp"  data-aos="fade-right" data-aos-duration="500">Welcome,
           {{user.first_name | capfirst }}</h2>
-          </h2>
           <p class="mt-3">
             Health is wealth, keeping fit means staying healthy. Fitwell is made for your continous wellness and fitness. Workout Routines, Mealplans & Fitness Store to make  your fitness journey a breeze.
           </p>
-
-          <!--<a href="./pages/sign-up.html" class="btn btn-red w-50 text-decoration-none">Get Started</a>-->
-              {% if user.is_authenticated %}
-            <a href="{% url 'dashboard' %}" class="btn btn-red w-50 text-decoration-none">Get Started</a>
-            {% else %}
-            <a href="{% url 'login' %}" class="btn btn-red w-50 text-decoration-none">Get Started</a>
-            {% endif %}
-
+          {% if user.is_authenticated %}
+            <a href="{% url 'dashboard' %}">Get Started</a>
+          {% else %}
+            <a href="{% url 'login' %}">Get Started</a>
+          {% endif %}
         </div>
       </section>
       <!-- End of Hero Section -->
 
+      <!-- sub Hero Section -->
+      <div class="hero-section2">
+        <div class="hero-content-heading">
+          <h3>Have Access to Carefully Organised and Flexible Plans</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam turpis elit nec ipsum. 
+            Diam interdum pellentesque venenatis, eu amet dictumst. Amet malesuada morbi cursus purus ut ultricies eu, sed. 
+            Habitant volutpat porta suspendisse nec. Egestas tellus, lectus euismod in a sagittis sit cursus. Et, auctor 
+            pellentesque ipsum vitae, eros, bibendum. Diam.</p>
+        </div>
+
+        <div class="hero-content-btn">
+          {% if user.is_authenticated %}
+            <a href="{% url 'dashboard' %}">Gain Access</a>
+          {% else %}
+          <a href="{% url 'login' %}">Gain Access</a>
+          {% endif %}
+        </div>
+      </div>
+      <!-- why fitwell section -->
+      <div class="hero-info">
+        <div class="hero-about">
+          <h3>Why Fitwell</h3>
+        </div>
+
+        <div class="info">
+          <div class="if-img1">
+            <img src="{% static '/images/index/Thumbsup.png' %}" alt="">
+            <p> Very organised  and easy to use  Plans , Carefully selected and suited specially for users. 
+              All Routines are flexible and well explained </p>
+          </div>
+
+          <div class="if-img2">
+            <img src="{% static '/images/index/Group.png' %}" alt="">
+            <p>All Plans have been tested by Fitness coaches and nutrionists around 
+              the world and are provent to be safe and give the best results to Users</p>
+          </div>
+
+          <div class="if-img3">
+            <img src="{% static '/images/index/Message.png' %}" alt="">
+            <p>feedback and User support to help every user with 
+              any questions they may have about our products, </p>
+          </div>
+        </div>
+
+        <div class="ellipse1">
+          <img src="{% static '/images/index/Ellipse26.png' %}" alt="">
+          <img src="{% static '/images/index/Ellipse28.png' %}" alt="">
+          <img src="{% static '/images/index/Ellipse28.png' %}" alt="">
+        </div>
+      </div>
+
+
       <!-- Popular Exercise -->
+      <section class="container-1">
+        <div class="row-1">
 
-      <section class="container my-5">
-        <h3 class="h3 fw-bold my-4 pp"  data-aos="fade-right" data-aos-duration="500">Popular Exercise</h3>
-        <div class="row">
-
-          <!-- </div> Yoga -->
-          <div class="col-lg-4 col-md-4 col-sm-6 col-12 my-4 vid"  data-aos="fade-down" data-aos-duration="500">
+          <!-- div. yoga -->
+          <div class="yoga">
             <img
               src="{% static '/images/index/yoga.png' %}"
               alt=""
@@ -160,14 +218,13 @@
               <img src="{% static '/images/index/ytube.png' %}" alt="">
             </div>
 
-            <div class="vid-content d-flex justify-content-between align-items-center">
-              <div>Yoga</div>
-              <div class="time">21:42</div>
+            <div class="vid-content1">
+              <h3>Flexibility Exercises for women</h3>
             </div>
-          </div>  <!-- </div> End of Yoga -->
+          </div>
 
-          <!-- </div> Treadmill -->
-           <div class="col-lg-4 col-md-4 col-sm-6 col-12 my-4 vid" data-aos="fade-up" data-aos-duration="500">
+          <!-- div. treadmill -->
+          <div class="treadmill">
             <img
               src="{% static '/images/index/treadmil.png' %}"
               alt=""
@@ -177,315 +234,386 @@
               <img src="{% static '/images/index/ytube.png' %}" alt="">
             </div>
 
-            <div class="vid-content d-flex justify-content-between align-items-center">
-              <div>Treadmill</div>
-              <div class="time">21:42</div>
+            <div class="vid-content2">
+              <h3>Best Cardio exercises for your age</h3>
             </div>
-            </div>
-          <!-- </div> End of Treadmill -->
-          
-<!-- </div> Battle Rope -->
+          </div>
 
-          <div class="col-lg-4 col-md-4 col-sm-6 col-12 my-4  vid" data-aos="fade-down" data-aos-duration="500">
-            <img
-              src="{% static '/images/index/br.png' %}"
-              alt=""
-              class="img-fluid"
-            />
-             <div class="vid-icon">
-              <img src="{% static '/images/index/ytube.png' %}" alt="">
-            </div>
-
-            <div class="vid-content d-flex justify-content-between align-items-center">
-              <div>Battle Rope</div>
-              <div class="time">21:42</div>
-            </div>
-          </div> <!-- </div> End of Battle Rope -->
-
-
-          <!-- </div> Isometry -->
-          <div class="col-lg-4 col-md-4 col-sm-6 col-12 my-4 vid" data-aos="fade-up" data-aos-duration="500">
+          <!-- div. isometry -->
+          <div class="isometry">
             <img
               src="{% static '/images/index/isometry.png' %}"
               alt=""
               class="img-fluid"
             />
-             <div class="vid-icon">
+            <div class="vid-icon">
               <img src="{% static '/images/index/ytube.png' %}" alt="">
             </div>
 
-            <div class="vid-content d-flex justify-content-between align-items-center">
-              <div>Isometry</div>
-              <div class="time">21:42</div>
+            <div class="vid-content3">
+              <h3>Planking the right way</h3>
             </div>
-          </div> <!-- </div> End of Isometry -->
+          </div>
 
-
-           <!-- </div> Lifting -->
-          <div class="col-lg-4 col-md-4 col-sm-6 col-12 my-4 vid" data-aos="fade-down" data-aos-duration="500">
+          <!-- div. lifting -->
+          <div class="lifting">
             <img
               src="{% static '/images/index/lifting.png' %}"
               alt=""
               class="img-fluid"
             />
-             <div class="vid-icon">
+            <div class="vid-icon">
               <img src="{% static '/images/index/ytube.png' %}" alt="">
             </div>
 
-            <div class="vid-content d-flex justify-content-between align-items-center">
-              <div>Lifting</div>
-              <div class="time">21:42</div>
-            </div>
-          </div> <!-- </div> End of Lifting -->
-
-
-           <!-- </div> Running -->
-          <div class="col-lg-4 col-md-4 col-sm-6 col-12 my-4 vid" data-aos="fade-up" data-aos-duration="500">
-            <img
-              src="{% static '/images/index/running.png' %}"
-              alt=""
-              class="img-fluid"
-            />
-             <div class="vid-icon">
-              <img src="{% static '/images/index/ytube.png' %}" alt="">
-            </div>
-
-            <div class="vid-content d-flex justify-content-between align-items-center">
-              <div>Running</div>
-              <div class="time">21:42</div>
+            <div class="vid-content4">
+              <h3>The Dos and Don’ts of Weight Lifting</h3>
             </div>
           </div>
-
-          <!-- </div> End of Running -->
-
-
         </div>
-        <div class="viewall d-flex justify-content-end mr-5">
-          <a href="#">View All</a>
+
+        <div class="row-text">
+          <h3 class="h3 fw-bold my-3 cpp" data-aos="fade-down" data-aos-duration="500">Workout Videos</h3>
+          <p class="p fw-bold my-4 px-3 din-color" data-aos="fade-up" data-aos-duration="500">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pulvinar molestie neque viverra nisi. 
+            Viverra ipsum sagittis, magnis non dolor sed morbi nec pellentesque. Vitae eget sit non aliquam. T
+            ortor massa lectus varius et tristique pellentesque enim dignissim. Tincidunt lacus, bibendum et purus tristique. 
+            Non rhoncus ac sodales pellentesque. Quam ac eros, eget eget diam. Elit mauris pellentesque arcu, ut magna non dui. 
+            Felis morbi tincidunt ipsum amet tincidunt sollicitudin sagittis, in.
+            A at in ornare nam lacus, velit auctor blandit ut. Cursus laoreet rhoncus vitae. 
+          </p>
+          <div class="buttons">
+            <a href="#" class="b1">Browse videos</a>
+              {% if user.is_authenticated %}
+            <a href="{% url 'dashboard' %}" class="b2">Join Now</a>
+          {% else %}
+           <a href="{% url 'login' %}" class="b2">Join Now</a>
+          {% endif %}
+
+
+          </div>
         </div>
       </section>
-      <!-- End of Popular Exercise -->
+      <!-- popular exercise end -->
 
-      <!-- Categories Section -->
+     
 
-      <section class="container">
-        <div class="row g-2 d-flex justify-content-center">
-          <div class="col-lg-3 col-md-4 col-sm-6 col-12 m-3 shadow">
-            <div class="text-center p-3 cd-img">
-              <h3 class="h3 fw-bold my-3 cpp" data-aos="fade-down" data-aos-duration="500">Healthy Meals</h3>
-           
-              
-              <img
-                src="{% static '/images/index/Mealplans.png' %}"
-                alt=""
-                class="img-fluid my-3" data-aos="fade-up" data-aos-duration="500"
-              />
-              <h5 class="h5 fw-bold my-4 din-color" data-aos="fade-up" data-aos-duration="500">Healthy Meal Plans</h5>
-              <p class="p fw-bold my-4 px-3 din-color" data-aos="fade-up" data-aos-duration="500">
-                Learn about your calorie count, nutrition information and diet tips for your continuous fitness and wellness. 
-              </p>
-
-              <!--<button class="btn btn-red w-50 my-3" data-aos="fade-up" data-aos-duration="500">Get Started</button>-->
-                  {% if user.is_authenticated %}
-            <a href="{% url 'dashboard' %}" class="btn btn-red w-50 text-decoration-none">Get Started</a>
-            {% else %}
-            <a href="{% url 'login' %}" class="btn btn-red w-50 text-decoration-none">Get Started</a>
-            {% endif %}
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4 col-sm-6 col-12 m-3 shadow">
-            <div class="text-center p-3 cd-img">
-              <h3 class="h3 fw-bold my-3 cpp2" data-aos="fade-down" data-aos-duration="500">Workout Routines</h3>
-              <img
-                src="{% static '/images/index/workout.png' %}"
-                alt=""
-                class="img-fluid my-3" data-aos="fade-up" data-aos-duration="500"
-              />
-              <h5 class="h5 fw-bold my-4 din-color" data-aos="fade-up" data-aos-duration="500">Workout Routines</h5>
-              <p class="p fw-bold my-4 px-3 din-color" data-aos="fade-up" data-aos-duration="500">
-                Trying to keep fit and stay healthy? Workout anywhere and anytime with fitwell towards your continuous fitness and wellness.
-              </p>
-              <!-- <button class="btn btn-red w-50 my-3" data-aos="fade-up" data-aos-duration="500">Get Started</button> -->
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4 col-sm-6 col-12 m-3 shadow">
-            <div class="text-center p-3 cd-img">
-              <h3 class="h3 fw-bold my-3 cpp" data-aos="fade-down" data-aos-duration="500">Fitness Store</h3>
-              <img
-                src="{% static '/images/index/shop.png' %}"
-                alt=""
-                class="img-fluid my-3" data-aos="fade-up" data-aos-duration="500"
-              />
-              <h5 class="h5 fw-bold my-4 din-color" data-aos="fade-up" data-aos-duration="500">Fitness Store</h5>
-              <p class="p fw-bold my-4 px-3 din-color" data-aos="fade-up" data-aos-duration="500">
-                Trying to lose weight, tone up, lower your BMI or to keep fit and attain wellness? We give you the right features to achieve your goals.
-              </p>
-              <!-- <button class="btn btn-red w-50 my-3" data-aos="fade-up" data-aos-duration="500">Shop Now</button> -->
-            </div>
-          </div>
-        </div>
-      </section> <!-- End of Category Section -->
-
-
-
-   <!-- Quick Tips -->
-
-   <section class="container my-5">
-    <h3 class="h3 fw-bold my-4 qp" data-aos="fade-right" data-aos-duration="500">Quick Tips</h3>
-    <div class="row">
-        <div class="col-lg-8 col-md-6 col-sm-12 col-12 my-4 quick-tip">
-          
-<img src="{% static '/images/index/quicktips.png' %}" alt="" class="qt-img img-fluid">
- <div class="inner-qt">
-          <h5 class="h5 fit" data-aos="fade-right" data-aos-duration="500">Fitness</h5>
-          <h5 class="h5 mt-2 fw-bold" data-aos="fade-up" data-aos-duration="500">How to do the Dumbbel Deadlift</h5>
-          <p class="mt-3 fw-bold" data-aos="fade-down" data-aos-duration="500">
-            If you're new to strength training, deadlifting is one of the easiest movement to learn and incorporate into your workout because, chances are that you've performed this move before without even thinking about it. Deadlifts are an incredibly functional move, meaning.
-          </p>
-          <a href="#" class="btn-link fw-bold text-decoration-none mt-2 float-end" data-aos="fade-right" data-aos-duration="500">Read More</a>
-        </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 col-sm-12 col-12 my-4 flex-column justify-content-md-center">
-            <div class="row">
-            <div class="col-12 qpr">
-            <h5 class="h5 text-muted mb-1" data-aos="fade-right" data-aos-duration="500">Health</h5>
-            <img src="{% static '/images/index/meditate.png' %}" alt="" class="img-fluid my-3 w-100">
-              <p class="qpr-inner">6 reason why you should eat Avacado daily
-</p>
-        </div>
-            <div class="mt-4 col-12  qpr">
-            <h5 class="h5 text-muted mb-1" data-aos="fade-right" data-aos-duration="500">Nutrition</h5>
-            <img src="{% static '/images/index/peer.png' %}" alt="" class="img-fluid my-3 w-100">
-            <p class="qpr-inner">6 reason why you should eat Avacado daily
-</p>
-        </div>
-        </div>
-    </div>
-
-</section>  <!-- End of Quick Tips -->
-
-
-<!-- Our Partners -->
-
+<!-- Blog Posts -->
 <section class="container my-5">
-    <h3 class="h3 fw-bold my-4 qp" data-aos="fade-right" data-aos-duration="500">Our Partners</h3>
-    <div class="row g-3">
-        <div class="col-lg-2 col-md-3 col-sm-4 col-4 my-4 p-3">
-          
+  <h3 class="h3 fw-bold my-4 qp" data-aos="fade-right" data-aos-duration="500">Blog posts</h3>
+  <div class="container2">
+    <div class="row-blog">
+      <img src="{% static '/images/index/quicktips.png' %}" alt="">
+    </div>
+    <div class="row-fitness">
+      <h3>Fitness</h3>
+      <span>How to do the Dumbell Deadlift</span>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+        Posuere nec tellus tellus accumsan nunc, facilisis ultrices elementum eget. 
+        In elit commodo vitae quisque volutpat augue nec ornare nisl. 
+        Urna at lorem mauris enim. Ipsum, enim sed lobortis tristique.
+        Pellentesque amet enim semper consequat pretium, purus ut ut. Scelerisque tellus nulla et ut nisl, 
+        elit in viverra. At placerat nulla tortor at nunc in aliquet sit. Quis dis quis non feugiat diam volutpat.
+        Fusce viverra nunc ut nunc tempor, tincidunt. Sed dictum placerat sed adipiscing
+        senectus. Donec sed urna aenean nunc dui mollis augue neque. Eros imperdiet pretium vehicula vitae amet vestibulum egestas eu. Cursus morbi aliquam.
+      </p>
+      <div class="butn">
+        <a href="#" class="b3">Read More</a>
+        <a href="#" class="b4">Next</a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Blog posts End -->
+
+<!-- About fitwell -->
+<div class="hero-section3">
+  <div class="hero-content-heading2">
+    <h3>About Fitwell</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Montes, 
+      sit ultricies morbi in amet velit. Lorem cursus in sed sed urna. 
+      Commodo feugiat feugiat sit dui, vitae id. Tempor orci, molestie sit orci 
+      adipiscing nisl, mi. Urna, et pellentesque ut dolor, pulvinar. 
+      Vitae a ut a dictum. At diam neque mauris, purus justo, porta elit. 
+      Cursus nibh velit faucibus arcu varius nunc interdum. Est varius facilisis 
+      fermentum condimentum viverra fames nunc lorem fusce. Praesent euismod fermentum sed vitae.</p>
+  </div>
+  <div class="hero-content-btn2">
+    <a href="pages/about.html">Learn more about us</a>
+  </div>
+</div>
+<!-- About fitwell end -->
+
+<!-- Testimonials -->
+<div class="hero-sec4">
+  <h3 class="h3 fw-bold my-7 cpp3" data-aos="fade-right" data-aos-duration="500">Testimonials</h3>
+  <p class="p fw-bold my-6 px-3 din-color" data-aos="fade-up" data-aos-duration="500">
+    “I’ve  been using Fitwell for over year now, and 
+    i’ve seen tremendous changes both in my weight and health too.  
+    i recomended the app to my wife and she also had the same results!“ 
+  </p>
+  <h4>- Jamal .O</h4>
+  
+  <div class="ellipse-img">
+    <img src="{% static '/images/index/Ellipse27.png' %}" alt="">
+    <img src="{% static '/images/index/Ellipse28.png' %}" alt="">
+    <img src="{% static '/images/index/Ellipse28.png' %}" alt="">
+  </div>
+</div>
+<!-- Testimonials End -->
+
+<!-- partners -->
+<section class="container my-9">
+  <h3 class="h3 fw-bold my-8 qp2" data-aos="fade-right" data-aos-duration="500">Our Partners</h3>
+  <div class="row8">
+      <div class="col-lg-2 col-md-3 col-sm-4 col-4 my-8 p-3">
+        
 <img src="{% static '/images/index/HealthCareLogo.png' %}" alt="" class="img-fluid" data-aos="fade-down" data-aos-duration="500">
-        </div>
+      </div>
 
-        <div class="col-lg-2 col-md-3 col-sm-4 col-4 my-4 p-3">
-          
-            <img src="{% static '/images/index/HealthCareLogo.png' %}" alt="" class="img-fluid"data-aos="fade-up" data-aos-duration="500">
-                    </div>
+      <div class="col-lg-2 col-md-3 col-sm-4 col-4 my-8 p-3">
+        
+        <img src="{% static '/images/index/healthlogo.png' %}" alt="" class="img-fluid"data-aos="fade-up" data-aos-duration="500">
+            </div>
+      <div class="col-lg-2 col-md-3 col-sm-4 col-4 my-8 p-3">
+        
+          <img src="{% static '/images/index/HealthCareLogo.png' %}" alt="" class="img-fluid"data-aos="fade-up" data-aos-duration="500">
+                  </div>
 
-    <div class="col-lg-2 col-md-3 col-sm-4 col-4 my-4 p-3">
-          
-       <img src="{% static '/images/index/farmcrylogo.png' %}" alt="" class="img-fluid"data-aos="fade-down" data-aos-duration="500">
-                                </div>
-
-        <div class="col-lg-2 col-md-3 col-sm-4 col-4 my-4 p-3">
-          
-       <img src="{% static '/images/index/healthlogo.png' %}" alt="" class="img-fluid"data-aos="fade-up" data-aos-duration="500">
-                                            </div>
-                                    
-          <div class="col-lg-2 col-md-3 col-sm-4 col-4 my-4 p-3">
-                                              
-          <img src="{% static '/images/index/healthlogo.png' %}" alt="" class="img-fluid"data-aos="fade-down" data-aos-duration="500">
+  <div class="col-lg-2 col-md-3 col-sm-4 col-4 my-8 p-3">
+        
+     <img src="{% static '/images/index/farmcrylogo.png' %}" alt="" class="img-fluid"data-aos="fade-down" data-aos-duration="500">
+                              </div>
+                                  
+      <div class="col-lg-2 col-md-3 col-sm-4 col-4 my-8 p-3">
+                                            
+      <img src="{% static '/images/index/reliancelogo.png' %}" alt="" class="img-fluid"data-aos="fade-up" data-aos-duration="500">
            </div>
-                                    
-        <div class="col-lg-2 col-md-3 col-sm-4 col-4 my-4 p-3">
-                                              
-        <img src="{% static '/images/index/reliancelogo.png' %}" alt="" class="img-fluid"data-aos="fade-up" data-aos-duration="500">
-             </div>
- </div>
+</div>
 
 </section>  <!-- Our Partners -->
-  <section class="footer-container">
-<footer class="container">
-
-  <div class="row footer">
- <div class="col-lg-3 col-md-12 col-sm-12 col-12 mobile-m my-4 footer-img">
-   <div class="footer-logo">
-              <img src="{% static '/images/index/footerlogo.png' %}" alt="" class="img-fluid mt-5">
-              </div>
- </div>
-
-<div class="col-lg-3 col-md-4 col-sm-6 col-6 my-4 text-white">
-  <div class="mt-5">
-<h4 class="h4 fw-bold">Workouts</h4>
-<a href="#" class="text-decoration-none text-white mt-4">Workout videos</a>
-<br>
-<a href="#" class="text-decoration-none text-white mt-4">Custom workouts</a>
-  </div>
-   <div class="mt-5">
-<h4 class="h4 fw-bold">Programs</h4>
-
-<a href="#" class="text-decoration-none text-white mt-4">Workout Programs</a><br>
-<a href="#" class="text-decoration-none text-white mt-4">Meal Plans</a><br>
-<a href="#" class="text-decoration-none text-white mt-4">Routines</a>
-
-  </div>
-   
- </div>
 
 
- <div class="col-lg-3 col-md-4 col-sm-6 col-6 my-4 text-white">
-    <div class="mt-5">
-<h4 class="h4 fw-bold">Health</h4>
-<a href="#" class="text-decoration-none text-white mt-4">Fitness</a>
-<br>
-<a href="#" class="text-decoration-none text-white mt-4">Health</a>
-<br>
-<a href="#" class="text-decoration-none text-white mt-4">Nutrition</a>
-  </div>
-  
- </div>
-
-
- <div class="col-lg-3 col-md-4 col-sm-6 col-4 my-4 text-white">
-    <div class="mt-5">
-<h4 class="h4 fw-bold">About</h4>
-<a href="#" class="text-decoration-none text-white mt-4">Carriers</a>
-<br>
-<a href="#" class="text-decoration-none text-white mt-4">Tutorials</a>
-<br>
-<a href="#" class="text-decoration-none text-white mt-4">Our Team</a>
-  </div>
- </div>
-<div class="hr">
-  </div>
-
-  </div>
-
-  <div class="d-flex justify-content-between align-items-center grand mt-4 text-white mb-3">
-    <div class="copyright">
-  <p>Copyright @ 
-    
-    <script>
-      const date = new Date();
-      const tDate = date.getFullYear();
-      document.write(tDate);
-    </script>
+<!-- <section class="footer-container">
+  <footer class="container">
+    <div class="row-footer">
+        <div class="footer-logo">
+                <img src="assets/images/index/fitwellwh-logo.png" alt="" class="img-fluid mt-5">
+        </div>
+        <div class="text-white">
+          <div class="mt-5">
+            <h4>Programs</h4>
+            <a href="#">Workout Programs</a><br>
+            <a href="#">Routines</a><br>
+            <a href="#">Meal Plans</a><br>
+          </div>
         
-    Fitwell</p>
-    </div>
-  <div class="footer-icon d-flex justify-content-between align-items-center">
-  <a href="#" class="mx-4"><img src="{% static '/images/index/in.png' %}" alt="" class="img-fluid"></a>
-  <a href="#" class="mx-4"><img src="{% static '/images/index/fb.png' %}" alt="" class="img-fluid"></a>
-  <a href="#" class="mx-4"><img src="{% static '/images/index/tw.png' %}" alt="" class="img-fluid"></a>
-  <a href="#" class="ml-4"><img src="{% static '/images/index/yt.png' %}" alt="" class="img-fluid"></a>
-    </div>
-  </div>
 
+          <div class="mt-5">
+            <h4>Workouts</h4>
+
+            <a href="#">Workout Videos</a><br>
+            <a href="#">Custom Workouts</a><br>
+          </div>
+        
+      
+          <div class="mt-5">
+            <h4>Health</h4>
+            <a href="#">Fitness</a><br>
+            <a href="#">Health</a><br>
+            <a href="#">Nutrition</a>
+          </div>
+          
+        
+
+          <div class="mt-5">
+            <h4>About</h4>
+            <a href="#">Carriers</a>
+            <br>
+            <a href="#">Tutorials</a>
+            <br>
+            <a href="#">Our Team</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="d-flex justify-content-between align-items-center grand mt-4 text-white mb-3">
+      <div class="footer-icon">
+        <a href="#" class="mx-4"><img src="assets/images/index/in.png" alt="" class="img-fluid"></a>
+        <a href="#" class="mx-4"><img src="assets/images/index/fb.png" alt="" class="img-fb"></a>
+        <a href="#" class="mx-4"><img src="assets/images/index/tw.png" alt="" class="img-fluid"></a>
+        <a href="#" class="mx-4"><img src="assets/images/index/yt.png" alt="" class="img-fluid"></a>
+      </div>
+    </div>
+
+    <div class="copyright">
+      <p>Copyright @ 
+    
+      <script>
+        const date = new Date();
+        const tDate = date.getFullYear();
+        document.write(tDate);
+      </script>
+          
+      Fitwell</p>
+    </div>
+    
+  
+
+  
+
+  </footer>
+</section> -->
+
+
+   <!-- Footer -->
+
+   <footer class="footer-container container-fluid">
+        
+    <div class="row footer g-5 ft-text">
+      <div
+        class="
+          col-lg-4 col-md-12 col-sm-12 col-12
+          mobile-m
+          my-4
+          footer-img
+        "
+      >
+        <div class="footer-logo">
+          <div class="footer-left">
+<a class="align-items-center text-decoration-none justify-content-center d-flex" href="../index.html"
+      ><img src="{% static '/images/about/fitwell-footer-logo.png' %}" alt="Fitwell Logo" class="logo"
+    /><span class="logo-footer-text">FITWELL</span></a>
+          </div>
+        
+          <div
+        class="
+          footer-icon
+          d-flex
+          justify-content-center
+          align-items-center
+        "
+      >
+        <a href="#" class="mx-4"
+          ><img
+            src="{% static '/images/about/ins.png' %}"
+            alt=""
+            class="img-fluid ins"
+        /></a>
+        <a href="#" class="mx-4"
+          ><img
+            src="{% static '/images/about/facebook.png' %}"
+            alt=""
+            class="img-fluid fb"
+        /></a>
+        <a href="#" class="mx-4"
+          ><img
+            src="{% static '/images/about/twitter.png' %}"
+            alt=""
+            class="img-fluid tw"
+        /></a>
+        <a href="#" class="ml-4"
+          ><img
+            src="{% static '/images/about/youtube.png' %}"
+            alt=""
+            class="img-fluid yt"
+        /></a>
+      </div>
+        </div>
+      </div>
+
+      <div class="col-lg-2 col-md-4 col-sm-6 col-6 text-white ft-text">
+        <div class="">
+          <h4 class="h4 fw-bold">Programs</h4>
+
+          <a href="#" class="text-decoration-none text-white mt-4"
+            >Workout Programs</a
+          ><br />
+          <a href="#" class="text-decoration-none text-white mt-4"
+            >Meal Plans</a
+          ><br />
+          <a href="#" class="text-decoration-none text-white mt-4"
+            >Routines</a
+          >
+        </div>
+      
+      </div>
+      <div class="col-lg-2 col-md-4 col-sm-6 col-6 text-white">
+        <div class="">
+          <h4 class="h4 fw-bold">Workouts</h4>
+          <a href="#" class="text-decoration-none text-white mt-4"
+            >Workout videos</a
+          >
+          <br />
+          <a href="#" class="text-decoration-none text-white mt-4"
+            >Custom workouts</a
+          >
+        </div>
+      
+      </div>
+
+      <div class="col-lg-2 col-md-4 col-sm-6 col-6 text-white ft-text">
+        <div class="">
+          <h4 class="h4 fw-bold">Health</h4>
+          <a href="#" class="text-decoration-none text-white mt-4"
+            >Fitness</a
+          >
+          <br />
+          <a href="#" class="text-decoration-none text-white mt-4"
+            >Health</a
+          >
+          <br />
+          <a href="#" class="text-decoration-none text-white mt-4"
+            >Nutrition</a
+          >
+        </div>
+      </div>
+
+      <div class="col-lg-2 col-md-4 col-sm-6 col-6 text-white ft-text">
+        <div class="">
+          <h4 class="h4 fw-bold">About</h4>
+          <a href="#" class="text-decoration-none text-white mt-4"
+            >Carriers</a
+          >
+          <br />
+          <a href="#" class="text-decoration-none text-white mt-4"
+            >Tutorials</a
+          >
+          <br />
+          <a href="#" class="text-decoration-none text-white mt-4"
+            >Our Team</a
+          >
+        </div>
+      </div>
+    
+    </div>
+
+    <div
+      class="
+        d-flex
+        justify-content-center
+        align-items-center
+        mt-5
+        text-white
+      "
+    >
+    <div class="copyright ">
+      <p>Copyright @ 
+        
+        <script>
+          const date = new Date();
+          const tDate = date.getFullYear();
+          document.write(tDate);
+        </script>
+            
+        Fitwell</p>
+        </div>
+    
+    </div>
  
-
-</footer>
-</section>
+</footer>    <!-- End of footer section -->
 
 
 
