@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from fitwellNG_app.models import User, Routine, WorkoutPlanList, PlanTable, MealPlansList
+from fitwellNG_app.models import User, Routine, WorkoutPlanList, MealLists, MealPlans
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -30,16 +30,19 @@ class WorkoutPlanSerializer(serializers.ModelSerializer):
         fields = ['plan', 'duration', 'daily_duration', 'routine']
 
 
-class MealPLanTableSerializer(serializers.ModelSerializer):
+class MealListSerializer(serializers.ModelSerializer):
     class Meta:
-        model =PlanTable
-        fields =['breakfast', 'lunch', 'dinner', 'day']
+        model = MealLists
+        fields = ['breakfast', 'about_breakfast', 'breakfast_calories', 'breakfast_meal_time',
+                  'lunch', 'about_lunch','lunch_calories','lunch_meal_time',
+                  'dinner', 'about_dinner','dinner_calories','dinner_meal_time',
+                  'day', 'name', 'meal_time', 'category']
 
 
-class MealPlanListSerializer(serializers.ModelSerializer):
-    plan_table = MealPLanTableSerializer(read_only=True, many=True)
-
-    class Meta:
-        model = MealPlansList
-        fields = ['name', 'plan_table', 'duration']
-
+# class MealPlanListSerializer(serializers.ModelSerializer):
+#     plan_table = MealPLanTableSerializer(read_only=True, many=True)
+#
+#     class Meta:
+#         model = MealPlansList
+#         fields = ['name', 'plan_table', 'duration']
+#

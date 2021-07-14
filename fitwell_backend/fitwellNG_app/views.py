@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from .forms import LoginForm, CustomUserCreationForm, PlanSubscriptionForm
-from .models import User, MealPlans, WorkoutPlan, WorkoutPlanList, PlanTable
+from .models import User, MealPlans, WorkoutPlan, WorkoutPlanList
 from django.views.generic import UpdateView, ListView, DetailView
 from django.shortcuts import get_list_or_404, get_object_or_404
 import requests
@@ -22,8 +22,8 @@ class Test2View(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['object2'] = WorkoutPlan.objects.all()
-        context['object3'] = MealPlans.objects.all()
-        context['object4'] = PlanTable.objects.all()
+        # context['object3'] = MealPlans.objects.all()
+        # context['object4'] = PlanTable.objects.all()
         context['form'] = PlanSubscriptionForm()
         return context
 
@@ -37,7 +37,6 @@ class Test2View(DetailView):
         return redirect(f'/test/{pk}')
 
 
-
 class update_user(UpdateView):
 
     model = User
@@ -47,9 +46,9 @@ class update_user(UpdateView):
 
 
 class Plans(DetailView):
-
         model = WorkoutPlan
-        template_name = 'plans.html'
+        template_name = 'plan.html'
+        slug_field = "select new plan"
 
         # used to handle/avoid error in case where user is yet to subscribe to any plan yet.
         def get_object(self, queryset=None):
@@ -63,20 +62,95 @@ class Plans(DetailView):
         def get_context_data(self, **kwargs):
             context = super().get_context_data(**kwargs)
             context['workout_plan_list'] = WorkoutPlanList.objects.all()
-            context['meal_plans'] = MealPlans.objects.all()
-            context['meal_table'] = PlanTable.objects.all()
+            # context['meal_plans'] = MealPlans.objects.all()
+            # context['meal_table'] = PlanTable.objects.all()
             context['form'] = PlanSubscriptionForm()
             return context
 
         # used to handle post request from the page to update workplan if user changes it
         def post(self, request, pk):
-            form = PlanSubscriptionForm(request.POST)
-            if form.is_valid():
-                instance = form.save(commit=False)
-                instance.user = request.user
-                instance.save()
+            #  Trying to detect which plan was selected
+            wpl = WorkoutPlanList.objects.all() # get all the work plan list available
+            key = None  # to store the name of the work plan which is a key in the POST dictionary and the last one
+            id = None   # to store the id of work plan list selected on the page
+
+            # detect key. select the last object. just selecting the last one by design
+            data = request.POST
+            for d in data:
+                key = d
+
+            # detect the position in the list and stores it in 'id'
+            for index, wp in enumerate(wpl):
+                # check to see which item in the list matches the key
+                if str(wp).strip().lower() == str(key).strip().lower():
+                    # assing the index as the id
+                    id = index
+                    break
+
+            # get the button name clicked
+            status = data.getlist(key)[0]
+
+            # if the button reads 'select' it means no plan has been selected before. so create a new one
+            if str(status).strip().lower() == "select":
+                # if select button create a new one
+                wp = WorkoutPlan.objects.create(user=request.user, workout_plan=wpl[id])
+                wp.save()
+            else:
+                # the button will read 'change plan' if user has an existing plan.
+                # if change button is selected ,update the plan with a new one
+                # get the current plan
+                wp = WorkoutPlan.objects.get(pk=pk)
+                # update the workPlan with the selected one
+                wp.workout_plan = wpl[id]
+                # save
+                wp.save()
+
 
             return redirect(f'/plans/{pk}')
+
+
+class Activities(DetailView):
+    template_name = "activities.html"
+    model = WorkoutPlan
+
+    # used to handle/avoid error in case where user is yet to subscribe to any plan yet.
+    def get_object(self, queryset=None):
+        try:
+            obj = self.get_queryset().get(pk=self.request.user.pk)
+            return obj
+        except Exception as e:
+            print(f"ERROR: {e}")
+
+    # used to add extra content to what is passed to the template
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['workout_plan_list'] = WorkoutPlanList.objects.all()
+        # context['meal_plans'] = MealPlans.objects.all()
+        # context['meal_table'] = PlanTable.objects.all()
+        context['form'] = PlanSubscriptionForm()
+        return context
+
+
+class Analytics(DetailView):
+    template_name = "analytics.html"
+    model = WorkoutPlan
+
+    # used to handle/avoid error in case where user is yet to subscribe to any plan yet.
+    def get_object(self, queryset=None):
+        try:
+            obj = self.get_queryset().get(pk=self.request.user.pk)
+            return obj
+        except Exception as e:
+            print(f"ERROR: {e}")
+
+    # used to add extra content to what is passed to the template
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['workout_plan_list'] = WorkoutPlanList.objects.all()
+        # context['meal_plans'] = MealPlans.objects.all()
+        # context['meal_table'] = PlanTable.objects.all()
+        context['form'] = PlanSubscriptionForm()
+        return context
 
 
 
@@ -86,8 +160,9 @@ def plans(request):
 
 
 def home(request):
-    videoList = getVideos()
-    return render(request, 'index.html', {'videoList': videoList})
+    # videoList = getVideos()
+    # return render(request, 'index.html', {'videoList': videoList})
+    return render(request, 'index.html')
 
 
 def about(request):
@@ -95,9 +170,7 @@ def about(request):
 
 
 def dashboard(request):
-
     return render(request, 'dashboard.html')
-
 
 
 def logout_view(request):
@@ -257,6 +330,7 @@ class Video():
     def __init__(self, image, videoId):
         self.image = image
         self.videoId = videoId
+
 
 def getVideos():
     r = requests.get('https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=6&playlistId=PLI37FJmOtrj32rGK4zPL3Cpr9v28uLQL9&key=AIzaSyBrGMILVCYBO4xMmaO0DHqxhZDD-ozonjA')

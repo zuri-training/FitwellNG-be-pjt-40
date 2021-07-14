@@ -1,4 +1,4 @@
-//// Get the modal
+// Get the modal
 //const modal = document.getElementById('id01');
 //const submit = document.querySelector('.submit');
 //

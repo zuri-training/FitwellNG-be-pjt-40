@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework import generics
-from fitwellNG_app.models import User, Routine, WorkoutPlanList, PlanTable, MealPlansList
-from .serializers import UserSerializer, RoutineSerializer, WorkoutPlanSerializer, MealPLanTableSerializer, MealPlanListSerializer
+from fitwellNG_app.models import User, Routine, WorkoutPlanList, MealPlans, MealLists
+from .serializers import UserSerializer, RoutineSerializer, WorkoutPlanSerializer, MealListSerializer
 from rest_framework.permissions import IsAdminUser, IsAuthenticated
 from rest_framework.authentication import TokenAuthentication
 
@@ -58,31 +58,31 @@ class WorkoutPlanCreate(generics.ListCreateAPIView):
         serializer.save()
 
 
-class MealTableList(generics.ListAPIView):
-    queryset = PlanTable.objects.all()
-    serializer_class = MealPLanTableSerializer
+class MealListView(generics.ListAPIView):
+    queryset = MealLists.objects.all()
+    serializer_class = MealListSerializer
     permission_classes = [IsAdminUser, IsAuthenticated]
 
 
-class MealTableCreate(generics.ListCreateAPIView):
-    queryset = PlanTable.objects.all()
-    serializer_class = MealPLanTableSerializer
-    permission_classes = [IsAdminUser, IsAuthenticated]
-
-    def perform_create(self, serializer):
-        serializer.save()
-
-
-class MealPlanList(generics.ListAPIView):
-    queryset = MealPlansList.objects.all()
-    serializer_class = MealPlanListSerializer
-    permission_classes = [IsAdminUser, IsAuthenticated]
-
-
-class MealPlanCreate(generics.ListCreateAPIView):
-    queryset = MealPlansList.objects.all()
-    serializer_class = MealPlanListSerializer
+class MealCreateView(generics.ListCreateAPIView):
+    queryset = MealLists.objects.all()
+    serializer_class = MealListSerializer
     permission_classes = [IsAdminUser, IsAuthenticated]
 
     def perform_create(self, serializer):
         serializer.save()
+
+
+# class MealPlanList(generics.ListAPIView):
+#     queryset = MealPlansList.objects.all()
+#     serializer_class = MealPlanListSerializer
+#     permission_classes = [IsAdminUser, IsAuthenticated]
+#
+#
+# class MealPlanCreate(generics.ListCreateAPIView):
+#     queryset = MealPlansList.objects.all()
+#     serializer_class = MealPlanListSerializer
+#     permission_classes = [IsAdminUser, IsAuthenticated]
+#
+#     def perform_create(self, serializer):
+#         serializer.save()
